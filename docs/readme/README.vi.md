@@ -10,7 +10,7 @@
 
 [English](../../README.md) | [Українська](README.uk.md) | [Русский](README.ru.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt.md) | [Italiano](README.it.md) | [Nederlands](README.nl.md) | [Polski](README.pl.md) | [Čeština](README.cs.md) | [Türkçe](README.tr.md) | [العربية](README.ar.md) | [Bahasa Indonesia](README.id.md) | **Tiếng Việt** | [日本語](README.ja.md) | [한국어](README.ko.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-TW.md)
 
-> Bản dịch này được thực hiện với sự hỗ trợ của AI từ [README.md](../../README.md) cho phiên bản 2.1.1. Phiên bản tham chiếu là README tiếng Anh; mọi góp ý chỉnh sửa đều được hoan nghênh — xem [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
+> Bản dịch này được thực hiện với sự hỗ trợ của AI từ [README.md](../../README.md) cho phiên bản 3.0.0. Phiên bản tham chiếu là README tiếng Anh; mọi góp ý chỉnh sửa đều được hoan nghênh — xem [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
 
 # Tiện ích cho Google Apps Script™
 

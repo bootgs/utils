@@ -10,7 +10,7 @@
 
 [English](../../README.md) | [Українська](README.uk.md) | [Русский](README.ru.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt.md) | [Italiano](README.it.md) | [Nederlands](README.nl.md) | [Polski](README.pl.md) | [Čeština](README.cs.md) | [Türkçe](README.tr.md) | [العربية](README.ar.md) | **Bahasa Indonesia** | [Tiếng Việt](README.vi.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-TW.md)
 
-> Terjemahan ini dibuat dengan bantuan AI dari [README.md](../../README.md) untuk versi 2.1.1. Versi acuannya adalah README berbahasa Inggris; koreksi sangat kami harapkan — lihat [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
+> Terjemahan ini dibuat dengan bantuan AI dari [README.md](../../README.md) untuk versi 3.0.0. Versi acuannya adalah README berbahasa Inggris; koreksi sangat kami harapkan — lihat [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
 
 # Utilitas untuk Google Apps Script™
 

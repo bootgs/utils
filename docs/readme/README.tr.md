@@ -10,7 +10,7 @@
 
 [English](../../README.md) | [Українська](README.uk.md) | [Русский](README.ru.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt.md) | [Italiano](README.it.md) | [Nederlands](README.nl.md) | [Polski](README.pl.md) | [Čeština](README.cs.md) | **Türkçe** | [العربية](README.ar.md) | [Bahasa Indonesia](README.id.md) | [Tiếng Việt](README.vi.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-TW.md)
 
-> Bu çeviri, 2.1.1 sürümü için [README.md](../../README.md) dosyasından yapay zekâ desteğiyle yapılmıştır. Referans sürüm İngilizce README'dir; düzeltmelerinizi bekliyoruz — bkz. [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
+> Bu çeviri, 3.0.0 sürümü için [README.md](../../README.md) dosyasından yapay zekâ desteğiyle yapılmıştır. Referans sürüm İngilizce README'dir; düzeltmelerinizi bekliyoruz — bkz. [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
 
 # Google Apps Script™ için yardımcı araçlar
 
