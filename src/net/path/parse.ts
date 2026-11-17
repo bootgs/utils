@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { requireNonEmptyString } from "../../lang";
 import { ParsedPath } from "./types";
 
@@ -17,7 +18,7 @@ import { ParsedPath } from "./types";
  * @returns     {ParsedPath} An object conforming to {@link ParsedPath} type with the extracted components.
  * @throws      {@link EmptyStringException}
  * @see         {@link ParsedPath}
- * @see         [parse on the documentation site](https://maksymstoianov.github.io/apps-script-utils/parse.html)
+ * @see         [parse on the documentation site](https://bootgs.github.io/utils/parse.html)
  * @environment `Google Apps Script`, `Browser`
  */
 export function parse(path: string): ParsedPath {

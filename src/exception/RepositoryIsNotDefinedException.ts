@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { RuntimeException } from "./RuntimeException";
 
 /**
@@ -19,7 +20,7 @@ import { RuntimeException } from "./RuntimeException";
  * @extends RuntimeException
  * @see     {@link Exception}
  * @see     {@link Error}
- * @see     [RepositoryIsNotDefinedException on the documentation site](https://maksymstoianov.github.io/apps-script-utils/repositoryisnotdefinedexception.html)
+ * @see     [RepositoryIsNotDefinedException on the documentation site](https://bootgs.github.io/utils/repositoryisnotdefinedexception.html)
  * @since   1.5.0
  * @version 1.0.0
  */

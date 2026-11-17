@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 /**
  * A unit of time an interval can be expressed in.
  *
@@ -12,7 +13,7 @@
  * offset(date, 1, "month");
  * ```
  *
- * @see [TimeUnit on the documentation site](https://maksymstoianov.github.io/apps-script-utils/timeunit.html)
+ * @see [TimeUnit on the documentation site](https://bootgs.github.io/utils/timeunit.html)
  * @since   1.11.0
  * @version 1.0.0
  */

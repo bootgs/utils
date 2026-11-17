@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isFunction } from "./isFunction";
 import { nonNil } from "./nonNil";
 
@@ -17,7 +18,7 @@ import { nonNil } from "./nonNil";
  * @param   {boolean} value - The value to check.
  * @returns {unknown} `true` if `value` is an `Object`, else `false`.
  * @see     {@link isObject}
- * @see     [isObjectLike on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isobjectlike.html)
+ * @see     [isObjectLike on the documentation site](https://bootgs.github.io/utils/isobjectlike.html)
  * @since   1.0.0
  * @version 1.1.0
  */

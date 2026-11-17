@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isCountable } from "./isCountable";
 
 /**
@@ -19,7 +20,7 @@ import { isCountable } from "./isCountable";
  * @param   {T | number} value - The value to check.
  * @returns {boolean} `true` if the value is not a countable number, otherwise `false`.
  * @see     {@link isCountable}
- * @see     [nonCountable on the documentation site](https://maksymstoianov.github.io/apps-script-utils/noncountable.html)
+ * @see     [nonCountable on the documentation site](https://bootgs.github.io/utils/noncountable.html)
  * @since   1.11.0
  * @version 1.0.0
  */

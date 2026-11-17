@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isObjectLike, isString, requireArray } from "../../lang";
 import type { RichTextRun, TextStyle, Theme } from "./convertMarkdownToRichText";
@@ -18,7 +19,7 @@ import type { RichTextRun, TextStyle, Theme } from "./convertMarkdownToRichText"
  * @returns     {string} The Markdown representing the runs.
  * @throws      {@link IllegalArgumentException} If no argument is passed, or an element is not a run.
  * @see         {@link convertMarkdownToRichText}
- * @see         [convertRichTextToMarkdown on the documentation site](https://maksymstoianov.github.io/apps-script-utils/convertrichtexttomarkdown.html)
+ * @see         [convertRichTextToMarkdown on the documentation site](https://bootgs.github.io/utils/convertrichtexttomarkdown.html)
  * @since       2.0.0
  * @version     2.0.0
  * @environment `Google Apps Script`

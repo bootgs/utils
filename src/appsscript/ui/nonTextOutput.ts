@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isTextOutput } from "./isTextOutput";
 
 type TextOutput = GoogleAppsScript.Content.TextOutput;
@@ -20,7 +21,7 @@ type TextOutput = GoogleAppsScript.Content.TextOutput;
  * @see         {@link isTextOutput}
  * @see         {@link requireTextOutput}
  * @see         <a href="https://developers.google.com/apps-script/reference/content/text-output"><code>TextOutput</code></a>
- * @see         [nonTextOutput on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nontextoutput.html)
+ * @see         [nonTextOutput on the documentation site](https://bootgs.github.io/utils/nontextoutput.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isNil } from "../base";
 import { objectToString } from "./objectToString";
 
@@ -36,7 +37,7 @@ type Pair = readonly [object, object];
  * @param       {unknown} b - The second value.
  * @returns     {boolean} `true` if the values are equal by the rules above.
  * @see         {@link hashCode}
- * @see         [equals on the documentation site](https://maksymstoianov.github.io/apps-script-utils/equals.html)
+ * @see         [equals on the documentation site](https://bootgs.github.io/utils/equals.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`, `Browser`

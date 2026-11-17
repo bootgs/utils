@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isBoolean } from "./isBoolean";
 
@@ -19,7 +20,7 @@ import { isBoolean } from "./isBoolean";
  * @see      {@link isBoolean}
  * @see      {@link nonBoolean}
  * @see      {@link requireBoolean}
- * @see      [requireNonBoolean on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonboolean.html)
+ * @see      [requireNonBoolean on the documentation site](https://bootgs.github.io/utils/requirenonboolean.html)
  * @since    1.11.0
  * @version  1.0.0
  */

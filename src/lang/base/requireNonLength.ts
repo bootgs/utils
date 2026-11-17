@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isLength } from "./isLength";
 
@@ -21,7 +22,7 @@ import { isLength } from "./isLength";
  * @see      {@link isLength}
  * @see      {@link nonLength}
  * @see      {@link requireLength}
- * @see      [requireNonLength on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonlength.html)
+ * @see      [requireNonLength on the documentation site](https://bootgs.github.io/utils/requirenonlength.html)
  * @since    1.11.0
  * @version  1.0.0
  */

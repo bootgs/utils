@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isNil } from "./isNil";
 
 /**
@@ -16,7 +17,7 @@ import { isNil } from "./isNil";
  * @param   {T | null | undefined} value - The value to check.
  * @returns {boolean} `true` if the value is not `null` and not `undefined`; otherwise, `false`.
  * @see     {@link isNil}
- * @see     [nonNil on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonnil.html)
+ * @see     [nonNil on the documentation site](https://bootgs.github.io/utils/nonnil.html)
  * @since   1.0.0
  * @version 1.1.0
  */

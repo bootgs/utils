@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Returns the number of milliseconds elapsed since the epoch (January 1, 1970, UTC).
  *
@@ -11,7 +12,7 @@
  * ```
  *
  * @returns {number} The current timestamp in milliseconds.
- * @see [now on the documentation site](https://maksymstoianov.github.io/apps-script-utils/now.html)
+ * @see [now on the documentation site](https://bootgs.github.io/utils/now.html)
  * @since   1.5.0
  * @version 1.0.0
  */

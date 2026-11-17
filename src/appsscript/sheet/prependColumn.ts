@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isArray, isNil } from "../../lang";
 import { type Options } from "./appendColumns";
@@ -33,7 +34,7 @@ import { prependColumns } from "./prependColumns";
  * @see         {@link prependColumns}
  * @see         {@link prependRow}
  * @see         [Class Sheet](https://developers.google.com/apps-script/reference/spreadsheet/sheet)
- * @see         [prependColumn on the documentation site](https://maksymstoianov.github.io/apps-script-utils/prependcolumn.html)
+ * @see         [prependColumn on the documentation site](https://bootgs.github.io/utils/prependcolumn.html)
  * @see         [Class Range](https://developers.google.com/apps-script/reference/spreadsheet/range)
  * @since       1.11.0
  * @version     2.0.0

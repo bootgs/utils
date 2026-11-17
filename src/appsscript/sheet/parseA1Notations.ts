@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isObject, isString, requireNonEmptyString } from "../../lang";
 import { parseA1Notation } from "./parseA1Notation";
@@ -52,7 +53,7 @@ export interface A1NotationParseOptions {
  * @see         {@link GoogleAppsScript.Spreadsheet.Sheet|Sheet}
  * @see         [Class Range](https://developers.google.com/apps-script/reference/spreadsheet/range)
  * @see         [Class Sheet](https://developers.google.com/apps-script/reference/spreadsheet/sheet)
- * @see         [parseA1Notations on the documentation site](https://maksymstoianov.github.io/apps-script-utils/parsea1notations.html)
+ * @see         [parseA1Notations on the documentation site](https://bootgs.github.io/utils/parsea1notations.html)
  * @since       1.6.0
  * @version     1.1.0
  * @environment `Google Apps Script`, `Browser`

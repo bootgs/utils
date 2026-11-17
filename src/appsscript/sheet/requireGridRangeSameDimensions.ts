@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { InvalidGridRangeException } from "../../exception";
 import { isGridRangeSameDimensions } from "./isGridRangeSameDimensions";
 import type { GridRange } from "./types";
@@ -40,7 +41,7 @@ function describeShape(gridRange: GridRange): string {
  * @see         {@link isGridRangeSameDimensions}
  * @see         {@link nonGridRangeSameDimensions}
  * @see         {@link GridRange}
- * @see         [requireGridRangeSameDimensions on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requiregridrangesamedimensions.html)
+ * @see         [requireGridRangeSameDimensions on the documentation site](https://bootgs.github.io/utils/requiregridrangesamedimensions.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`, `Browser`

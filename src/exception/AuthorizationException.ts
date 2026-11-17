@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { RuntimeException } from "./RuntimeException";
 
 /**
@@ -25,7 +26,7 @@ import { RuntimeException } from "./RuntimeException";
  * @see     {@link AuthenticationException}
  * @see     {@link Exception}
  * @see     {@link Error}
- * @see     [AuthorizationException on the documentation site](https://maksymstoianov.github.io/apps-script-utils/authorizationexception.html)
+ * @see     [AuthorizationException on the documentation site](https://bootgs.github.io/utils/authorizationexception.html)
  * @since   1.11.0
  * @version 1.0.0
  */

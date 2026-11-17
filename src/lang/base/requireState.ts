@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalStateException } from "../../exception";
 
 /**
@@ -19,7 +20,7 @@ import { IllegalStateException } from "../../exception";
  * @throws      {IllegalStateException} If `condition` is falsy.
  * @see         {@link IllegalStateException}
  * @see         {@link requireNonNull}
- * @see         [requireState on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirestate.html)
+ * @see         [requireState on the documentation site](https://bootgs.github.io/utils/requirestate.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`, `Browser`

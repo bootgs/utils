@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isValidSheetId } from "./isValidSheetId";
 
@@ -26,7 +27,7 @@ import { isValidSheetId } from "./isValidSheetId";
  * @see         {@link isValidSheetId}
  * @see         {@link nonValidSheetId}
  * @see         {@link getSheetById}
- * @see         [requireValidSheetId on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirevalidsheetid.html)
+ * @see         [requireValidSheetId on the documentation site](https://bootgs.github.io/utils/requirevalidsheetid.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`, `Browser`

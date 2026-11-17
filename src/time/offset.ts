@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../exception";
 import { getDaysInMonth } from "./getDaysInMonth";
 import type { TimeUnit } from "./types";
@@ -68,7 +69,7 @@ function lengthOf(unit: TimeUnit): number | undefined {
  * @throws  {@link IllegalArgumentException} If `amount` is not an integer.
  * @throws  {@link IllegalArgumentException} If `unit` is not a known time unit.
  * @see     {@link getDaysInMonth}
- * @see     [offset on the documentation site](https://maksymstoianov.github.io/apps-script-utils/offset.html)
+ * @see     [offset on the documentation site](https://bootgs.github.io/utils/offset.html)
  * @since   1.11.0
  * @version 1.0.0
  */

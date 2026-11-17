@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Interface for navigating through a collection, where backward navigation is optional.
  *
@@ -10,7 +11,7 @@
  *
  * @interface
  * @template  T - type of elements in the collection.
- * @see [Iterator on the documentation site](https://maksymstoianov.github.io/apps-script-utils/iterator.html)
+ * @see [Iterator on the documentation site](https://bootgs.github.io/utils/iterator.html)
  * @since     1.0.0
  * @version   1.0.0
  */

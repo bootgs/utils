@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException, InvalidGridRangeException } from "../../exception";
 import { isObject } from "../../lang";
 import { isValidSheetId } from "./isValidSheetId";
@@ -22,7 +23,7 @@ import type { GridRange } from "./types";
  * @throws      <a href="../../exception/appsscript/sheet/InvalidGridRangeException.ts"><code>InvalidGridRangeException</code></a>
  * @see         <a href="./types/GridRange.ts"><code>GridRange</code></a>
  * @see         <a href="https://developers.google.com/apps-script/reference/spreadsheet/sheet"><code>Sheet</code></a>
- * @see         [doGridRangesIntersect on the documentation site](https://maksymstoianov.github.io/apps-script-utils/dogridrangesintersect.html)
+ * @see         [doGridRangesIntersect on the documentation site](https://bootgs.github.io/utils/dogridrangesintersect.html)
  * @since       1.0.0
  * @version     1.1.0
  * @environment `Google Apps Script`, `Browser`

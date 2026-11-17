@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isObjectLike } from "./isObjectLike";
 
@@ -23,7 +24,7 @@ import { isObjectLike } from "./isObjectLike";
  * @see     {@link isObjectLike}
  * @see     {@link nonObjectLike}
  * @see     {@link requireObject}
- * @see     [requireObjectLike on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requireobjectlike.html)
+ * @see     [requireObjectLike on the documentation site](https://bootgs.github.io/utils/requireobjectlike.html)
  * @since   1.11.0
  * @version 1.0.0
  */

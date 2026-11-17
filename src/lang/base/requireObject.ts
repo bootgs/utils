@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isObject } from "./isObject";
 
@@ -22,7 +23,7 @@ import { isObject } from "./isObject";
  * @throws  {@link IllegalArgumentException} If the value is not an `Object`.
  * @see     {@link isObject}
  * @see     {@link nonObject}
- * @see     [requireObject on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requireobject.html)
+ * @see     [requireObject on the documentation site](https://bootgs.github.io/utils/requireobject.html)
  * @since   1.11.0
  * @version 1.0.0
  */

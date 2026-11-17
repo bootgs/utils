@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isNumber } from "./isNumber";
 
 /**
@@ -16,7 +17,7 @@ import { isNumber } from "./isNumber";
  * @param   {unknown} value - The value to check.
  * @returns {boolean} `true` if `value` is a valid length, else `false`.
  * @see     https://lodash.com/docs/4.17.15#isLength
- * @see     [isLength on the documentation site](https://maksymstoianov.github.io/apps-script-utils/islength.html)
+ * @see     [isLength on the documentation site](https://bootgs.github.io/utils/islength.html)
  * @since   1.0.0
  * @version 1.0.0
  */

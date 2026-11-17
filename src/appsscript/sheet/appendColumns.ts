@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException, InvalidSheetException } from "../../exception";
 import { isConsistent2DArray, isNil } from "../../lang";
 import { isRange } from "./isRange";
@@ -54,7 +55,7 @@ export interface Options {
  * @see         {@link appendColumn}
  * @see         <a href="https://developers.google.com/apps-script/reference/spreadsheet/range"><code>Range</code></a>
  * @see         <a href="https://developers.google.com/apps-script/reference/spreadsheet/sheet"><code>Sheet</code></a>
- * @see         [appendColumns on the documentation site](https://maksymstoianov.github.io/apps-script-utils/appendcolumns.html)
+ * @see         [appendColumns on the documentation site](https://bootgs.github.io/utils/appendcolumns.html)
  * @since       1.0.0
  * @version     2.0.0
  * @environment `Google Apps Script`

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isString } from "../../lang";
 
 /** Google Sheets rejects these characters anywhere in a sheet name. */
@@ -32,7 +33,7 @@ const RESERVED_NAME = "history";
  * @returns     {boolean} `true` if the value is a valid sheet name; otherwise, `false`.
  * @see         {@link nonValidSheetName}
  * @see         {@link requireValidSheetName}
- * @see         [isValidSheetName on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isvalidsheetname.html)
+ * @see         [isValidSheetName on the documentation site](https://bootgs.github.io/utils/isvalidsheetname.html)
  * @since       1.5.0
  * @version     1.1.0
  * @environment `Google Apps Script`, `Browser`

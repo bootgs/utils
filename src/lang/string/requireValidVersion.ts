@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isValidVersion } from "./isValidVersion";
 import { requireNonEmptyString } from "./requireNonEmptyString";
@@ -25,7 +26,7 @@ import { requireNonEmptyString } from "./requireNonEmptyString";
  * @see     {@link isValidVersion}
  * @see     {@link nonValidVersion}
  * @see     {@link versionCompare}
- * @see     [requireValidVersion on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirevalidversion.html)
+ * @see     [requireValidVersion on the documentation site](https://bootgs.github.io/utils/requirevalidversion.html)
  * @since   1.11.0
  * @version 1.0.0
  */

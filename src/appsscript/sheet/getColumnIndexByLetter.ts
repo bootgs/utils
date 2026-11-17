@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { requireNonEmptyString } from "../../lang";
 
@@ -18,7 +19,7 @@ import { requireNonEmptyString } from "../../lang";
  * @see         {@link getColumnPositionByLetter}
  * @see         {@link GoogleAppsScript.Spreadsheet.Sheet|Sheet}
  * @see         [Class Sheet](https://developers.google.com/apps-script/reference/spreadsheet/sheet)
- * @see         [getColumnIndexByLetter on the documentation site](https://maksymstoianov.github.io/apps-script-utils/getcolumnindexbyletter.html)
+ * @see         [getColumnIndexByLetter on the documentation site](https://bootgs.github.io/utils/getcolumnindexbyletter.html)
  * @since       1.0.0
  * @version     1.1.0
  * @environment `Google Apps Script`, `Browser`

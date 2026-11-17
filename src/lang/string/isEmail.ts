@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isValidDomain } from "../../net";
 import { isEmpty, isString } from "../base";
 
@@ -15,7 +16,7 @@ import { isEmpty, isString } from "../base";
  * @param   {unknown} email - The value to check, which could be of any type.
  * @returns {boolean} `true` if the value is a non-empty string and matches a common email format; otherwise, `false`.
  * @see     {@link requireValidEmail}
- * @see     [isEmail on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isemail.html)
+ * @see     [isEmail on the documentation site](https://bootgs.github.io/utils/isemail.html)
  * @since   1.0.0
  * @version 1.0.0
  */

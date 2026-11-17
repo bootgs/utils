@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Checks if the provided value is NOT `function`.
  *
@@ -15,7 +16,7 @@
  * @param   {T} value - The value to check.
  * @returns {boolean} `true` if the value is not `function`; otherwise, `false`.
  * @see     {@link isFunction}
- * @see     [nonFunction on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonfunction.html)
+ * @see     [nonFunction on the documentation site](https://bootgs.github.io/utils/nonfunction.html)
  * @since   1.4.0
  * @version 1.0.0
  */

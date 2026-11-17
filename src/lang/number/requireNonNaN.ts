@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isNaN } from "./isNaN";
 
@@ -28,7 +29,7 @@ import { isNaN } from "./isNaN";
  * @see      {@link isNaN}
  * @see      {@link nonNaN}
  * @see      {@link requireNaN}
- * @see      [requireNonNaN on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonnan.html)
+ * @see      [requireNonNaN on the documentation site](https://bootgs.github.io/utils/requirenonnan.html)
  * @since    1.11.0
  * @version  1.0.0
  */

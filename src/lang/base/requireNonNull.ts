@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { NullPointerException } from "../../exception";
 import { isNil } from "./isNil";
 
@@ -19,7 +20,7 @@ import { isNil } from "./isNil";
  * @throws   {NullPointerException}
  * @see      {@link nonNull}
  * @see      {@link isNull}
- * @see      [requireNonNull on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonnull.html)
+ * @see      [requireNonNull on the documentation site](https://bootgs.github.io/utils/requirenonnull.html)
  * @since    1.0.0
  * @version  1.0.0
  */

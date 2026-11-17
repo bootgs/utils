@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isFunctionLike } from "./isFunctionLike";
 
@@ -22,7 +23,7 @@ import { isFunctionLike } from "./isFunctionLike";
  * @see      {@link isFunctionLike}
  * @see      {@link nonFunctionLike}
  * @see      {@link requireFunctionLike}
- * @see      [requireNonFunctionLike on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonfunctionlike.html)
+ * @see      [requireNonFunctionLike on the documentation site](https://bootgs.github.io/utils/requirenonfunctionlike.html)
  * @since    1.11.0
  * @version  1.0.0
  */

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isArray, isEmpty } from "../base";
 
 /**
@@ -20,7 +21,7 @@ import { isArray, isEmpty } from "../base";
  * allowing safer access to its elements as arrays.
  * @see     {@link isConsistent2DArray}
  * @see     {@link require2DArray}
- * @see     [is2DArray on the documentation site](https://maksymstoianov.github.io/apps-script-utils/is2darray.html)
+ * @see     [is2DArray on the documentation site](https://bootgs.github.io/utils/is2darray.html)
  * @since   1.0.0
  * @version 1.1.0
  */

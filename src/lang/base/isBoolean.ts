@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Checks if the provided value is a boolean.
  *
@@ -13,7 +14,7 @@
  * @param   {unknown} value - The value to check.
  * @returns {boolean} `true` if the value is a boolean; otherwise, `false`.
  * @see     {@link nonBoolean}
- * @see     [isBoolean on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isboolean.html)
+ * @see     [isBoolean on the documentation site](https://bootgs.github.io/utils/isboolean.html)
  * @since   1.0.0
  * @version 1.0.0
  */

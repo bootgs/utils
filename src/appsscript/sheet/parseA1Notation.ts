@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isNull, nonNull, requireNonEmptyString, toInteger } from "../../lang";
 import { getColumnIndexByLetter } from "./getColumnIndexByLetter";
@@ -44,7 +45,7 @@ const A1_RANGE_REGEX =
  * @see         <a href="./types/GridRange.ts"><code>GridRange</code></a>
  * @see         <a href="https://developers.google.com/apps-script/reference/spreadsheet/range"><code>Range</code></a>
  * @see         <a href="https://developers.google.com/apps-script/reference/spreadsheet/sheet"><code>Sheet</code></a>
- * @see         [parseA1Notation on the documentation site](https://maksymstoianov.github.io/apps-script-utils/parsea1notation.html)
+ * @see         [parseA1Notation on the documentation site](https://bootgs.github.io/utils/parsea1notation.html)
  * @since       1.0.0
  * @version     1.1.0
  * @environment `Google Apps Script`, `Browser`

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Checks if the provided value is an `Array`.
  *
@@ -14,7 +15,7 @@
  * @param    {unknown} value - The value to check.
  * @returns  {boolean} `true` if the value is an `Array`; otherwise, `false`.
  * @see      {@link nonArray}
- * @see      [isArray on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isarray.html)
+ * @see      [isArray on the documentation site](https://bootgs.github.io/utils/isarray.html)
  * @since    1.4.0
  * @version  1.0.0
  */

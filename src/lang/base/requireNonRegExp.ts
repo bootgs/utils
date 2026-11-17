@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isRegExp } from "./isRegExp";
 
@@ -19,7 +20,7 @@ import { isRegExp } from "./isRegExp";
  * @see      {@link isRegExp}
  * @see      {@link nonRegExp}
  * @see      {@link requireRegExp}
- * @see      [requireNonRegExp on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonregexp.html)
+ * @see      [requireNonRegExp on the documentation site](https://bootgs.github.io/utils/requirenonregexp.html)
  * @since    1.11.0
  * @version  1.0.0
  */

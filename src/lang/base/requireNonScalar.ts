@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isScalar } from "./isScalar";
 
@@ -23,7 +24,7 @@ import { isScalar } from "./isScalar";
  * @see      {@link isScalar}
  * @see      {@link nonScalar}
  * @see      {@link requireScalar}
- * @see      [requireNonScalar on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonscalar.html)
+ * @see      [requireNonScalar on the documentation site](https://bootgs.github.io/utils/requirenonscalar.html)
  * @since    1.11.0
  * @version  1.0.0
  */

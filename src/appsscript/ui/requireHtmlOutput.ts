@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isHtmlOutput } from "./isHtmlOutput";
 
@@ -26,7 +27,7 @@ type HtmlOutput = GoogleAppsScript.HTML.HtmlOutput;
  * @see         {@link isHtmlOutput}
  * @see         {@link nonHtmlOutput}
  * @see         <a href="https://developers.google.com/apps-script/reference/html/html-output"><code>HtmlOutput</code></a>
- * @see         [requireHtmlOutput on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirehtmloutput.html)
+ * @see         [requireHtmlOutput on the documentation site](https://bootgs.github.io/utils/requirehtmloutput.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`

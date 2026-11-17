@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { RuntimeException } from "./RuntimeException";
 
 /**
@@ -19,7 +20,7 @@ import { RuntimeException } from "./RuntimeException";
  * @extends RuntimeException
  * @see     {@link Exception}
  * @see     {@link Error}
- * @see     [InvalidStringException on the documentation site](https://maksymstoianov.github.io/apps-script-utils/invalidstringexception.html)
+ * @see     [InvalidStringException on the documentation site](https://bootgs.github.io/utils/invalidstringexception.html)
  * @since   1.0.0
  * @version 1.0.0
  */

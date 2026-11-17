@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isValidSlideId } from "./isValidSlideId";
 
@@ -21,7 +22,7 @@ import { isValidSlideId } from "./isValidSlideId";
  * @throws      {@link IllegalArgumentException} If the value is not a valid slide identifier.
  * @see         {@link isValidSlideId}
  * @see         {@link nonValidSlideId}
- * @see         [requireValidSlideId on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirevalidslideid.html)
+ * @see         [requireValidSlideId on the documentation site](https://bootgs.github.io/utils/requirevalidslideid.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`, `Browser`

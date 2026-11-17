@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException, InvalidSheetException } from "../../exception";
 import { isFunction, isNil, requireCountable } from "../../lang";
 import { isRange } from "./isRange";
@@ -16,7 +17,7 @@ import { isSheet } from "./isSheet";
  * };
  * ```
  *
- * @see [Row on the documentation site](https://maksymstoianov.github.io/apps-script-utils/row.html)
+ * @see [Row on the documentation site](https://bootgs.github.io/utils/row.html)
  * @since   1.11.0
  * @version 1.0.0
  */
@@ -49,7 +50,7 @@ export interface Row {
  * };
  * ```
  *
- * @see [GetValuesConfig on the documentation site](https://maksymstoianov.github.io/apps-script-utils/getvaluesconfig.html)
+ * @see [GetValuesConfig on the documentation site](https://bootgs.github.io/utils/getvaluesconfig.html)
  * @since   1.11.0
  * @version 1.0.0
  */
@@ -140,7 +141,7 @@ export interface GetValuesConfig {
  * @throws      {@link IllegalArgumentException} If any of the configured values is of the wrong kind.
  * @throws      {@link InvalidSheetException} If the first argument is neither a Sheet nor a Range.
  * @see         [Class Range](https://developers.google.com/apps-script/reference/spreadsheet/range)
- * @see         [getValues on the documentation site](https://maksymstoianov.github.io/apps-script-utils/getvalues.html)
+ * @see         [getValues on the documentation site](https://bootgs.github.io/utils/getvalues.html)
  * @since       1.11.0
  * @version     2.0.0
  * @environment `Google Apps Script`

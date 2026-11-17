@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isFloat } from "./isFloat";
 
 /**
@@ -20,7 +21,7 @@ import { isFloat } from "./isFloat";
  * @returns  {boolean} `true` if the value is not a fractional number, otherwise `false`.
  * @see      {@link isFloat}
  * @see      {@link nonInteger}
- * @see      [nonFloat on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonfloat.html)
+ * @see      [nonFloat on the documentation site](https://bootgs.github.io/utils/nonfloat.html)
  * @since    1.11.0
  * @version  1.0.0
  */

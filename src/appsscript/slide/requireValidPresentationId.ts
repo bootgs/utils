@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isValidPresentationId } from "./isValidPresentationId";
 
@@ -23,7 +24,7 @@ import { isValidPresentationId } from "./isValidPresentationId";
  * @throws      {@link IllegalArgumentException} If the value is not a valid presentation identifier.
  * @see         {@link isValidPresentationId}
  * @see         {@link nonValidPresentationId}
- * @see         [requireValidPresentationId on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirevalidpresentationid.html)
+ * @see         [requireValidPresentationId on the documentation site](https://bootgs.github.io/utils/requirevalidpresentationid.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`, `Browser`

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { InvalidStringException } from "../../exception";
 import { nonString } from "./nonString";
 
@@ -19,7 +20,7 @@ import { nonString } from "./nonString";
  * @see     {@link isString}
  * @see     {@link nonString}
  * @see     {@link requireNonEmptyString}
- * @see     [requireString on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirestring.html)
+ * @see     [requireString on the documentation site](https://bootgs.github.io/utils/requirestring.html)
  * @since   1.0.0
  * @version 1.0.0
  */

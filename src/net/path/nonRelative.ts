@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isRelative } from "./isRelative";
 
 /**
@@ -19,7 +20,7 @@ import { isRelative } from "./isRelative";
  * @see     {@link isRelative}
  * @see     {@link isAbsolute}
  * @see     {@link requireRelative}
- * @see     [nonRelative on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonrelative.html)
+ * @see     [nonRelative on the documentation site](https://bootgs.github.io/utils/nonrelative.html)
  * @since   1.11.0
  * @version 1.0.0
  */

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isFloat } from "./isFloat";
 
@@ -24,7 +25,7 @@ import { isFloat } from "./isFloat";
  * @throws  {@link IllegalArgumentException} If the value is not a fractional number.
  * @see     {@link isFloat}
  * @see     {@link nonFloat}
- * @see     [requireFloat on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirefloat.html)
+ * @see     [requireFloat on the documentation site](https://bootgs.github.io/utils/requirefloat.html)
  * @since   1.11.0
  * @version 1.0.0
  */

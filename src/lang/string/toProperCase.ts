@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { requireNonEmptyString } from "./requireNonEmptyString";
 
 interface ToProperCaseOptions {
@@ -36,7 +37,7 @@ interface ToProperCaseOptions {
  * @see     {@link toLowerCase}
  * @see     {@link toSnakeCase}
  * @see     {@link toUpperCase}
- * @see     [toProperCase on the documentation site](https://maksymstoianov.github.io/apps-script-utils/topropercase.html)
+ * @see     [toProperCase on the documentation site](https://bootgs.github.io/utils/topropercase.html)
  * @since   1.0.0
  * @version 1.0.0
  */

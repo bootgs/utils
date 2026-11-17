@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isArray } from "./isArray";
 
@@ -22,7 +23,7 @@ import { isArray } from "./isArray";
  * @see      {@link isArray}
  * @see      {@link nonArray}
  * @see      {@link requireArray}
- * @see      [requireNonArray on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonarray.html)
+ * @see      [requireNonArray on the documentation site](https://bootgs.github.io/utils/requirenonarray.html)
  * @since    1.11.0
  * @version  1.0.0
  */

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { ObjectTag, objectToString } from "../object";
 import { isNil } from "./isNil";
 
@@ -18,7 +19,7 @@ import { isNil } from "./isNil";
  * @returns {boolean} `true` if the value is a function; otherwise, `false`.
  * @see     {@link nonFunction}
  * @see     {@link isFunctionLike}
- * @see     [isFunction on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isfunction.html)
+ * @see     [isFunction on the documentation site](https://bootgs.github.io/utils/isfunction.html)
  * @since   1.0.0
  * @version 1.2.0
  */

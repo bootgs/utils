@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { AdminDirectoryException } from "../../exception";
 import { nonFunction } from "../../lang";
 
@@ -16,7 +17,7 @@ import { nonFunction } from "../../lang";
  * @returns     {boolean} `true` if the user is an administrator; otherwise, `false`.
  * @see         <a href="https://developers.google.com/apps-script/reference/base/user"><code>User</code></a>
  * @see         [Admin SDK Directory Service](https://developers.google.cn/apps-script/advanced/admin-sdk-directory)
- * @see         [isAdmin on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isadmin.html)
+ * @see         [isAdmin on the documentation site](https://bootgs.github.io/utils/isadmin.html)
  * @since       1.5.0
  * @version     1.1.0
  * @environment `Google Apps Script`

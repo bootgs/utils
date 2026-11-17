@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isVersionCompatible } from "./isVersionCompatible";
 
@@ -26,7 +27,7 @@ import { isVersionCompatible } from "./isVersionCompatible";
  * @throws  {@link IllegalArgumentException} If the current version is lower than the required one.
  * @see     {@link isVersionCompatible}
  * @see     {@link nonVersionCompatible}
- * @see     [requireVersionCompatible on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requireversioncompatible.html)
+ * @see     [requireVersionCompatible on the documentation site](https://bootgs.github.io/utils/requireversioncompatible.html)
  * @since   1.11.0
  * @version 1.0.0
  */

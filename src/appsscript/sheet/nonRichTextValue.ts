@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isRichTextValue } from "./isRichTextValue";
 
 /**
@@ -18,7 +19,7 @@ import { isRichTextValue } from "./isRichTextValue";
  * @see         {@link isRichTextValue}
  * @see         {@link requireRichTextValue}
  * @see         <a href="https://developers.google.com/apps-script/reference/spreadsheet/rich-text-value"><code>RichTextValue</code></a>
- * @see         [nonRichTextValue on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonrichtextvalue.html)
+ * @see         [nonRichTextValue on the documentation site](https://bootgs.github.io/utils/nonrichtextvalue.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`

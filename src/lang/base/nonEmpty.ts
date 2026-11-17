@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isEmpty } from "./isEmpty";
 
 /**
@@ -20,7 +21,7 @@ import { isEmpty } from "./isEmpty";
  * @param   {unknown} value - The value to check.
  * @returns {boolean} `true` if the value is not "empty"; otherwise, `false`.
  * @see     {@link isEmpty}
- * @see     [nonEmpty on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonempty.html)
+ * @see     [nonEmpty on the documentation site](https://bootgs.github.io/utils/nonempty.html)
  * @since   1.1.0
  * @version 1.0.0
  */

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isTextStyle } from "./isTextStyle";
 
 /**
@@ -18,7 +19,7 @@ import { isTextStyle } from "./isTextStyle";
  * @see         {@link isTextStyle}
  * @see         {@link requireTextStyle}
  * @see         <a href="https://developers.google.com/apps-script/reference/spreadsheet/text-style"><code>TextStyle</code></a>
- * @see         [nonTextStyle on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nontextstyle.html)
+ * @see         [nonTextStyle on the documentation site](https://bootgs.github.io/utils/nontextstyle.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`

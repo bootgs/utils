@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isString } from "../../lang";
 
 /**
@@ -12,7 +13,7 @@ import { isString } from "../../lang";
  *
  * @param {unknown} value The value to check.
  * @returns {value is string} `true` if the value is a valid presentation ID, `false` otherwise.
- * @see [isValidPresentationId on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isvalidpresentationid.html)
+ * @see [isValidPresentationId on the documentation site](https://bootgs.github.io/utils/isvalidpresentationid.html)
  * @since 1.5.0
  */
 export function isValidPresentationId(value: unknown): value is string {

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isUndefined } from "./isUndefined";
 
@@ -22,7 +23,7 @@ import { isUndefined } from "./isUndefined";
  * @see      {@link isUndefined}
  * @see      {@link nonUndefined}
  * @see      {@link requireNonNull}
- * @see      [requireNonUndefined on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonundefined.html)
+ * @see      [requireNonUndefined on the documentation site](https://bootgs.github.io/utils/requirenonundefined.html)
  * @since    1.11.0
  * @version  1.0.0
  */

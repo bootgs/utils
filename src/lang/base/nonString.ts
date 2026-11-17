@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isString } from "./isString";
 
 /**
@@ -17,7 +18,7 @@ import { isString } from "./isString";
  * @returns {boolean} `true` if the value is not `string`; otherwise, `false`.
  * @see     {@link isString}
  * @see     {@link requireString}
- * @see     [nonString on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonstring.html)
+ * @see     [nonString on the documentation site](https://bootgs.github.io/utils/nonstring.html)
  * @since   1.0.0
  * @version 1.1.0
  */

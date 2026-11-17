@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Checks if the provided value is a scalar type (`string`, `number`, `boolean`, `symbol`, or `bigint`).
  *
@@ -17,7 +18,7 @@
  * @returns {boolean} `true` if the value is a scalar type; otherwise, `false`.
  * @see     {@link nonScalar}
  * @see     {@link requireScalar}
- * @see     [isScalar on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isscalar.html)
+ * @see     [isScalar on the documentation site](https://bootgs.github.io/utils/isscalar.html)
  * @since   1.0.0
  * @version 1.0.1
  */

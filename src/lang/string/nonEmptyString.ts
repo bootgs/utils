@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { InvalidStringException } from "../../exception";
 import { isString } from "../base/isString";
 
@@ -23,7 +24,7 @@ import { isString } from "../base/isString";
  * @returns {string} The non-empty string.
  * @throws  {InvalidStringException} If the value is not a string or is empty.
  * @see     {@link requireNonEmptyString}
- * @see     [nonEmptyString on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonemptystring.html)
+ * @see     [nonEmptyString on the documentation site](https://bootgs.github.io/utils/nonemptystring.html)
  * @since   1.5.0
  * @version 1.1.0
  */

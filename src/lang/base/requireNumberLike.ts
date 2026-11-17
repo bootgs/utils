@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isNumberLike } from "./isNumberLike";
 
@@ -24,7 +25,7 @@ import { isNumberLike } from "./isNumberLike";
  * @see     {@link isNumberLike}
  * @see     {@link nonNumberLike}
  * @see     {@link requireNumber}
- * @see     [requireNumberLike on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenumberlike.html)
+ * @see     [requireNumberLike on the documentation site](https://bootgs.github.io/utils/requirenumberlike.html)
  * @since   1.11.0
  * @version 1.0.0
  */

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException, InvalidSheetException } from "../../exception";
 import { isFunction, isNil, requireCountable } from "../../lang";
 import { isRange } from "./isRange";
@@ -15,7 +16,7 @@ import { isSheet } from "./isSheet";
  * @param   {number} position - The column's one-based position on the sheet.
  * @param   {Record<string, unknown> | null} record - The column keyed by the header column, or `null` when no header is configured.
  * @returns {boolean} `true` to select the column.
- * @see [ColumnPredicate on the documentation site](https://maksymstoianov.github.io/apps-script-utils/columnpredicate.html)
+ * @see [ColumnPredicate on the documentation site](https://bootgs.github.io/utils/columnpredicate.html)
  * @since   1.11.0
  * @version 1.0.0
  */
@@ -36,7 +37,7 @@ export type ColumnPredicate = (
  * const options = { headerColumn: 1 };
  * ```
  *
- * @see [ColumnConditionalOptions on the documentation site](https://maksymstoianov.github.io/apps-script-utils/columnconditionaloptions.html)
+ * @see [ColumnConditionalOptions on the documentation site](https://bootgs.github.io/utils/columnconditionaloptions.html)
  * @since   1.11.0
  * @version 1.0.0
  */
@@ -195,7 +196,7 @@ function selectColumns(
  * @throws      {@link InvalidSheetException} If the first argument is neither a Sheet nor a Range.
  * @see         {@link clearRowsByConditional}
  * @see         {@link deleteColumnsByConditional}
- * @see         [clearColumnsByConditional on the documentation site](https://maksymstoianov.github.io/apps-script-utils/clearcolumnsbyconditional.html)
+ * @see         [clearColumnsByConditional on the documentation site](https://bootgs.github.io/utils/clearcolumnsbyconditional.html)
  * @see         [Class Sheet](https://developers.google.com/apps-script/reference/spreadsheet/sheet)
  * @see         [Class Range](https://developers.google.com/apps-script/reference/spreadsheet/range)
  * @since       1.11.0

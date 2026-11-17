@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isNumber } from "./isNumber";
 
@@ -22,7 +23,7 @@ import { isNumber } from "./isNumber";
  * @see     {@link isNumber}
  * @see     {@link nonNumber}
  * @see     {@link requireInteger}
- * @see     [requireNumber on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenumber.html)
+ * @see     [requireNumber on the documentation site](https://bootgs.github.io/utils/requirenumber.html)
  * @since   1.11.0
  * @version 1.0.0
  */

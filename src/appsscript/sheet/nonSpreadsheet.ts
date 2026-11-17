@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isSpreadsheet } from "./isSpreadsheet";
 
 /**
@@ -18,7 +19,7 @@ import { isSpreadsheet } from "./isSpreadsheet";
  * @see         {@link isSpreadsheet}
  * @see         {@link requireSpreadsheet}
  * @see         <a href="https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet"><code>Spreadsheet</code></a>
- * @see         [nonSpreadsheet on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonspreadsheet.html)
+ * @see         [nonSpreadsheet on the documentation site](https://bootgs.github.io/utils/nonspreadsheet.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`

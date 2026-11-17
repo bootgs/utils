@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isFloat } from "./isFloat";
 
@@ -24,7 +25,7 @@ import { isFloat } from "./isFloat";
  * @see      {@link isFloat}
  * @see      {@link nonFloat}
  * @see      {@link requireFloat}
- * @see      [requireNonFloat on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonfloat.html)
+ * @see      [requireNonFloat on the documentation site](https://bootgs.github.io/utils/requirenonfloat.html)
  * @since    1.11.0
  * @version  1.0.0
  */

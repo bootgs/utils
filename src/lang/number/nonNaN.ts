@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isNaN } from "./isNaN";
 
 /**
@@ -20,7 +21,7 @@ import { isNaN } from "./isNaN";
  * @param    {T | number} value - The value to check.
  * @returns  {boolean} `true` if the value is not the `NaN` number, otherwise `false`.
  * @see      {@link isNaN}
- * @see      [nonNaN on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonnan.html)
+ * @see      [nonNaN on the documentation site](https://bootgs.github.io/utils/nonnan.html)
  * @since    1.11.0
  * @version  1.0.0
  */

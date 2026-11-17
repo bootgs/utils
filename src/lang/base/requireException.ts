@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { Exception, IllegalArgumentException } from "../../exception";
 import { isException } from "./isException";
 
@@ -21,7 +22,7 @@ import { isException } from "./isException";
  * @see     {@link isException}
  * @see     {@link nonException}
  * @see     {@link Exception}
- * @see     [requireException on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requireexception.html)
+ * @see     [requireException on the documentation site](https://bootgs.github.io/utils/requireexception.html)
  * @since   1.11.0
  * @version 1.0.0
  */

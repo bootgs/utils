@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isString } from "../../lang";
 
 /**
@@ -13,7 +14,7 @@ import { isString } from "../../lang";
  *
  * @param {unknown} value The value to check.
  * @returns {value is string} `true` if the value is a valid slide ID, `false` otherwise.
- * @see [isValidSlideId on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isvalidslideid.html)
+ * @see [isValidSlideId on the documentation site](https://bootgs.github.io/utils/isvalidslideid.html)
  * @since 1.5.0
  */
 export function isValidSlideId(value: unknown): value is string {

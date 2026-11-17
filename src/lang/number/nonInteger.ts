@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isInteger } from "./isInteger";
 
 /**
@@ -18,7 +19,7 @@ import { isInteger } from "./isInteger";
  * @returns {boolean} `true` if the value is not an integer, otherwise `false`.
  * @see     {@link isInteger}
  * @see     {@link nonNumber}
- * @see     [nonInteger on the documentation site](https://maksymstoianov.github.io/apps-script-utils/noninteger.html)
+ * @see     [nonInteger on the documentation site](https://bootgs.github.io/utils/noninteger.html)
  * @since   1.11.0
  * @version 1.0.0
  */

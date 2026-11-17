@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isUndefined } from "./isUndefined";
 
@@ -20,7 +21,7 @@ import { isUndefined } from "./isUndefined";
  * @throws  {@link IllegalArgumentException} If the value is not `undefined`.
  * @see     {@link isUndefined}
  * @see     {@link nonUndefined}
- * @see     [requireUndefined on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requireundefined.html)
+ * @see     [requireUndefined on the documentation site](https://bootgs.github.io/utils/requireundefined.html)
  * @since   1.11.0
  * @version 1.0.0
  */

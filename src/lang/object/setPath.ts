@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isNil, isString } from "../base";
 
@@ -51,7 +52,7 @@ function toSegments(path: string | Array<string | number>): Array<string | numbe
  * @throws   {@link IllegalArgumentException} If `path` names no segments.
  * @throws   {@link IllegalArgumentException} If any segment reaches the prototype chain.
  * @see      {@link getPath}
- * @see      [setPath on the documentation site](https://maksymstoianov.github.io/apps-script-utils/setpath.html)
+ * @see      [setPath on the documentation site](https://bootgs.github.io/utils/setpath.html)
  * @since    1.11.0
  * @version  1.0.0
  */

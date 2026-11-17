@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Checks if the provided value is `undefined`.
  *
@@ -12,7 +13,7 @@
  * @param   {unknown} value - The value to check.
  * @returns {boolean} `true` if the value is `undefined`; otherwise, `false`.
  * @see     {@link nonUndefined}
- * @see     [isUndefined on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isundefined.html)
+ * @see     [isUndefined on the documentation site](https://bootgs.github.io/utils/isundefined.html)
  * @since   1.0.0
  * @version 1.0.0
  */

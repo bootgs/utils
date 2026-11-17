@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isVersionCompatible } from "./isVersionCompatible";
 
 /**
@@ -23,7 +24,7 @@ import { isVersionCompatible } from "./isVersionCompatible";
  * @throws  {@link TypeError} If either argument is not a valid version.
  * @see     {@link isVersionCompatible}
  * @see     {@link versionCompare}
- * @see     [nonVersionCompatible on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonversioncompatible.html)
+ * @see     [nonVersionCompatible on the documentation site](https://bootgs.github.io/utils/nonversioncompatible.html)
  * @since   1.11.0
  * @version 1.0.0
  */

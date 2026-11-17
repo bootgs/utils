@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isString } from "../../lang";
 import { objectToString } from "../object";
 import { isNil } from "./isNil";
@@ -36,7 +37,7 @@ import { isObject } from "./isObject";
  * - If `true`, only a string with zero length (`""`) is considered empty.
  * @returns {boolean} `true` if the value is empty; otherwise, `false`.
  * @see     {@link nonEmpty}
- * @see     [isEmpty on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isempty.html)
+ * @see     [isEmpty on the documentation site](https://bootgs.github.io/utils/isempty.html)
  * @since   1.0.0
  * @version 1.1.0
  */

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { EmptyStringException } from "../../exception";
 import { isEmpty, isString } from "../base";
 
@@ -14,7 +15,7 @@ import { isEmpty, isString } from "../base";
  * @param   {string} [message] - Optional. A custom error message if the validation fails.
  * @returns {string} The validated non-empty string.
  * @throws  {@link EmptyStringException}
- * @see [requireNonEmptyString on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonemptystring.html)
+ * @see [requireNonEmptyString on the documentation site](https://bootgs.github.io/utils/requirenonemptystring.html)
  * @since   1.0.0
  * @version 1.0.0
  */

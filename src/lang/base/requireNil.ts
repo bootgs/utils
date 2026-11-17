@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isNil } from "./isNil";
 
@@ -22,7 +23,7 @@ import { isNil } from "./isNil";
  * @see     {@link isNil}
  * @see     {@link nonNil}
  * @see     {@link requireNonNull}
- * @see     [requireNil on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenil.html)
+ * @see     [requireNil on the documentation site](https://bootgs.github.io/utils/requirenil.html)
  * @since   1.11.0
  * @version 1.0.0
  */

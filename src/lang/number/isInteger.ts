@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isNumber } from "../base";
 
 /**
@@ -16,7 +17,7 @@ import { isNumber } from "../base";
  * @param   {unknown} value - The value to check.
  * @returns {boolean} `true` if the value is an integer, otherwise `false`.
  * @see     {@link isNumber}
- * @see     [isInteger on the documentation site](https://maksymstoianov.github.io/apps-script-utils/isinteger.html)
+ * @see     [isInteger on the documentation site](https://bootgs.github.io/utils/isinteger.html)
  * @since   1.5.0
  * @version 1.0.0
  */

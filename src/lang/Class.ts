@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { hashCode } from "./index";
 
 /**
@@ -16,7 +17,7 @@ import { hashCode } from "./index";
  *
  * @abstract
  * @class    Class
- * @see [Class on the documentation site](https://maksymstoianov.github.io/apps-script-utils/class.html)
+ * @see [Class on the documentation site](https://bootgs.github.io/utils/class.html)
  * @since    1.0.0
  * @version  1.0.0
  */

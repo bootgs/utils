@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isString } from "./isString";
 
@@ -23,7 +24,7 @@ import { isString } from "./isString";
  * @see      {@link isString}
  * @see      {@link nonString}
  * @see      {@link requireString}
- * @see      [requireNonString on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonstring.html)
+ * @see      [requireNonString on the documentation site](https://bootgs.github.io/utils/requirenonstring.html)
  * @since    1.11.0
  * @version  1.0.0
  */

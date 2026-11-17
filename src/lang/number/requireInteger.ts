@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isInteger } from "./isInteger";
 
@@ -17,7 +18,7 @@ import { isInteger } from "./isInteger";
  * @throws  {@link IllegalArgumentException} If the value is not an integer.
  * @see     {@link isInteger}
  * @see     {@link nonInteger}
- * @see     [requireInteger on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requireinteger.html)
+ * @see     [requireInteger on the documentation site](https://bootgs.github.io/utils/requireinteger.html)
  * @since   1.11.0
  * @version 1.0.0
  */

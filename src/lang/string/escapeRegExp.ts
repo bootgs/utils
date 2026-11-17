@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { EmptyStringException } from "../../exception";
 import { isEmpty, isString } from "../base";
 
@@ -16,7 +17,7 @@ import { isEmpty, isString } from "../base";
  * @throws  {@link EmptyStringException}
  * @see     {@link escapeHtml}
  * @see     {@link escapeXml}
- * @see     [escapeRegExp on the documentation site](https://maksymstoianov.github.io/apps-script-utils/escaperegexp.html)
+ * @see     [escapeRegExp on the documentation site](https://bootgs.github.io/utils/escaperegexp.html)
  * @since   1.0.0
  * @version 1.0.0
  */

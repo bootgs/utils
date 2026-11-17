@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { isObjectLike } from "./isObjectLike";
 
 /**
@@ -18,7 +19,7 @@ import { isObjectLike } from "./isObjectLike";
  * @returns {boolean} `true` if `value` is not an `Object`, else `false`.
  * @see     {@link isObjectLike}
  * @see     {@link nonObject}
- * @see     [nonObjectLike on the documentation site](https://maksymstoianov.github.io/apps-script-utils/nonobjectlike.html)
+ * @see     [nonObjectLike on the documentation site](https://bootgs.github.io/utils/nonobjectlike.html)
  * @since   1.11.0
  * @version 1.0.0
  */

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { InvalidGridRangeException } from "../../exception";
 import { isGridRangeContainedIn } from "./isGridRangeContainedIn";
 import type { GridRange } from "./types";
@@ -36,7 +37,7 @@ function describeBounds(gridRange: GridRange): string {
  * @see         {@link isGridRangeContainedIn}
  * @see         {@link nonGridRangeContainedIn}
  * @see         {@link GridRange}
- * @see         [requireGridRangeContainedIn on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requiregridrangecontainedin.html)
+ * @see         [requireGridRangeContainedIn on the documentation site](https://bootgs.github.io/utils/requiregridrangecontainedin.html)
  * @since       1.11.0
  * @version     1.0.0
  * @environment `Google Apps Script`, `Browser`

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Checks if the provided value is a `Symbol`.
  *
@@ -12,7 +13,7 @@
  * @param   {unknown} value - The value to check.
  * @returns {boolean} `true` if the value is a `Symbol`; otherwise, `false`.
  * @see     {@link nonSymbol}
- * @see     [isSymbol on the documentation site](https://maksymstoianov.github.io/apps-script-utils/issymbol.html)
+ * @see     [isSymbol on the documentation site](https://bootgs.github.io/utils/issymbol.html)
  * @since   1.0.0
  * @version 1.0.0
  */

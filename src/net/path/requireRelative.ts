@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { isString } from "../../lang";
 import { isRelative } from "./isRelative";
@@ -28,7 +29,7 @@ import { isRelative } from "./isRelative";
  * @see     {@link isRelative}
  * @see     {@link nonRelative}
  * @see     {@link requireAbsolute}
- * @see     [requireRelative on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirerelative.html)
+ * @see     [requireRelative on the documentation site](https://bootgs.github.io/utils/requirerelative.html)
  * @since   1.11.0
  * @version 1.0.0
  */

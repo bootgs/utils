@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 import { IllegalArgumentException } from "../../exception";
 import { nonFunction } from "./nonFunction";
 
@@ -23,7 +24,7 @@ import { nonFunction } from "./nonFunction";
  * @see      {@link isFunction}
  * @see      {@link nonFunction}
  * @see      {@link requireFunction}
- * @see      [requireNonFunction on the documentation site](https://maksymstoianov.github.io/apps-script-utils/requirenonfunction.html)
+ * @see      [requireNonFunction on the documentation site](https://bootgs.github.io/utils/requirenonfunction.html)
  * @since    1.11.0
  * @version  1.0.0
  */
