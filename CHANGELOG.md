@@ -1,5 +1,28 @@
 # Changelog
 
+## [3.0.0](https://github.com/bootgs/utils/compare/v2.1.1...v3.0.0) (2026-11-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **package:** only the package root and ./package.json can be imported; deep imports such as @bootgs/utils/dist/... are no longer resolvable.
+* install and import the package as @bootgs/utils.
+
+### Bug Fixes
+
+* **build:** resolve @bootgs/utils in the docs snippet type-check ([4ac94e7](https://github.com/bootgs/utils/commit/4ac94e7e6440b191e256db62d2cf07ffe32d0c32))
+* **docs:** escape table cells fully and match old links without a regexp ([4e8ed8e](https://github.com/bootgs/utils/commit/4e8ed8e49b11f8a725f2200faa36d3d1421cbc1a))
+* **json:** re-quote single-quoted strings correctly in parseJson ([cd481fb](https://github.com/bootgs/utils/commit/cd481fb47030dbf01aa675de13fe8ec54185104f))
+* **json:** re-quote single-quoted strings correctly in parseJson ([24da9cf](https://github.com/bootgs/utils/commit/24da9cf9cf44edfc177df6c1124afe15568820f8))
+* **package:** add exports and fully specified ESM specifiers ([b4f0ea1](https://github.com/bootgs/utils/commit/b4f0ea10f475191f9967ea42c53442ec23f051eb))
+* **sheet:** store the schema under bootgs-utils:schema, keep reading the old key ([2f7133e](https://github.com/bootgs/utils/commit/2f7133e7b686c114082d14759166e1dc59413b4e))
+* **sheet:** store the schema under bootgs-utils:schema, keep reading the old key ([8b44434](https://github.com/bootgs/utils/commit/8b44434dbba8b7b2cb1cc6dbff69dc88d2524f55))
+
+
+### Code Refactoring
+
+* rename the package to @bootgs/utils ([6df13e8](https://github.com/bootgs/utils/commit/6df13e83fa1992756111ab8c5a8f40e8c7d8968f))
+
 ## [2.1.1](https://github.com/MaksymStoianov/apps-script-utils/compare/apps-script-utils-v2.1.0...apps-script-utils-v2.1.1) (2026-09-23)
 
 
