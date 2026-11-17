@@ -15,15 +15,23 @@
 # Utility pro Google Apps Script™
 
 <p align="left">
-  <a href="https://www.npmjs.com/package/@bootgs/utils"><img src="https://img.shields.io/npm/v/@bootgs/utils?label=npm" alt="npm version"></a>
-  <a href="https://www.npmjs.com/package/@bootgs/utils"><img src="https://img.shields.io/npm/dm/@bootgs/utils?label=downloads" alt="npm downloads"></a>
-  <a href="https://github.com/google/clasp"><img src="https://img.shields.io/badge/Built%20with-clasp-4285f4.svg" alt="Built with clasp"></a>
-  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/bootgs/utils?label=License" alt="License"></a>
-  <a href="../../SECURITY.md"><img src="https://img.shields.io/badge/Security-Policy-brightgreen.svg" alt="Security Policy"></a>
+  <a href="https://github.com/bootgs/utils/actions/workflows/ci.yml"><img src="https://github.com/bootgs/utils/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
+  <a href="https://github.com/bootgs/utils/actions/workflows/github-code-scanning/codeql"><img src="https://github.com/bootgs/utils/actions/workflows/github-code-scanning/codeql/badge.svg" alt="CodeQL"></a>
   <a href="https://scorecard.dev/viewer/?uri=github.com/bootgs/utils"><img src="https://api.scorecard.dev/projects/github.com/bootgs/utils/badge" alt="OpenSSF Scorecard"></a>
   <a href="https://api.reuse.software/info/github.com/bootgs/utils"><img src="https://api.reuse.software/badge/github.com/bootgs/utils" alt="REUSE status"></a>
-  <a href="https://github.com/users/MaksymStoianov/projects/2/views/2"><img src="https://img.shields.io/badge/Roadmap-Board-blue.svg" alt="Roadmap"></a>
+</p>
+
+<p align="left">
+  <a href="https://www.npmjs.com/package/@bootgs/utils"><img src="https://img.shields.io/npm/v/@bootgs/utils?label=npm" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/@bootgs/utils"><img src="https://img.shields.io/npm/dm/@bootgs/utils?label=downloads" alt="npm downloads"></a>
   <a href="https://github.com/bootgs/utils/releases"><img src="https://img.shields.io/github/v/release/bootgs/utils?label=Release" alt="Latest release"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/github/license/bootgs/utils?label=License" alt="License"></a>
+</p>
+
+<p align="left">
+  <a href="https://github.com/google/clasp"><img src="https://img.shields.io/badge/Built%20with-clasp-4285f4.svg" alt="Built with clasp"></a>
+  <a href="../../SECURITY.md"><img src="https://img.shields.io/badge/Security-Policy-brightgreen.svg" alt="Security Policy"></a>
+  <a href="https://github.com/users/MaksymStoianov/projects/2/views/2"><img src="https://img.shields.io/badge/Roadmap-Board-blue.svg" alt="Roadmap"></a>
 </p>
 
 <p align="left">
