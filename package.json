@@ -109,7 +109,7 @@
     "@types/google-apps-script": "^2.0.12",
     "@types/node": "^25.0.9",
     "@vitest/coverage-v8": "^4.1.12",
-    "eslint": "^9.39.2",
+    "eslint": "^10.15.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-googleappsscript": "^1.0.5",
     "eslint-plugin-jsdoc": "^62.8.0",
