@@ -12,7 +12,7 @@
 
 <div dir="rtl" lang="ar">
 
-> أُنجزت هذه الترجمة بمساعدة الذكاء الاصطناعي انطلاقًا من [README.md](../../README.md) للإصدار 2.1.1. النسخة المرجعية هي ملف README الإنجليزي؛ ونرحّب بالتصحيحات — راجع [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
+> أُنجزت هذه الترجمة بمساعدة الذكاء الاصطناعي انطلاقًا من [README.md](../../README.md) للإصدار 3.0.0. النسخة المرجعية هي ملف README الإنجليزي؛ ونرحّب بالتصحيحات — راجع [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
 
 # أدوات مساعدة لمشاريع Google Apps Script™
 

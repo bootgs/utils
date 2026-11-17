@@ -10,7 +10,7 @@
 
 [English](../../README.md) | [Українська](README.uk.md) | [Русский](README.ru.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt.md) | [Italiano](README.it.md) | [Nederlands](README.nl.md) | **Polski** | [Čeština](README.cs.md) | [Türkçe](README.tr.md) | [العربية](README.ar.md) | [Bahasa Indonesia](README.id.md) | [Tiếng Việt](README.vi.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-TW.md)
 
-> To tłumaczenie powstało z pomocą AI na podstawie [README.md](../../README.md) dla wersji 2.1.1. Wersją wzorcową jest angielskie README; poprawki są mile widziane — zajrzyj do [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
+> To tłumaczenie powstało z pomocą AI na podstawie [README.md](../../README.md) dla wersji 3.0.0. Wersją wzorcową jest angielskie README; poprawki są mile widziane — zajrzyj do [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
 
 # Narzędzia dla Google Apps Script™
 
