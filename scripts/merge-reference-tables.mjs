@@ -78,7 +78,7 @@ function parse(text) {
 
   let heading = "";
 
-  for (let i = 0; i < lines.length; ) {
+  for (let i = 0; i < lines.length;) {
     const title = HEADING.exec(lines[i]);
 
     if (title) {

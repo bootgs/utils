@@ -215,16 +215,16 @@ console.log(rangeInfo.endColumnIndex); // 2
 
 </div>
 
-| Script               | الوصف                                                         |
-| :------------------- | :------------------------------------------------------------ |
-| `npm run build`      | ينظّف المجلد `dist` ويترجم شيفرة TypeScript المصدرية.         |
-| `npm run dev`        | يشغّل Vitest في وضع المراقبة.                                 |
-| `npm test`           | يشغّل مجموعة الاختبارات كاملةً مرة واحدة.                     |
-| `npm run type:check` | يتحقق من أنواع المشروع دون إنتاج مخرجات.                      |
-| `npm run lint`       | يفحص الشيفرة باستخدام ESLint.                                 |
-| `npm run lint:fix`   | يفحص الشيفرة ويصلح تلقائيًا ما أمكن.                          |
-| `npm run format`     | يتحقق من التنسيق باستخدام Prettier.                           |
-| `npm run format:fix` | ينسّق الشيفرة باستخدام Prettier.                              |
+| Script               | الوصف                                                      |
+| :------------------- | :--------------------------------------------------------- |
+| `npm run build`      | ينظّف المجلد `dist` ويترجم شيفرة TypeScript المصدرية.       |
+| `npm run dev`        | يشغّل Vitest في وضع المراقبة.                               |
+| `npm test`           | يشغّل مجموعة الاختبارات كاملةً مرة واحدة.                    |
+| `npm run type:check` | يتحقق من أنواع المشروع دون إنتاج مخرجات.                   |
+| `npm run lint`       | يفحص الشيفرة باستخدام ESLint.                              |
+| `npm run lint:fix`   | يفحص الشيفرة ويصلح تلقائيًا ما أمكن.                        |
+| `npm run format`     | يتحقق من التنسيق باستخدام Prettier.                        |
+| `npm run format:fix` | ينسّق الشيفرة باستخدام Prettier.                            |
 | `npm run prepare`    | يُعدّ خطافات Git الخاصة بـ Husky (يعمل تلقائيًا بعد التثبيت). |
 
 <div dir="rtl" lang="ar">
@@ -289,7 +289,7 @@ npm run dev
 | :------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------- |
 | [Google Apps Script module](https://bootgs.github.io/utils/reference-appsscript.html) | Sheets وSlides وAdmin SDK وDrive وDocs وForms، وطلبات الشبكة، وفئات واجهة المستخدم المدمجة |
 | [Base utilities](https://bootgs.github.io/utils/reference-base.html)                  | فحص الأنواع والتحقق، ومعالجة السلاسل النصية والمصفوفات والكائنات، والتعامل مع JSON وHTML   |
-| [Exceptions](https://bootgs.github.io/utils/reference-exception.html)                 | فئات الاستثناءات ذات الأنواع المحددة وما الذي يطلق كلًّا منها                              |
+| [Exceptions](https://bootgs.github.io/utils/reference-exception.html)                 | فئات الاستثناءات ذات الأنواع المحددة وما الذي يطلق كلًّا منها                                |
 | [`path` module](https://bootgs.github.io/utils/reference-path.html)                   | مسارات الملفات وعناوين URL                                                                 |
 | [Abstracts and interfaces](https://bootgs.github.io/utils/reference-abstracts.html)   | لبنات بناء مشتركة                                                                          |
 
