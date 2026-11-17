@@ -10,168 +10,168 @@ manipulation, and JSON/HTML handling. These do not depend on the Google Apps Scr
 A **New** marker indicates a function added in the latest release; a **Deprecated** marker indicates a function
 scheduled for removal in a future release.
 
-| Function                                                          | Return type      | Brief description                                                                                                          |
+| Function | Return type | Brief description |
 | :---------------------------------------------------------------- | :--------------- | :------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| [`chunk`](chunk.md)                                               | `Array`          | Divides an array into multiple smaller arrays of a specified size.                                                         |
-| [`compact`](compact.md) **New**                                   | `Array`          | Drops every falsy value from an array, narrowing the element type without a cast.                                          |
-| [`decodeHtml`](decodeHtml.md)                                     | `String`         | Decodes HTML entities (e.g., `&amp;` -> `&`) back to plain text.                                                           |
-| [`diff`](diff.md) **New**                                         | `Number`         | Returns the interval between two dates in a chosen unit, counting calendar units by the calendar.                          |
-| [`encodeHtml`](encodeHtml.md)                                     | `String`         | Encodes a string for safe rendering in HTML.                                                                               |
-| [`equals`](equals.md) **New**                                     | `Boolean`        | Compares two values deeply and null-safely; the counterpart of `hashCode`.                                                 |
-| [`escapeHtml`](escapeHtml.md)                                     | `String`         | Escapes special characters (`<`, `>`, `&`, etc.) for HTML.                                                                 |
-| [`escapeRegExp`](escapeRegExp.md)                                 | `String`         | Escapes special characters for safe use within regular expressions.                                                        |
-| [`escapeXml`](escapeXml.md)                                       | `String`         | Escapes special characters for safe use in XML documents.                                                                  |
-| [`first`](first.md) **New**                                       | `Any`            | Takes the first element of an array, or its first `n` elements.                                                            |
-| [`flat`](flat.md) **New**                                         | `Object`         | Flattens a nested object into a single level of dotted keys, keeping arrays whole.                                         |
-| [`getDaysInMonth`](getDaysInMonth.md) **New**                     | `Number`         | Returns the number of calendar days in the month a given date falls in.                                                    |
-| [`getDaysLeftInMonth`](getDaysLeftInMonth.md) **New**             | `Number`         | Returns the number of calendar days between a date and the end of its month.                                               |
-| [`getPath`](getPath.md) **New**                                   | `Any`            | Reads a nested property by path, returning a fallback when the path does not resolve.                                      |
-| [`hashCode`](hashCode.md)                                         | `Number`         | Generates a numeric hash code for a given string.                                                                          |
-| [`intersect`](intersect.md) **New**                               | `Array`          | Finds the values present in every given array, in the order of the first.                                                  |
-| [`is2DArray`](is2DArray.md)                                       | `Boolean`        | Validates if a value is a two-dimensional array.                                                                           |
-| [`isArray`](isArray.md)                                           | `Boolean`        | Validates if a value is an `Array`.                                                                                        |
-| [`isBoolean`](isBoolean.md)                                       | `Boolean`        | Validates if a value is a boolean.                                                                                         |
-| [`isConsistent2DArray`](isConsistent2DArray.md)                   | `Boolean`        | Validates if a 2D array has uniform inner array lengths.                                                                   |
-| [`isCountable`](isCountable.md)                                   | `Boolean`        | Checks if a value is a non-negative safe integer.                                                                          |
-| [`isDouble`](isDouble.md) **New**                                 | `Boolean`        | Checks if a value is a finite number carrying a fractional part; a synonym of `isFloat`.                                   |
-| [`isEmail`](isEmail.md)                                           | `Boolean`        | Validates if a string follows a proper email format.                                                                       |
-| [`isEmpty`](isEmpty.md)                                           | `Boolean`        | Checks if a value is considered empty (null, undefined, empty string/array/object).                                        |
-| [`isException`](isException.md)                                   | `Boolean`        | Validates if a value is an instance of `Exception` or a derived class.                                                     |
-| [`isFloat`](isFloat.md) **New**                                   | `Boolean`        | Checks if a value is a finite number carrying a fractional part.                                                           |
-| [`isFunction`](isFunction.md)                                     | `Boolean`        | Validates if a value is a function.                                                                                        |
-| [`isFunctionLike`](isFunctionLike.md)                             | `Boolean`        | Validates if a value is "function-like" (e.g., callable).                                                                  |
-| [`isInteger`](isInteger.md)                                       | `Boolean`        | Checks if a value is a number and an integer.                                                                              |
-| [`isLength`](isLength.md)                                         | `Boolean`        | Validates if a value is a valid array-like length.                                                                         |
-| [`isNaN`](isNaN.md) **New**                                       | `Boolean`        | Checks if a value is the `NaN` number, without the coercion the global `isNaN` performs.                                   |
-| [`isNil`](isNil.md)                                               | `Boolean`        | Checks if a value is `null` or `undefined`.                                                                                |
-| [`isNonNegative`](isNonNegative.md) **New**                       | `Boolean`        | Checks if a value is a number greater than or equal to zero.                                                               |
-| [`isNull`](isNull.md)                                             | `Boolean`        | Checks if a value is `null`.                                                                                               |
-| [`isNumber`](isNumber.md)                                         | `Boolean`        | Validates if a value is a number.                                                                                          |
-| [`isNumberLike`](isNumberLike.md)                                 | `Boolean`        | Checks if a value can be reliably converted to a number.                                                                   |
-| [`isObject`](isObject.md)                                         | `Boolean`        | Validates if a value is a plain object (excluding null and arrays).                                                        |
-| [`isObjectLike`](isObjectLike.md)                                 | `Boolean`        | Checks if a value is an object (including arrays and functions).                                                           |
-| [`isRegExp`](isRegExp.md)                                         | `Boolean`        | Validates if a value is a regular expression.                                                                              |
-| [`isSafeInteger`](isSafeInteger.md) **New**                       | `Boolean`        | Checks if a value is a number and a safe integer (exactly representable as an IEEE-754 double).                            |
-| [`isScalar`](isScalar.md)                                         | `Boolean`        | Checks if a value is a primitive scalar type (string, number, boolean, symbol, bigint).                                    |
-| [`isString`](isString.md)                                         | `Boolean`        | Validates if a value is a string.                                                                                          |
-| [`isSymbol`](isSymbol.md)                                         | `Boolean`        | Validates if a value is a symbol.                                                                                          |
-| [`last`](last.md) **New**                                         | `Any`            | Takes the last element of an array, or its last `n` elements in their original order.                                      |
-| [`merge`](merge.md) **New**                                       | `String`         | Substitutes object values into `{{ key }}` placeholders in a template string.                                              |
-| [`nonDouble`](nonDouble.md) **New**                               | `Boolean`        | Validates if a value is **not** a finite number carrying a fractional part; a synonym of `nonFloat`.                       |
-| [`nonEmptyString`](nonEmptyString.md) **Deprecated**              | `String`         | Validates that the given value is a non-empty string. Use `requireNonEmptyString` instead.                                 |
-| [`isUndefined`](isUndefined.md)                                   | `Boolean`        | Checks if a value is `undefined`.                                                                                          |
-| [`isUrl`](isUrl.md)                                               | `Boolean`        | Validates if a string is a properly formatted URL.                                                                         |
-| [`isValidLocale`](isValidLocale.md)                               | `Boolean`        | Validates if a string is a valid BCP 47 locale code.                                                                       |
-| [`isValidSlug`](isValidSlug.md)                                   | `Boolean`        | Validates if a string is a URL-friendly slug.                                                                              |
-| [`isValidVersion`](isValidVersion.md)                             | `Boolean`        | Validates if a string follows Semantic Versioning rules.                                                                   |
-| [`isVersionCompatible`](isVersionCompatible.md)                   | `Boolean`        | Determines if two version strings are compatible based on SemVer.                                                          |
-| [`non2DArray`](non2DArray.md) **New**                             | `Boolean`        | Validates if a value is **not** a two-dimensional array.                                                                   |
-| [`nonArray`](nonArray.md)                                         | `Boolean`        | Checks if a value is NOT an `Array`.                                                                                       |
-| [`nonBoolean`](nonBoolean.md)                                     | `Boolean`        | Checks if a value is NOT a boolean.                                                                                        |
-| [`nonConsistent2DArray`](nonConsistent2DArray.md) **New**         | `Boolean`        | Validates if a 2D array does **not** have uniform inner array lengths.                                                     |
-| [`nonEmpty`](nonEmpty.md)                                         | `Boolean`        | Checks if a value is NOT empty.                                                                                            |
-| [`nonException`](nonException.md) **New**                         | `Boolean`        | Validates if a value is **not** an instance of `Exception` or a derived class.                                             |
-| [`nonFloat`](nonFloat.md) **New**                                 | `Boolean`        | Validates if a value is **not** a finite number carrying a fractional part.                                                |
-| [`nonFunction`](nonFunction.md) **New**                           | `Boolean`        | Checks if a value is NOT a `Function`.                                                                                     |
-| [`nonCountable`](nonCountable.md) **New**                         | `Boolean`        | Validates if a value is **not** a countable number (a non-negative safe integer).                                          |
-| [`nonFunctionLike`](nonFunctionLike.md) **New**                   | `Boolean`        | Validates if a value is **not** &quot;function-like&quot; (e.g., callable).                                                |
-| [`nonInteger`](nonInteger.md) **New**                             | `Boolean`        | Validates if a value is **not** a number and an integer.                                                                   |
-| [`nonLength`](nonLength.md) **New**                               | `Boolean`        | Validates if a value is **not** a valid array-like length.                                                                 |
-| [`nonNaN`](nonNaN.md) **New**                                     | `Boolean`        | Validates if a value is **not** the `NaN` number, without coercing it first.                                               |
-| [`nonNil`](nonNil.md)                                             | `Boolean`        | Checks if a value is NOT `null` or `undefined`.                                                                            |
-| [`nonNull`](nonNull.md)                                           | `Boolean`        | Checks if a value is NOT `null`.                                                                                           |
-| [`nonNegative`](nonNegative.md) **Deprecated**                    | `Boolean`        | Checks if a value is a non-negative number. Use `isNonNegative` instead.                                                   |
-| [`nonNumber`](nonNumber.md)                                       | `Boolean`        | Checks if a value is NOT a number.                                                                                         |
-| [`nonNumberLike`](nonNumberLike.md) **New**                       | `Boolean`        | Validates if a value is **not** a number in a broader sense (e.g., a numeric string).                                      |
-| [`nonObject`](nonObject.md) **New**                               | `Boolean`        | Validates if a value is **not** an `Object`.                                                                               |
-| [`nonObjectLike`](nonObjectLike.md) **New**                       | `Boolean`        | Validates if a value is **not** an object in a broader sense (functions included).                                         |
-| [`nonRegExp`](nonRegExp.md) **New**                               | `Boolean`        | Validates if a value is **not** a regular expression.                                                                      |
-| [`nonSafeInteger`](nonSafeInteger.md) **New**                     | `Boolean`        | Validates if a value is **not** a safe integer.                                                                            |
-| [`nonScalar`](nonScalar.md)                                       | `Boolean`        | Checks if a value is NOT a scalar type.                                                                                    |
-| [`nonString`](nonString.md)                                       | `Boolean`        | Checks if a value is NOT a string.                                                                                         |
-| [`nonSymbol`](nonSymbol.md)                                       | `Boolean`        | Checks if a value is NOT a `Symbol`.                                                                                       |
-| [`nonUndefined`](nonUndefined.md)                                 | `Boolean`        | Checks if a value is NOT `undefined`.                                                                                      |
-| [`nonUrl`](nonUrl.md) **New**                                     | `Boolean`        | Validates if a value is **not** a properly formatted URL.                                                                  |
-| [`nonValidEmail`](nonValidEmail.md) **New**                       | `Boolean`        | Validates if a string is **not** a properly formatted email address.                                                       |
-| [`nonValidLocale`](nonValidLocale.md) **New**                     | `Boolean`        | Validates if a string is **not** a valid locale code.                                                                      |
-| [`nonValidSlug`](nonValidSlug.md) **New**                         | `Boolean`        | Validates if a string is **not** a valid slug.                                                                             |
-| [`nonValidVersion`](nonValidVersion.md) **New**                   | `Boolean`        | Validates if a string is **not** a valid version.                                                                          |
-| [`nonVersionCompatible`](nonVersionCompatible.md) **New**         | `Boolean`        | Validates if one version is **not** compatible with (i.e. lower than) another.                                             |
-| [`now`](now.md)                                                   | `Number`         | Returns the current timestamp in milliseconds.                                                                             |
-| [`ObjectTag`](ObjectTag.md)                                       | `Enum`           | Enum representing `Object#toString` result references in uppercase.                                                        |
-| [`objectToString`](objectToString.md)                             | `String`         | Converts a value to its `Object#toString` tag, e.g. `[object Array]`.                                                      |
-| [`offset`](offset.md) **New**                                     | `Date`           | Shifts a date by an interval and returns a new `Date`, never mutating the input.                                           |
-| [`parseJson`](parseJson.md) **Deprecated**                        | `Object`         | Safely parses a JSON string, handling potential errors.                                                                    |
-| [`require2DArray`](require2DArray.md) **New**                     | `Array`          | Ensures a value is a non-empty two-dimensional array, throwing otherwise.                                                  |
-| [`requireArray`](requireArray.md) **New**                         | `Array`          | Ensures a value is an `Array`, throwing `IllegalArgumentException` otherwise.                                              |
-| [`requireBoolean`](requireBoolean.md) **New**                     | `Boolean`        | Ensures a value is a boolean, throwing `IllegalArgumentException` otherwise.                                               |
-| [`requireConsistent2DArray`](requireConsistent2DArray.md) **New** | `Array`          | Ensures a 2D array has uniform inner array lengths, throwing otherwise.                                                    |
-| [`requireCountable`](requireCountable.md) **New**                 | `Number`         | Ensures a value is a countable number (a non-negative safe integer), throwing otherwise.                                   |
-| [`requireDouble`](requireDouble.md) **New**                       | `Number`         | Ensures a value is a finite number carrying a fractional part, throwing otherwise; a synonym of `requireFloat`.            |
-| [`requireEmpty`](requireEmpty.md) **New**                         | `Any`            | Ensures a value is empty, throwing `IllegalArgumentException` otherwise.                                                   |
-| [`requireException`](requireException.md) **New**                 | `Exception`      | Ensures a value is an `Exception` or a derived class, throwing otherwise.                                                  |
-| [`requireFloat`](requireFloat.md) **New**                         | `Number`         | Ensures a value is a finite number carrying a fractional part, throwing otherwise.                                         |
-| [`requireFunction`](requireFunction.md) **New**                   | `Function`       | Ensures a value is a function, throwing `IllegalArgumentException` otherwise.                                              |
-| [`requireFunctionLike`](requireFunctionLike.md) **New**           | `Function`       | Ensures a value is callable in a broader sense, throwing `IllegalArgumentException` otherwise.                             |
-| [`requireInteger`](requireInteger.md) **New**                     | `Number`         | Ensures a value is an integer, throwing `IllegalArgumentException` otherwise.                                              |
-| [`requireLength`](requireLength.md) **New**                       | `Number`         | Ensures a value is a valid array-like length, throwing `IllegalArgumentException` otherwise.                               |
-| [`requireNaN`](requireNaN.md) **New**                             | `Number`         | Ensures a value is the `NaN` number, without coercing it first, throwing otherwise.                                        |
-| [`requireNil`](requireNil.md) **New**                             | `Null            | Undefined`                                                                                                                 | Ensures a value is `null` or `undefined`, throwing otherwise.                                     |
-| [`requireNonArray`](requireNonArray.md) **New**                   | `Any`            | Ensures a value is **not** an `Array`, throwing `IllegalArgumentException` otherwise.                                      |
-| [`requireNonBoolean`](requireNonBoolean.md) **New**               | `Any`            | Ensures a value is **not** a boolean, throwing `IllegalArgumentException` otherwise.                                       |
-| [`requireNonDouble`](requireNonDouble.md) **New**                 | `Any`            | Ensures a value is **not** a finite number carrying a fractional part, throwing otherwise; a synonym of `requireNonFloat`. |
-| [`requireNonEmpty`](requireNonEmpty.md) **New**                   | `Any`            | Ensures a value is **not** empty, throwing `IllegalArgumentException` otherwise.                                           |
-| [`requireNonFloat`](requireNonFloat.md) **New**                   | `Any`            | Ensures a value is **not** a finite number carrying a fractional part, throwing otherwise.                                 |
-| [`requireNonInteger`](requireNonInteger.md) **New**               | `Any`            | Ensures a value is **not** an integer, throwing otherwise.                                                                 |
-| [`requireNonNaN`](requireNonNaN.md) **New**                       | `Any`            | Ensures a value is **not** the `NaN` number, throwing otherwise.                                                           |
-| [`requireNonSafeInteger`](requireNonSafeInteger.md) **New**       | `Any`            | Ensures a value is **not** a safe integer, throwing otherwise.                                                             |
-| [`requireSafeInteger`](requireSafeInteger.md) **New**             | `Number`         | Ensures a value is a safe integer (exactly representable as an IEEE-754 double), throwing otherwise.                       |
-| [`requireSymbol`](requireSymbol.md) **New**                       | `Symbol`         | Ensures a value is a `Symbol`, throwing `IllegalArgumentException` otherwise.                                              |
-| [`requireNonEmptyString`](requireNonEmptyString.md)               | `String`         | Ensures a string is not empty, otherwise throws an exception.                                                              |
-| [`requireNonException`](requireNonException.md) **New**           | `Any`            | Ensures a value is **not** an `Exception`, throwing `IllegalArgumentException` otherwise.                                  |
-| [`requireNonFunction`](requireNonFunction.md) **New**             | `Any`            | Ensures a value is **not** a function, throwing `IllegalArgumentException` otherwise.                                      |
-| [`requireNonFunctionLike`](requireNonFunctionLike.md) **New**     | `Any`            | Ensures a value is **not** callable, throwing `IllegalArgumentException` otherwise.                                        |
-| [`requireNoNilElements`](requireNoNilElements.md) **New**         | `Array`          | Throws `IllegalArgumentException` if an array, `Set` or `Map` holds a `null` or `undefined` element.                       |
-| [`requireNonLength`](requireNonLength.md) **New**                 | `Any`            | Ensures a value is **not** a valid array-like length, throwing `IllegalArgumentException` otherwise.                       |
-| [`requireNonNil`](requireNonNil.md) **New**                       | `Any`            | Ensures a value is neither `null` nor `undefined`, throwing `IllegalArgumentException`.                                    |
-| [`requireNonNull`](requireNonNull.md)                             | `any`            | Ensures a value is not `null`, otherwise throws an exception.                                                              |
-| [`requireNonNumber`](requireNonNumber.md) **New**                 | `Any`            | Ensures a value is **not** a number, throwing `IllegalArgumentException` otherwise.                                        |
-| [`requireNonNumberLike`](requireNonNumberLike.md) **New**         | `Any`            | Ensures a value is **not** numeric in a broader sense, throwing `IllegalArgumentException` otherwise.                      |
-| [`requireNonObject`](requireNonObject.md) **New**                 | `Any`            | Ensures a value is **not** an `Object`, throwing `IllegalArgumentException` otherwise.                                     |
-| [`requireNonObjectLike`](requireNonObjectLike.md) **New**         | `Any`            | Ensures a value is **not** object-like (functions included), throwing `IllegalArgumentException` otherwise.                |
-| [`requireNonRegExp`](requireNonRegExp.md) **New**                 | `Any`            | Ensures a value is **not** a regular expression, throwing `IllegalArgumentException` otherwise.                            |
-| [`requireNonScalar`](requireNonScalar.md) **New**                 | `Any`            | Ensures a value is **not** a scalar primitive, throwing `IllegalArgumentException` otherwise.                              |
-| [`requireNonString`](requireNonString.md) **New**                 | `Any`            | Ensures a value is **not** a string, throwing `IllegalArgumentException` otherwise.                                        |
-| [`requireNonSymbol`](requireNonSymbol.md) **New**                 | `Any`            | Ensures a value is **not** a `Symbol`, throwing `IllegalArgumentException` otherwise.                                      |
-| [`requireNonUndefined`](requireNonUndefined.md) **New**           | `Any`            | Ensures a value is **not** `undefined`, throwing `IllegalArgumentException` otherwise.                                     |
-| [`requireNull`](requireNull.md) **New**                           | `Null`           | Ensures a value is `null`, throwing `IllegalArgumentException` otherwise.                                                  |
-| [`requireNumber`](requireNumber.md) **New**                       | `Number`         | Ensures a value is a number, throwing `IllegalArgumentException` otherwise.                                                |
-| [`requireNumberLike`](requireNumberLike.md) **New**               | `Number          | String`                                                                                                                    | Ensures a value is numeric in a broader sense (a number or a numeric string), throwing otherwise. |
-| [`requireObject`](requireObject.md) **New**                       | `Object`         | Ensures a value is an `Object`, throwing `IllegalArgumentException` otherwise.                                             |
-| [`requireObjectLike`](requireObjectLike.md) **New**               | `Object`         | Ensures a value is object-like (functions included), throwing `IllegalArgumentException` otherwise.                        |
-| [`requireRegExp`](requireRegExp.md) **New**                       | `RegExp`         | Ensures a value is a regular expression, throwing `IllegalArgumentException` otherwise.                                    |
-| [`requireScalar`](requireScalar.md) **New**                       | `Scalar`         | Ensures a value is a scalar primitive, throwing `IllegalArgumentException` otherwise.                                      |
-| [`requireState`](requireState.md) **New**                         | `void`           | Throws `IllegalStateException` when a condition does not hold.                                                             |
-| [`requireString`](requireString.md)                               | `String`         | Ensures a value is a string, otherwise throws an exception.                                                                |
-| [`requireUndefined`](requireUndefined.md) **New**                 | `Undefined`      | Ensures a value is `undefined`, throwing `IllegalArgumentException` otherwise.                                             |
-| [`requireUrl`](requireUrl.md) **New**                             | `String`         | Ensures a value is a properly formatted URL, throwing otherwise.                                                           |
-| [`requireValidEmail`](requireValidEmail.md)                       | `String`         | Ensures a string is a valid email, otherwise throws an exception.                                                          |
-| [`requireValidLocale`](requireValidLocale.md) **New**             | `String`         | Ensures a string is a valid locale code, throwing otherwise.                                                               |
-| [`requireValidSlug`](requireValidSlug.md) **New**                 | `String`         | Ensures a string is a valid slug, throwing otherwise.                                                                      |
-| [`requireValidVersion`](requireValidVersion.md) **New**           | `String`         | Ensures a string is a valid version, throwing otherwise.                                                                   |
-| [`requireVersionCompatible`](requireVersionCompatible.md) **New** | `String`         | Ensures one version is at least another, throwing otherwise.                                                               |
-| [`retry`](retry.md) **New**                                       | `T`              | Calls a function until it succeeds, waiting longer between each failure.                                                   |
-| [`setPath`](setPath.md) **New**                                   | `Object`         | Writes a nested property by path, creating missing levels and refusing prototype keys.                                     |
-| [`StopWatch`](StopWatch.md) **New**                               | `StopWatch`      | Times a sequence of named tasks and prints a breakdown.                                                                    |
-| [`stringifyJson`](stringifyJson.md)                               | `String`         | Safely converts an object to a JSON string.                                                                                |
-| [`toCamelCase`](toCamelCase.md)                                   | `String`         | Converts a string to `camelCase`.                                                                                          |
-| [`toInteger`](toInteger.md)                                       | `Number \| null` | Converts a value to an integer, returning `null` on failure.                                                               |
-| [`toKebabCase`](toKebabCase.md)                                   | `String`         | Converts a string to `kebab-case`.                                                                                         |
-| [`toLowerCase`](toLowerCase.md)                                   | `String`         | Converts a string to lowercase.                                                                                            |
-| [`toProperCase`](toProperCase.md)                                 | `String`         | Converts a string to Proper Case (capitalizing the first letter of each word).                                             |
-| [`toSnakeCase`](toSnakeCase.md)                                   | `String`         | Converts a string to `snake_case`.                                                                                         |
-| [`toUpperCase`](toUpperCase.md)                                   | `String`         | Converts a string to uppercase.                                                                                            |
-| [`transpose`](transpose.md)                                       | `Array`          | Flips a 2D array over its diagonal (swaps rows and columns).                                                               |
-| [`unique`](unique.md) **New**                                     | `Array`          | Removes duplicates from an array, keeping the first occurrence of each value.                                              |
-| [`versionCompare`](versionCompare.md)                             | `Number`         | Compares two version strings, returning -1, 0, or 1.                                                                       |
-| [`without`](without.md) **New**                                   | `Array`          | Excludes the given values from an array, comparing with `SameValueZero`.                                                   |
+| [`chunk`](chunk.md) | `Array` | Divides an array into multiple smaller arrays of a specified size. |
+| [`compact`](compact.md) **New** | `Array` | Drops every falsy value from an array, narrowing the element type without a cast. |
+| [`decodeHtml`](decodeHtml.md) | `String` | Decodes HTML entities (e.g., `&amp;` -> `&`) back to plain text. |
+| [`diff`](diff.md) **New** | `Number` | Returns the interval between two dates in a chosen unit, counting calendar units by the calendar. |
+| [`encodeHtml`](encodeHtml.md) | `String` | Encodes a string for safe rendering in HTML. |
+| [`equals`](equals.md) **New** | `Boolean` | Compares two values deeply and null-safely; the counterpart of `hashCode`. |
+| [`escapeHtml`](escapeHtml.md) | `String` | Escapes special characters (`<`, `>`, `&`, etc.) for HTML. |
+| [`escapeRegExp`](escapeRegExp.md) | `String` | Escapes special characters for safe use within regular expressions. |
+| [`escapeXml`](escapeXml.md) | `String` | Escapes special characters for safe use in XML documents. |
+| [`first`](first.md) **New** | `Any` | Takes the first element of an array, or its first `n` elements. |
+| [`flat`](flat.md) **New** | `Object` | Flattens a nested object into a single level of dotted keys, keeping arrays whole. |
+| [`getDaysInMonth`](getDaysInMonth.md) **New** | `Number` | Returns the number of calendar days in the month a given date falls in. |
+| [`getDaysLeftInMonth`](getDaysLeftInMonth.md) **New** | `Number` | Returns the number of calendar days between a date and the end of its month. |
+| [`getPath`](getPath.md) **New** | `Any` | Reads a nested property by path, returning a fallback when the path does not resolve. |
+| [`hashCode`](hashCode.md) | `Number` | Generates a numeric hash code for a given string. |
+| [`intersect`](intersect.md) **New** | `Array` | Finds the values present in every given array, in the order of the first. |
+| [`is2DArray`](is2DArray.md) | `Boolean` | Validates if a value is a two-dimensional array. |
+| [`isArray`](isArray.md) | `Boolean` | Validates if a value is an `Array`. |
+| [`isBoolean`](isBoolean.md) | `Boolean` | Validates if a value is a boolean. |
+| [`isConsistent2DArray`](isConsistent2DArray.md) | `Boolean` | Validates if a 2D array has uniform inner array lengths. |
+| [`isCountable`](isCountable.md) | `Boolean` | Checks if a value is a non-negative safe integer. |
+| [`isDouble`](isDouble.md) **New** | `Boolean` | Checks if a value is a finite number carrying a fractional part; a synonym of `isFloat`. |
+| [`isEmail`](isEmail.md) | `Boolean` | Validates if a string follows a proper email format. |
+| [`isEmpty`](isEmpty.md) | `Boolean` | Checks if a value is considered empty (null, undefined, empty string/array/object). |
+| [`isException`](isException.md) | `Boolean` | Validates if a value is an instance of `Exception` or a derived class. |
+| [`isFloat`](isFloat.md) **New** | `Boolean` | Checks if a value is a finite number carrying a fractional part. |
+| [`isFunction`](isFunction.md) | `Boolean` | Validates if a value is a function. |
+| [`isFunctionLike`](isFunctionLike.md) | `Boolean` | Validates if a value is "function-like" (e.g., callable). |
+| [`isInteger`](isInteger.md) | `Boolean` | Checks if a value is a number and an integer. |
+| [`isLength`](isLength.md) | `Boolean` | Validates if a value is a valid array-like length. |
+| [`isNaN`](isNaN.md) **New** | `Boolean` | Checks if a value is the `NaN` number, without the coercion the global `isNaN` performs. |
+| [`isNil`](isNil.md) | `Boolean` | Checks if a value is `null` or `undefined`. |
+| [`isNonNegative`](isNonNegative.md) **New** | `Boolean` | Checks if a value is a number greater than or equal to zero. |
+| [`isNull`](isNull.md) | `Boolean` | Checks if a value is `null`. |
+| [`isNumber`](isNumber.md) | `Boolean` | Validates if a value is a number. |
+| [`isNumberLike`](isNumberLike.md) | `Boolean` | Checks if a value can be reliably converted to a number. |
+| [`isObject`](isObject.md) | `Boolean` | Validates if a value is a plain object (excluding null and arrays). |
+| [`isObjectLike`](isObjectLike.md) | `Boolean` | Checks if a value is an object (including arrays and functions). |
+| [`isRegExp`](isRegExp.md) | `Boolean` | Validates if a value is a regular expression. |
+| [`isSafeInteger`](isSafeInteger.md) **New** | `Boolean` | Checks if a value is a number and a safe integer (exactly representable as an IEEE-754 double). |
+| [`isScalar`](isScalar.md) | `Boolean` | Checks if a value is a primitive scalar type (string, number, boolean, symbol, bigint). |
+| [`isString`](isString.md) | `Boolean` | Validates if a value is a string. |
+| [`isSymbol`](isSymbol.md) | `Boolean` | Validates if a value is a symbol. |
+| [`last`](last.md) **New** | `Any` | Takes the last element of an array, or its last `n` elements in their original order. |
+| [`merge`](merge.md) **New** | `String` | Substitutes object values into `{{ key }}` placeholders in a template string. |
+| [`nonDouble`](nonDouble.md) **New** | `Boolean` | Validates if a value is **not** a finite number carrying a fractional part; a synonym of `nonFloat`. |
+| [`nonEmptyString`](nonEmptyString.md) **Deprecated** | `String` | Validates that the given value is a non-empty string. Use `requireNonEmptyString` instead. |
+| [`isUndefined`](isUndefined.md) | `Boolean` | Checks if a value is `undefined`. |
+| [`isUrl`](isUrl.md) | `Boolean` | Validates if a string is a properly formatted URL. |
+| [`isValidLocale`](isValidLocale.md) | `Boolean` | Validates if a string is a valid BCP 47 locale code. |
+| [`isValidSlug`](isValidSlug.md) | `Boolean` | Validates if a string is a URL-friendly slug. |
+| [`isValidVersion`](isValidVersion.md) | `Boolean` | Validates if a string follows Semantic Versioning rules. |
+| [`isVersionCompatible`](isVersionCompatible.md) | `Boolean` | Determines if two version strings are compatible based on SemVer. |
+| [`non2DArray`](non2DArray.md) **New** | `Boolean` | Validates if a value is **not** a two-dimensional array. |
+| [`nonArray`](nonArray.md) | `Boolean` | Checks if a value is NOT an `Array`. |
+| [`nonBoolean`](nonBoolean.md) | `Boolean` | Checks if a value is NOT a boolean. |
+| [`nonConsistent2DArray`](nonConsistent2DArray.md) **New** | `Boolean` | Validates if a 2D array does **not** have uniform inner array lengths. |
+| [`nonEmpty`](nonEmpty.md) | `Boolean` | Checks if a value is NOT empty. |
+| [`nonException`](nonException.md) **New** | `Boolean` | Validates if a value is **not** an instance of `Exception` or a derived class. |
+| [`nonFloat`](nonFloat.md) **New** | `Boolean` | Validates if a value is **not** a finite number carrying a fractional part. |
+| [`nonFunction`](nonFunction.md) **New** | `Boolean` | Checks if a value is NOT a `Function`. |
+| [`nonCountable`](nonCountable.md) **New** | `Boolean` | Validates if a value is **not** a countable number (a non-negative safe integer). |
+| [`nonFunctionLike`](nonFunctionLike.md) **New** | `Boolean` | Validates if a value is **not** &quot;function-like&quot; (e.g., callable). |
+| [`nonInteger`](nonInteger.md) **New** | `Boolean` | Validates if a value is **not** a number and an integer. |
+| [`nonLength`](nonLength.md) **New** | `Boolean` | Validates if a value is **not** a valid array-like length. |
+| [`nonNaN`](nonNaN.md) **New** | `Boolean` | Validates if a value is **not** the `NaN` number, without coercing it first. |
+| [`nonNil`](nonNil.md) | `Boolean` | Checks if a value is NOT `null` or `undefined`. |
+| [`nonNull`](nonNull.md) | `Boolean` | Checks if a value is NOT `null`. |
+| [`nonNegative`](nonNegative.md) **Deprecated** | `Boolean` | Checks if a value is a non-negative number. Use `isNonNegative` instead. |
+| [`nonNumber`](nonNumber.md) | `Boolean` | Checks if a value is NOT a number. |
+| [`nonNumberLike`](nonNumberLike.md) **New** | `Boolean` | Validates if a value is **not** a number in a broader sense (e.g., a numeric string). |
+| [`nonObject`](nonObject.md) **New** | `Boolean` | Validates if a value is **not** an `Object`. |
+| [`nonObjectLike`](nonObjectLike.md) **New** | `Boolean` | Validates if a value is **not** an object in a broader sense (functions included). |
+| [`nonRegExp`](nonRegExp.md) **New** | `Boolean` | Validates if a value is **not** a regular expression. |
+| [`nonSafeInteger`](nonSafeInteger.md) **New** | `Boolean` | Validates if a value is **not** a safe integer. |
+| [`nonScalar`](nonScalar.md) | `Boolean` | Checks if a value is NOT a scalar type. |
+| [`nonString`](nonString.md) | `Boolean` | Checks if a value is NOT a string. |
+| [`nonSymbol`](nonSymbol.md) | `Boolean` | Checks if a value is NOT a `Symbol`. |
+| [`nonUndefined`](nonUndefined.md) | `Boolean` | Checks if a value is NOT `undefined`. |
+| [`nonUrl`](nonUrl.md) **New** | `Boolean` | Validates if a value is **not** a properly formatted URL. |
+| [`nonValidEmail`](nonValidEmail.md) **New** | `Boolean` | Validates if a string is **not** a properly formatted email address. |
+| [`nonValidLocale`](nonValidLocale.md) **New** | `Boolean` | Validates if a string is **not** a valid locale code. |
+| [`nonValidSlug`](nonValidSlug.md) **New** | `Boolean` | Validates if a string is **not** a valid slug. |
+| [`nonValidVersion`](nonValidVersion.md) **New** | `Boolean` | Validates if a string is **not** a valid version. |
+| [`nonVersionCompatible`](nonVersionCompatible.md) **New** | `Boolean` | Validates if one version is **not** compatible with (i.e. lower than) another. |
+| [`now`](now.md) | `Number` | Returns the current timestamp in milliseconds. |
+| [`ObjectTag`](ObjectTag.md) | `Enum` | Enum representing `Object#toString` result references in uppercase. |
+| [`objectToString`](objectToString.md) | `String` | Converts a value to its `Object#toString` tag, e.g. `[object Array]`. |
+| [`offset`](offset.md) **New** | `Date` | Shifts a date by an interval and returns a new `Date`, never mutating the input. |
+| [`parseJson`](parseJson.md) **Deprecated** | `Object` | Safely parses a JSON string, handling potential errors. |
+| [`require2DArray`](require2DArray.md) **New** | `Array` | Ensures a value is a non-empty two-dimensional array, throwing otherwise. |
+| [`requireArray`](requireArray.md) **New** | `Array` | Ensures a value is an `Array`, throwing `IllegalArgumentException` otherwise. |
+| [`requireBoolean`](requireBoolean.md) **New** | `Boolean` | Ensures a value is a boolean, throwing `IllegalArgumentException` otherwise. |
+| [`requireConsistent2DArray`](requireConsistent2DArray.md) **New** | `Array` | Ensures a 2D array has uniform inner array lengths, throwing otherwise. |
+| [`requireCountable`](requireCountable.md) **New** | `Number` | Ensures a value is a countable number (a non-negative safe integer), throwing otherwise. |
+| [`requireDouble`](requireDouble.md) **New** | `Number` | Ensures a value is a finite number carrying a fractional part, throwing otherwise; a synonym of `requireFloat`. |
+| [`requireEmpty`](requireEmpty.md) **New** | `Any` | Ensures a value is empty, throwing `IllegalArgumentException` otherwise. |
+| [`requireException`](requireException.md) **New** | `Exception` | Ensures a value is an `Exception` or a derived class, throwing otherwise. |
+| [`requireFloat`](requireFloat.md) **New** | `Number` | Ensures a value is a finite number carrying a fractional part, throwing otherwise. |
+| [`requireFunction`](requireFunction.md) **New** | `Function` | Ensures a value is a function, throwing `IllegalArgumentException` otherwise. |
+| [`requireFunctionLike`](requireFunctionLike.md) **New** | `Function` | Ensures a value is callable in a broader sense, throwing `IllegalArgumentException` otherwise. |
+| [`requireInteger`](requireInteger.md) **New** | `Number` | Ensures a value is an integer, throwing `IllegalArgumentException` otherwise. |
+| [`requireLength`](requireLength.md) **New** | `Number` | Ensures a value is a valid array-like length, throwing `IllegalArgumentException` otherwise. |
+| [`requireNaN`](requireNaN.md) **New** | `Number` | Ensures a value is the `NaN` number, without coercing it first, throwing otherwise. |
+| [`requireNil`](requireNil.md) **New** | `Null            | Undefined` | Ensures a value is `null` or `undefined`, throwing otherwise. |
+| [`requireNonArray`](requireNonArray.md) **New** | `Any` | Ensures a value is **not** an `Array`, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonBoolean`](requireNonBoolean.md) **New** | `Any` | Ensures a value is **not** a boolean, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonDouble`](requireNonDouble.md) **New** | `Any` | Ensures a value is **not** a finite number carrying a fractional part, throwing otherwise; a synonym of `requireNonFloat`. |
+| [`requireNonEmpty`](requireNonEmpty.md) **New** | `Any` | Ensures a value is **not** empty, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonFloat`](requireNonFloat.md) **New** | `Any` | Ensures a value is **not** a finite number carrying a fractional part, throwing otherwise. |
+| [`requireNonInteger`](requireNonInteger.md) **New** | `Any` | Ensures a value is **not** an integer, throwing otherwise. |
+| [`requireNonNaN`](requireNonNaN.md) **New** | `Any` | Ensures a value is **not** the `NaN` number, throwing otherwise. |
+| [`requireNonSafeInteger`](requireNonSafeInteger.md) **New** | `Any` | Ensures a value is **not** a safe integer, throwing otherwise. |
+| [`requireSafeInteger`](requireSafeInteger.md) **New** | `Number` | Ensures a value is a safe integer (exactly representable as an IEEE-754 double), throwing otherwise. |
+| [`requireSymbol`](requireSymbol.md) **New** | `Symbol` | Ensures a value is a `Symbol`, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonEmptyString`](requireNonEmptyString.md) | `String` | Ensures a string is not empty, otherwise throws an exception. |
+| [`requireNonException`](requireNonException.md) **New** | `Any` | Ensures a value is **not** an `Exception`, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonFunction`](requireNonFunction.md) **New** | `Any` | Ensures a value is **not** a function, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonFunctionLike`](requireNonFunctionLike.md) **New** | `Any` | Ensures a value is **not** callable, throwing `IllegalArgumentException` otherwise. |
+| [`requireNoNilElements`](requireNoNilElements.md) **New** | `Array` | Throws `IllegalArgumentException` if an array, `Set` or `Map` holds a `null` or `undefined` element. |
+| [`requireNonLength`](requireNonLength.md) **New** | `Any` | Ensures a value is **not** a valid array-like length, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonNil`](requireNonNil.md) **New** | `Any` | Ensures a value is neither `null` nor `undefined`, throwing `IllegalArgumentException`. |
+| [`requireNonNull`](requireNonNull.md) | `any` | Ensures a value is not `null`, otherwise throws an exception. |
+| [`requireNonNumber`](requireNonNumber.md) **New** | `Any` | Ensures a value is **not** a number, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonNumberLike`](requireNonNumberLike.md) **New** | `Any` | Ensures a value is **not** numeric in a broader sense, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonObject`](requireNonObject.md) **New** | `Any` | Ensures a value is **not** an `Object`, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonObjectLike`](requireNonObjectLike.md) **New** | `Any` | Ensures a value is **not** object-like (functions included), throwing `IllegalArgumentException` otherwise. |
+| [`requireNonRegExp`](requireNonRegExp.md) **New** | `Any` | Ensures a value is **not** a regular expression, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonScalar`](requireNonScalar.md) **New** | `Any` | Ensures a value is **not** a scalar primitive, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonString`](requireNonString.md) **New** | `Any` | Ensures a value is **not** a string, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonSymbol`](requireNonSymbol.md) **New** | `Any` | Ensures a value is **not** a `Symbol`, throwing `IllegalArgumentException` otherwise. |
+| [`requireNonUndefined`](requireNonUndefined.md) **New** | `Any` | Ensures a value is **not** `undefined`, throwing `IllegalArgumentException` otherwise. |
+| [`requireNull`](requireNull.md) **New** | `Null` | Ensures a value is `null`, throwing `IllegalArgumentException` otherwise. |
+| [`requireNumber`](requireNumber.md) **New** | `Number` | Ensures a value is a number, throwing `IllegalArgumentException` otherwise. |
+| [`requireNumberLike`](requireNumberLike.md) **New** | `Number          | String` | Ensures a value is numeric in a broader sense (a number or a numeric string), throwing otherwise. |
+| [`requireObject`](requireObject.md) **New** | `Object` | Ensures a value is an `Object`, throwing `IllegalArgumentException` otherwise. |
+| [`requireObjectLike`](requireObjectLike.md) **New** | `Object` | Ensures a value is object-like (functions included), throwing `IllegalArgumentException` otherwise. |
+| [`requireRegExp`](requireRegExp.md) **New** | `RegExp` | Ensures a value is a regular expression, throwing `IllegalArgumentException` otherwise. |
+| [`requireScalar`](requireScalar.md) **New** | `Scalar` | Ensures a value is a scalar primitive, throwing `IllegalArgumentException` otherwise. |
+| [`requireState`](requireState.md) **New** | `void` | Throws `IllegalStateException` when a condition does not hold. |
+| [`requireString`](requireString.md) | `String` | Ensures a value is a string, otherwise throws an exception. |
+| [`requireUndefined`](requireUndefined.md) **New** | `Undefined` | Ensures a value is `undefined`, throwing `IllegalArgumentException` otherwise. |
+| [`requireUrl`](requireUrl.md) **New** | `String` | Ensures a value is a properly formatted URL, throwing otherwise. |
+| [`requireValidEmail`](requireValidEmail.md) | `String` | Ensures a string is a valid email, otherwise throws an exception. |
+| [`requireValidLocale`](requireValidLocale.md) **New** | `String` | Ensures a string is a valid locale code, throwing otherwise. |
+| [`requireValidSlug`](requireValidSlug.md) **New** | `String` | Ensures a string is a valid slug, throwing otherwise. |
+| [`requireValidVersion`](requireValidVersion.md) **New** | `String` | Ensures a string is a valid version, throwing otherwise. |
+| [`requireVersionCompatible`](requireVersionCompatible.md) **New** | `String` | Ensures one version is at least another, throwing otherwise. |
+| [`retry`](retry.md) **New** | `T` | Calls a function until it succeeds, waiting longer between each failure. |
+| [`setPath`](setPath.md) **New** | `Object` | Writes a nested property by path, creating missing levels and refusing prototype keys. |
+| [`StopWatch`](StopWatch.md) **New** | `StopWatch` | Times a sequence of named tasks and prints a breakdown. |
+| [`stringifyJson`](stringifyJson.md) | `String` | Safely converts an object to a JSON string. |
+| [`toCamelCase`](toCamelCase.md) | `String` | Converts a string to `camelCase`. |
+| [`toInteger`](toInteger.md) | `Number \| null` | Converts a value to an integer, returning `null` on failure. |
+| [`toKebabCase`](toKebabCase.md) | `String` | Converts a string to `kebab-case`. |
+| [`toLowerCase`](toLowerCase.md) | `String` | Converts a string to lowercase. |
+| [`toProperCase`](toProperCase.md) | `String` | Converts a string to Proper Case (capitalizing the first letter of each word). |
+| [`toSnakeCase`](toSnakeCase.md) | `String` | Converts a string to `snake_case`. |
+| [`toUpperCase`](toUpperCase.md) | `String` | Converts a string to uppercase. |
+| [`transpose`](transpose.md) | `Array` | Flips a 2D array over its diagonal (swaps rows and columns). |
+| [`unique`](unique.md) **New** | `Array` | Removes duplicates from an array, keeping the first occurrence of each value. |
+| [`versionCompare`](versionCompare.md) | `Number` | Compares two version strings, returning -1, 0, or 1. |
+| [`without`](without.md) **New** | `Array` | Excludes the given values from an array, comparing with `SameValueZero`. |
