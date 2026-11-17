@@ -4,7 +4,6 @@
     ".": {
       "release-type": "node",
       "package-name": "@bootgs/utils",
-      "component": "apps-script-utils",
       "changelog-path": "CHANGELOG.md",
       "extra-files": [
         "docs/writerside/writerside.cfg",
@@ -12,7 +11,9 @@
         "docs/writerside-uk/writerside.cfg",
         "docs/writerside-de/writerside.cfg",
         "docs/writerside-fr/writerside.cfg"
-      ]
+      ],
+      "include-component-in-tag": false
     }
-  }
+  },
+  "last-release-sha": "629b147f411517993c1073b8ae0fa784726e2348"
 }
