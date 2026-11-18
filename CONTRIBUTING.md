@@ -24,6 +24,7 @@ Great that you are here and you want to contribute to **@bootgs/utils**!
       - [2. PR Specific Requirements](#2-pr-specific-requirements)
     - [Test Suite](#test-suite)
     - [README Translations](#readme-translations)
+  - [Dependencies](#dependencies)
   - [License](#license)
 
 <!-- TOC -->
@@ -44,6 +45,8 @@ The project is organized as follows:
 - [**`src/`**](src/) — Source code of the library. Organized into logical modules like `appsscript/`, `lang/`, `net/`, etc.
 - [**`test/`**](test/) — Test suites mirroring the `src` structure.
 
+How the modules in `src/` fit together is described in [Design](docs/design.md).
+
 ## Development Setup
 
 ### Requirements
@@ -61,16 +64,16 @@ The project is organized as follows:
 1. **Fork** the repository on GitHub.
 2. **Clone** your fork locally:
    ```bash
-   git clone https://github.com/<your_username>/apps-script-utils.git
-   cd @bootgs/utils
+   git clone https://github.com/<your_username>/utils.git
+   cd utils
    ```
 3. **Add upstream remote**:
    ```bash
    git remote add upstream https://github.com/bootgs/utils.git
    ```
-4. **Install dependencies**:
+4. **Install dependencies** from the lockfile:
    ```bash
-   npm install
+   npm ci
    ```
 5. **Build the project**:
    ```bash
@@ -279,6 +282,36 @@ Chinese (`zh-TW`). Corrections from native speakers are welcome as ordinary pull
   It fails when a translation is missing, lacks the switcher, has a relative link to a file that does not exist, has
   a different number of `##`/`###` headings than `README.md`, or its note names a version other than the one in
   `package.json`. It does not compare wording.
+
+## Dependencies
+
+**Obtaining.** Dependencies come from the npm registry. `package-lock.json` is committed and pins every direct and
+transitive version with its integrity hash; install with `npm ci`, which installs exactly what the lockfile says.
+Commit `package.json` and `package-lock.json` together whenever a dependency changes.
+
+**Selecting.** The published package has no runtime dependencies: `package.json` declares only `devDependencies`
+(build, lint, test, documentation), and none of them is shipped. A new dependency needs a reason in the issue or
+pull request and must be:
+
+- free/open-source software; a runtime dependency must use a licence on the CI allow-list: `Apache-2.0`, `MIT`,
+  `BSD-2-Clause`, `BSD-3-Clause`, `ISC` or `0BSD` (the `licences` step in [ci.yml](.github/workflows/ci.yml) fails
+  otherwise);
+- actively maintained (recent releases, issues answered) and without known high or critical vulnerabilities;
+- small for what it does: prefer a few lines of our own code over a package for a trivial helper. Adding the first
+  runtime dependency is a larger change and starts with an issue (see [GOVERNANCE.md](GOVERNANCE.md#decision-making)).
+
+**Tracking.**
+
+- [Dependabot](.github/dependabot.yml) checks npm packages and GitHub Actions weekly and opens pull requests against
+  `develop`. Minor and patch updates of development dependencies are grouped into one pull request
+  (`dev-dependencies`); other npm updates and GitHub Actions updates arrive as one pull request each. Dependabot
+  security updates are enabled for the repository.
+- CI runs `npm audit --omit=dev --audit-level=high` on every pull request and push to `main` and `develop`, so a
+  known high or critical vulnerability in a runtime dependency fails the build.
+- GitHub Actions in workflows are pinned to full commit SHAs, with the version in a comment.
+- [OpenSSF Scorecard](.github/workflows/scorecard.yml) runs weekly and on pushes to `main`, and reports supply-chain
+  issues such as unpinned dependencies to code scanning.
+- Each GitHub release carries a CycloneDX SBOM of the runtime dependency tree.
 
 ## License
 
