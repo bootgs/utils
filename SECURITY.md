@@ -66,6 +66,69 @@ Out of scope: vulnerabilities in Google Apps Script itself or other Google servi
 upstream; we will update the dependency), and in scripts built with the library that are caused by their own code
 or configuration.
 
+## Verifying a Release
+
+**npm package.** After installing, check the registry signatures (and provenance attestations, where present) of
+your dependency tree:
+
+```bash
+npm audit signatures
+```
+
+The release workflow publishes new versions from GitHub Actions with
+[npm provenance](https://docs.npmjs.com/generating-provenance-statements); the provenance shown on
+[npmjs.com/package/@bootgs/utils](https://www.npmjs.com/package/@bootgs/utils) names the repository `bootgs/utils`,
+the workflow `.github/workflows/release-please.yml` and the commit the version was built from. `3.0.0`, the first
+version under the new name, was published by hand and has a registry signature but no npm provenance; its tarball
+is the same file as the attested GitHub release asset below (compare `npm view @bootgs/utils@3.0.0 dist.shasum` with
+`shasum bootgs-utils-3.0.0.tgz`).
+
+**GitHub release assets.** Releases from `v3.0.0` on carry the npm tarball `bootgs-utils-<version>.tgz` and its
+Sigstore build provenance `bootgs-utils-<version>.tgz.sigstore.json`, plus a CycloneDX SBOM of the runtime
+dependency tree (`sbom.cdx.json` in `v3.0.0`, `bootgs-utils-<version>.cdx.json` in later releases). Earlier
+releases have no assets. Verify a downloaded tarball with the [GitHub CLI](https://cli.github.com/):
+
+```bash
+gh attestation verify bootgs-utils-<version>.tgz --repo bootgs/utils \
+  --signer-workflow bootgs/utils/.github/workflows/release-please.yml
+```
+
+Add `--bundle bootgs-utils-<version>.tgz.sigstore.json` to verify against the downloaded bundle instead of fetching
+the attestation from GitHub. The attestation is valid only if it was signed by the `release-please.yml` workflow of
+`bootgs/utils`, which runs on pushes to `main` (or a manual run for an existing tag).
+
+## Secrets and Credentials
+
+- No long-lived publishing credential exists: npm publishing uses
+  [trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC) from the `npm` environment.
+- No secrets are stored in the repository or its environments. Workflows use only the per-run `GITHUB_TOKEN`, with
+  permissions declared per job (`release-please.yml` and `docs.yml` reference `secrets.GITHUB_TOKEN`; no other
+  secret is referenced). Codecov uploads authenticate with OIDC.
+- If a secret becomes necessary, it is stored only as a GitHub Actions secret scoped to an environment, is
+  accessible to maintainers only, and is rotated at least once a year and immediately on suspected exposure.
+- GitHub secret scanning and push protection are enabled for the repository.
+- Who has access to these resources: [MAINTAINERS.md](MAINTAINERS.md#access-to-sensitive-resources).
+
+## Dependency and Code Scanning Policy
+
+**Software composition analysis (SCA).**
+[ci.yml](.github/workflows/ci.yml) runs on every pull request and on pushes to `main` and `develop`:
+
+- `npm audit --omit=dev --audit-level=high` — a high or critical vulnerability in a runtime dependency fails the
+  `checks` job;
+- the `licences` step — a runtime dependency outside the allow-list (`Apache-2.0`, `MIT`, `BSD-2-Clause`,
+  `BSD-3-Clause`, `ISC`, `0BSD`) fails the `checks` job.
+
+`checks` is a required status check for pull requests into `develop`, so either failure blocks merging. Moderate
+and low findings are fixed within 30 days or before the next release, whichever comes first, usually through
+[Dependabot](.github/dependabot.yml) updates. No release is made while an SCA violation is open.
+
+**Static analysis (SAST).** [CodeQL](.github/workflows/codeql.yml) analyses JavaScript/TypeScript and GitHub Actions
+on every pull request and push to `main` and `develop` and weekly; ESLint with `eslint-plugin-security` runs in the
+`checks` job. High and critical CodeQL alerts are fixed before merging, medium ones before the next release. A
+finding may be dismissed only as a false positive or not exploitable, with the reason written in the alert. CodeQL
+is not a required status check; these thresholds are applied through maintainer review of every pull request.
+
 ## Security Best Practices for Users
 
 1. **Keep dependencies updated:** use the latest `@bootgs/utils` release and keep other packages current.
