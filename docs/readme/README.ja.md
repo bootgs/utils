@@ -19,6 +19,8 @@
   <a href="https://github.com/bootgs/utils/actions/workflows/codeql.yml"><img src="https://github.com/bootgs/utils/actions/workflows/codeql.yml/badge.svg?branch=main" alt="CodeQL"></a>
   <a href="https://scorecard.dev/viewer/?uri=github.com/bootgs/utils"><img src="https://api.scorecard.dev/projects/github.com/bootgs/utils/badge" alt="OpenSSF Scorecard"></a>
   <a href="https://api.reuse.software/info/github.com/bootgs/utils"><img src="https://api.reuse.software/badge/github.com/bootgs/utils" alt="REUSE status"></a>
+  <a href="https://www.bestpractices.dev/projects/16865"><img src="https://www.bestpractices.dev/projects/16865/badge" alt="OpenSSF Best Practices"></a>
+  <a href="https://www.bestpractices.dev/projects/16865"><img src="https://www.bestpractices.dev/projects/16865/baseline" alt="OpenSSF Baseline"></a>
 </p>
 
 <p align="left">
