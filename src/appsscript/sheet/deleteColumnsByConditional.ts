@@ -187,7 +187,9 @@ export function deleteColumnsByConditional(
 
   const selected: number[] = selectColumns(values, predicate, headerColumn, range.getColumn());
 
-  if (!within && selected.length > 0 && selected.length === sheet.getMaxColumns()) {
+  const deletesFromWholeSheet = !within && selected.length > 0;
+
+  if (deletesFromWholeSheet && selected.length === sheet.getMaxColumns()) {
     throw new IllegalArgumentException(
       "Refusing to delete every column: a sheet must keep at least one."
     );

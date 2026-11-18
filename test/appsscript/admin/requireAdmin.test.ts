@@ -4,7 +4,9 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 type Mutable = Record<string, unknown>;
 
-/** Installs stand-ins for the Apps Script globals `isAdmin` reaches for. */
+/**
+ * Installs stand-ins for the Apps Script globals `isAdmin` reaches for.
+ */
 function mockDirectory(isAdminFlag: boolean | undefined, email = "user@example.com"): void {
   (globalThis as Mutable).Session = {
     getActiveUser: () => ({ getEmail: () => email })

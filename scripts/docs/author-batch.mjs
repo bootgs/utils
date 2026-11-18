@@ -60,7 +60,10 @@ for (const file of readdirSync(AUTHORED).sort()) {
       const dir = join(ROOT, "docs/content", language.code, "functions");
 
       mkdirSync(dir, { recursive: true });
-      writeFileSync(join(dir, `${name}.json`), `${JSON.stringify(content, null, 2)}\n`);
+
+      const json = JSON.stringify(content, null, 2);
+
+      writeFileSync(join(dir, `${name}.json`), `${json}\n`);
       written += 1;
     }
   }

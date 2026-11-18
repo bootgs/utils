@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: Apache-2.0
 import { isString } from "../../lang";
 
-/** Drive file ids are at least 25 characters from an unreserved alphabet. */
+/**
+ * Drive file ids are at least 25 characters from an unreserved alphabet.
+ */
 const PATTERN = /^[a-zA-Z0-9-_]{25,}$/;
 
 /**

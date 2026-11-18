@@ -1,4 +1,6 @@
-/** Prose for the JSON pair, the time helpers and the path helpers. */
+/**
+ * Prose for the JSON pair, the time helpers and the path helpers.
+ */
 
 import { code, entry } from "./_entry.mjs";
 

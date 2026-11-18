@@ -56,5 +56,7 @@ export function updateSheetNameInA1Notation(a1Notation: string, sheetName?: stri
     return `"${sheetName}"!${range}`;
   }
 
-  return `'${sheetName.replace(/'/g, "''")}'!${range}`;
+  const escapedSheetName = sheetName.replace(/'/g, "''");
+
+  return `'${escapedSheetName}'!${range}`;
 }

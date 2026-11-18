@@ -2,7 +2,9 @@ import { requireValidSpreadsheetId } from "@/appsscript";
 import { IllegalArgumentException } from "@/exception";
 import { describe, expect, it } from "vitest";
 
-/** 44 characters, the usual shape of a Drive file id. */
+/**
+ * 44 characters, the usual shape of a Drive file id.
+ */
 const validId = "1AbCdEfGhIjKlMnOpQrStUvWxYz0123456789AbCdEfG";
 
 describe("requireValidSpreadsheetId", () => {

@@ -107,6 +107,64 @@ const used = new Set();
 
 let skipped = 0;
 
+/**
+ * Turns one example line into a test, or counts it as skipped when it cannot
+ * be checked.
+ */
+function addAssertion(name, line) {
+  const title = JSON.stringify(`${name}: ${line}`);
+
+  const thrown = line.match(THROWS);
+
+  const thrownArgs = thrown ? thrown[1].replace(/^[A-Za-z_$][\w$]*\(/, "").replace(/\)$/, "") : "";
+
+  if (thrown && !evaluable(thrownArgs)) {
+    skipped += 1;
+
+    return;
+  }
+
+  if (thrown) {
+    assertions.push(
+      `  it(${title}, () => {\n    expect(() => ${thrown[1]}).toThrow(${thrown[2]});\n  });`
+    );
+    used.add(thrown[2]);
+
+    return;
+  }
+
+  const result = line.match(RESULT);
+
+  if (!result) {
+    skipped += 1;
+
+    return;
+  }
+
+  const expected = parseExpected(result[2]);
+
+  const args = result[1].replace(/^[A-Za-z_$][\w$]*\(/, "").replace(/\)$/, "");
+
+  if (expected === null || !evaluable(args)) {
+    skipped += 1;
+
+    return;
+  }
+
+  // `requireX(value) // => value` documents identity, not a deep copy.
+  const call = result[1].match(/^([A-Za-z_$][\w$]*)\((.*)\)$/);
+
+  const identity = call && call[2].trim() === expected.trim();
+
+  assertions.push(
+    identity
+      ? `  it(${title}, () => {\n` +
+          `    const value = ${expected};\n` +
+          `    expect(${call[1]}(value)).toBe(value);\n  });`
+      : `  it(${title}, () => {\n    expect(${result[1]}).toStrictEqual(${expected});\n  });`
+  );
+}
+
 for (const file of readdirSync(CONTENT).sort()) {
   const content = JSON.parse(readFileSync(join(CONTENT, file), "utf8"));
 
@@ -116,62 +174,13 @@ for (const file of readdirSync(CONTENT).sort()) {
     const body = example.body ?? "";
 
     for (const block of body.matchAll(/```javascript\n([\s\S]*?)```/g)) {
-      for (const raw of block[1].split("\n")) {
-        const line = raw.trim();
+      const lines = block[1]
+        .split("\n")
+        .map((raw) => raw.trim())
+        .filter((line) => line && !line.startsWith("//"));
 
-        if (!line || line.startsWith("//")) {
-          continue;
-        }
-
-        const thrown = line.match(THROWS);
-
-        if (thrown && !evaluable(thrown[1].replace(/^[A-Za-z_$][\w$]*\(/, "").replace(/\)$/, ""))) {
-          skipped += 1;
-
-          continue;
-        }
-
-        if (thrown) {
-          assertions.push(
-            `  it(${JSON.stringify(`${name}: ${line}`)}, () => {\n` +
-              `    expect(() => ${thrown[1]}).toThrow(${thrown[2]});\n  });`
-          );
-          used.add(thrown[2]);
-
-          continue;
-        }
-
-        const result = line.match(RESULT);
-
-        if (!result) {
-          skipped += 1;
-
-          continue;
-        }
-
-        const expected = parseExpected(result[2]);
-
-        const args = result[1].replace(/^[A-Za-z_$][\w$]*\(/, "").replace(/\)$/, "");
-
-        if (expected === null || !evaluable(args)) {
-          skipped += 1;
-
-          continue;
-        }
-
-        // `requireX(value) // => value` documents identity, not a deep copy.
-        const call = result[1].match(/^([A-Za-z_$][\w$]*)\((.*)\)$/);
-
-        const identity = call && call[2].trim() === expected.trim();
-
-        assertions.push(
-          identity
-            ? `  it(${JSON.stringify(`${name}: ${line}`)}, () => {\n` +
-                `    const value = ${expected};\n` +
-                `    expect(${call[1]}(value)).toBe(value);\n  });`
-            : `  it(${JSON.stringify(`${name}: ${line}`)}, () => {\n` +
-                `    expect(${result[1]}).toStrictEqual(${expected});\n  });`
-        );
+      for (const line of lines) {
+        addAssertion(name, line);
       }
     }
   }

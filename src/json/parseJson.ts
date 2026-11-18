@@ -74,7 +74,7 @@ export function parseJson(value: string): object {
       token === "true" ||
       token === "false" ||
       token === "null" ||
-      /^-?\d+(\.\d+)?([eE][+-]?\d+)?$/.test(token) ||
+      /^-?\d+(?:\.\d+|)(?:[eE][+-]?\d+|)$/.test(token) ||
       quotedString.test(token);
 
     const tokens = [];
@@ -111,21 +111,19 @@ export function parseJson(value: string): object {
       }
 
       if (char === '"' || char === "'") {
-        if (isString) {
-          if (char === quoteType) {
-            isString = false;
-            currentToken += '"';
-            tokens.push(currentToken);
-            currentToken = "";
-          } else {
-            // A double quote inside a single-quoted string has to be escaped
-            // once the string is re-quoted with double quotes.
-            currentToken += char === '"' ? '\\"' : char;
-          }
-        } else {
+        if (!isString) {
           isString = true;
           quoteType = char;
           currentToken += '"';
+        } else if (char === quoteType) {
+          isString = false;
+          currentToken += '"';
+          tokens.push(currentToken);
+          currentToken = "";
+        } else {
+          // A double quote inside a single-quoted string has to be escaped
+          // once the string is re-quoted with double quotes.
+          currentToken += char === '"' ? '\\"' : char;
         }
       } else if (isString) {
         currentToken += char;
@@ -157,36 +155,36 @@ export function parseJson(value: string): object {
     let expectingKey = false;
 
     for (let i = 0; i < tokens.length; i++) {
-      const token = tokens[i];
+      const lexeme = tokens[i];
 
-      if (token === "{" || token === "[") {
-        correctedTokens.push(token);
-        expectingKey = token === "{";
-        expectingValue = token === "[";
-      } else if (token === "}" || token === "]") {
-        correctedTokens.push(token);
+      if (lexeme === "{" || lexeme === "[") {
+        correctedTokens.push(lexeme);
+        expectingKey = lexeme === "{";
+        expectingValue = lexeme === "[";
+      } else if (lexeme === "}" || lexeme === "]") {
+        correctedTokens.push(lexeme);
         expectingValue = false;
         expectingKey = false;
-      } else if (token === ":") {
-        correctedTokens.push(token);
+      } else if (lexeme === ":") {
+        correctedTokens.push(lexeme);
         expectingValue = true;
         expectingKey = false;
-      } else if (token === ",") {
-        correctedTokens.push(token);
+      } else if (lexeme === ",") {
+        correctedTokens.push(lexeme);
         expectingKey = correctedTokens[correctedTokens.length - 2] === "}";
         expectingValue = !expectingKey;
-      } else if (expectingKey && isValidKey(token)) {
-        correctedTokens.push(toKey(token));
+      } else if (expectingKey && isValidKey(lexeme)) {
+        correctedTokens.push(toKey(lexeme));
         expectingKey = false;
-      } else if (expectingValue && isValidValue(token)) {
-        correctedTokens.push(token);
+      } else if (expectingValue && isValidValue(lexeme)) {
+        correctedTokens.push(lexeme);
         expectingValue = false;
-      } else if (isValidKey(token)) {
-        correctedTokens.push(toKey(token));
-      } else if (isValidValue(token)) {
-        correctedTokens.push(token);
+      } else if (isValidKey(lexeme)) {
+        correctedTokens.push(toKey(lexeme));
+      } else if (isValidValue(lexeme)) {
+        correctedTokens.push(lexeme);
       } else {
-        throw new Error(`Invalid token: ${token}`);
+        throw new Error(`Invalid token: ${lexeme}`);
       }
     }
 

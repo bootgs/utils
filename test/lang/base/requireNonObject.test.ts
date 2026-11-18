@@ -17,7 +17,7 @@ describe("requireNonObject", () => {
     });
 
     it("should accept functions", () => {
-      const fn = () => 1;
+      const fn = (): number => 1;
 
       expect(requireNonObject(fn)).toBe(fn);
       expect(requireNonObject(class Sample {})).toBeTypeOf("function");

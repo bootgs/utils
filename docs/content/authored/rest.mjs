@@ -1,10 +1,14 @@
-/** Prose for the remaining functions and classes. */
+/**
+ * Prose for the remaining functions and classes.
+ */
 
 import { code, entry } from "./_entry.mjs";
 
 const NONE = { en: "", ru: "", uk: "", de: "", fr: "" };
 
-/** A shorter form for entries that need one paragraph and no parameters table beyond the obvious. */
+/**
+ * A shorter form for entries that need one paragraph and no parameters table beyond the obvious.
+ */
 function simple({
   seeAlso,
   examples,

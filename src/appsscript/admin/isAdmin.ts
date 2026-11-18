@@ -34,6 +34,8 @@ export function isAdmin(): boolean {
 
     return !!user.isAdmin;
   } catch (err: unknown) {
+    // The error is swallowed into `false`; the Apps Script log is its only trace.
+    // eslint-disable-next-line no-console
     console.warn(`[Error]: ${err}`);
   }
 

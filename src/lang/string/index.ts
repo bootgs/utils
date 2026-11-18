@@ -24,6 +24,7 @@ export * from "./requireNonEmptyString";
 export * from "./nonEmptyString";
 
 export * from "./requireValidEmail";
+
 export * from "./requireValidLocale";
 
 export * from "./requireValidSlug";

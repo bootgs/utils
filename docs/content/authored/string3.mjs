@@ -1,8 +1,12 @@
-/** Prose for the remaining string helpers: escaping, templating and versions. */
+/**
+ * Prose for the remaining string helpers: escaping, templating and versions.
+ */
 
 const L = ["en", "ru", "uk", "de", "fr"];
 
-/** Assembles one entry from a table keyed by field, then by language. */
+/**
+ * Assembles one entry from a table keyed by field, then by language.
+ */
 export function entry({
   examples,
   seeAlso,

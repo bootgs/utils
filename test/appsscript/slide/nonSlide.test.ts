@@ -1,13 +1,17 @@
 import { nonSlide } from "@/appsscript";
 import { describe, expect, it } from "vitest";
 
-/** A stand-in carrying the two methods `isSlide` probes for. */
+/**
+ * A stand-in carrying the two methods `isSlide` probes for.
+ */
 const slideMock = {
   getObjectId: (): string => "p1",
   getPageElementById: (): unknown => undefined
 };
 
-/** A `Presentation` carries a different pair of methods. */
+/**
+ * A `Presentation` carries a different pair of methods.
+ */
 const presentationMock = {
   getId: (): string => "abc",
   getSlides: (): unknown[] => []

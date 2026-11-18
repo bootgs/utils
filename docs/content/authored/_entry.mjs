@@ -1,4 +1,6 @@
-/** Assembles one prose entry from a table keyed by field, then by language. */
+/**
+ * Assembles one prose entry from a table keyed by field, then by language.
+ */
 
 const LANGUAGE_CODES = ["en", "ru", "uk", "de", "fr"];
 
@@ -28,7 +30,9 @@ export function entry({
   return result;
 }
 
-/** Short-hand for a value that is only described in one sentence per language. */
+/**
+ * Short-hand for a value that is only described in one sentence per language.
+ */
 export function code(body) {
   return [{ body: ["```javascript", body, "```"].join("\n") }];
 }

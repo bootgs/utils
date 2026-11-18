@@ -2,6 +2,7 @@ import { nonGridRangeContainedIn } from "@/appsscript";
 import { describe, expect, it } from "vitest";
 
 const outer = { startRowIndex: 0, endRowIndex: 10, startColumnIndex: 0, endColumnIndex: 5 };
+
 const inner = { startRowIndex: 2, endRowIndex: 4, startColumnIndex: 1, endColumnIndex: 3 };
 
 describe("nonGridRangeContainedIn", () => {

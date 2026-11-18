@@ -32,12 +32,13 @@ export function isGridRangeSameDimensions(range1: GridRange, range2: GridRange):
   const getDimensions = (gridRange: GridRange): { height: number; width: number } | null => {
     const { startRowIndex, endRowIndex, startColumnIndex, endColumnIndex } = gridRange;
 
-    if (
+    const hasMissingBound =
       isNil(startRowIndex) ||
       isNil(endRowIndex) ||
       isNil(startColumnIndex) ||
-      isNil(endColumnIndex)
-    ) {
+      isNil(endColumnIndex);
+
+    if (hasMissingBound) {
       return null;
     }
 

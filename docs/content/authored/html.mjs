@@ -1,4 +1,6 @@
-/** Prose for the HTML and XML helpers. */
+/**
+ * Prose for the HTML and XML helpers.
+ */
 
 import { code, entry } from "./_entry.mjs";
 

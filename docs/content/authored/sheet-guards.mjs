@@ -1,4 +1,6 @@
-/** Prose for the two-argument grid-range guards, the admin family and the leftovers. */
+/**
+ * Prose for the two-argument grid-range guards, the admin family and the leftovers.
+ */
 
 import { code, entry } from "./_entry.mjs";
 

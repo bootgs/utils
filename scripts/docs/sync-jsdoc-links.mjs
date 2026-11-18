@@ -89,9 +89,11 @@ function referencesOf(text) {
       continue;
     }
 
+    const slug = kebab(klass);
+
     urls.set(
       `Class ${klass}`,
-      `https://developers.google.com/apps-script/reference/${segment}/${kebab(klass)}`
+      `https://developers.google.com/apps-script/reference/${segment}/${slug}`
     );
   }
 
@@ -103,15 +105,18 @@ function isExported(node) {
 }
 
 function nameOf(statement) {
-  if ((ts.isFunctionDeclaration(statement) || ts.isClassDeclaration(statement)) && statement.name) {
+  const isFunctionOrClass = ts.isFunctionDeclaration(statement) || ts.isClassDeclaration(statement);
+
+  if (isFunctionOrClass && statement.name) {
     return statement.name.getText();
   }
 
-  if (
+  const isTypeLike =
     ts.isInterfaceDeclaration(statement) ||
     ts.isTypeAliasDeclaration(statement) ||
-    ts.isEnumDeclaration(statement)
-  ) {
+    ts.isEnumDeclaration(statement);
+
+  if (isTypeLike) {
     return statement.name.getText();
   }
 
@@ -142,7 +147,9 @@ for (const file of listSources(SRC).sort()) {
 
     const blocks = statement.jsDoc ?? [];
 
-    if (!name || blocks.length === 0 || documented.has(name)) {
+    const isUndocumented = !name || blocks.length === 0;
+
+    if (isUndocumented || documented.has(name)) {
       continue;
     }
 
@@ -155,7 +162,9 @@ for (const file of listSources(SRC).sort()) {
 
     // Writerside publishes every page in lower case, and GitHub Pages is
     // case-sensitive, so the link has to be lower case or it 404s.
-    const page = `${SITE}/${name.toLowerCase()}.html`;
+    const slug = name.toLowerCase();
+
+    const page = `${SITE}/${slug}.html`;
 
     const wanted = new Map([[`${name} on the documentation site`, page]]);
 
@@ -265,7 +274,9 @@ if (CHECK && stale.length > 0) {
   }
 
   if (stale.length > 20) {
-    console.error(`  … and ${stale.length - 20} more`);
+    const remaining = stale.length - 20;
+
+    console.error(`  … and ${remaining} more`);
   }
 
   process.exit(1);

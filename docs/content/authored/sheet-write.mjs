@@ -1,4 +1,6 @@
-/** Prose for the row and column operations on a sheet. */
+/**
+ * Prose for the row and column operations on a sheet.
+ */
 
 import { code, entry } from "./_entry.mjs";
 

@@ -1,7 +1,9 @@
 import { nonTextStyle } from "@/appsscript";
 import { describe, expect, it } from "vitest";
 
-/** Apps Script service objects report their class name from `toString()`. */
+/**
+ * Apps Script service objects report their class name from `toString()`.
+ */
 const textStyleMock = { toString: (): string => "TextStyle" };
 
 describe("nonTextStyle", () => {

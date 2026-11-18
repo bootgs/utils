@@ -108,11 +108,9 @@ export function prependColumns(
 
       // Inserting at or before the boundary pushes it along with the data;
       // put it back when the caller asked to prepend before it.
-      if (
-        !effectiveOptions.afterFrozenColumns &&
-        frozenColumns > 0 &&
-        columnPosition <= frozenColumns
-      ) {
+      const insertedInFrozen = frozenColumns > 0 && columnPosition <= frozenColumns;
+
+      if (!effectiveOptions.afterFrozenColumns && insertedInFrozen) {
         sheet.setFrozenColumns(frozenColumns);
       }
     }

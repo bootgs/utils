@@ -56,8 +56,7 @@ function rangeMock(
   sheet: GoogleAppsScript.Spreadsheet.Sheet,
   row: number,
   column: number,
-  numRows = 10,
-  numColumns = 4
+  { numRows = 10, numColumns = 4 }: { numRows?: number; numColumns?: number } = {}
 ): GoogleAppsScript.Spreadsheet.Range {
   return {
     toString: () => "Range",

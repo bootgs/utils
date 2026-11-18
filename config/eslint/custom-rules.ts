@@ -1,9 +1,11 @@
+import stylistic from "@stylistic/eslint-plugin";
 import jsdoc from "eslint-plugin-jsdoc";
 
 export default {
   files: ["**/*.{js,mjs,cjs,ts,tsx}"],
   plugins: {
-    jsdoc
+    jsdoc,
+    "@stylistic": stylistic
   },
   rules: {
     "@typescript-eslint/no-unused-vars": "warn",
@@ -68,14 +70,21 @@ export default {
         next: "*"
       }
     ],
-    "lines-around-comment": [
+    // The @stylistic variant understands TypeScript bodies (interfaces,
+    // enums, type literals, modules), so it does not fight Prettier there.
+    "lines-around-comment": "off",
+    "@stylistic/lines-around-comment": [
       "warn",
       {
         beforeBlockComment: true,
         allowBlockStart: true,
         allowObjectStart: true,
         allowArrayStart: true,
-        allowClassStart: true
+        allowClassStart: true,
+        allowInterfaceStart: true,
+        allowEnumStart: true,
+        allowTypeStart: true,
+        allowModuleStart: true
       }
     ],
     "max-depth": ["warn", 4],

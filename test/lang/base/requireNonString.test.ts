@@ -22,7 +22,6 @@ describe("requireNonString", () => {
     });
 
     it("should accept a boxed String object", () => {
-      // eslint-disable-next-line no-new-wrappers
       const boxed = new String("abc");
 
       expect(requireNonString(boxed)).toBe(boxed);

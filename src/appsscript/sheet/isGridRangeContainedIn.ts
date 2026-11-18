@@ -45,10 +45,13 @@ export function isGridRangeContainedIn(
       : true;
 
   if (!sheetIdsMatch || !sheetNamesMatch) {
-    if (
-      (containerGridRange.sheetId != null && gridRange.sheetId != null && !sheetIdsMatch) ||
-      (containerGridRange.sheetName != null && gridRange.sheetName != null && !sheetNamesMatch)
-    ) {
+    const sheetIdsConflict =
+      containerGridRange.sheetId != null && gridRange.sheetId != null && !sheetIdsMatch;
+
+    const sheetNamesConflict =
+      containerGridRange.sheetName != null && gridRange.sheetName != null && !sheetNamesMatch;
+
+    if (sheetIdsConflict || sheetNamesConflict) {
       return false;
     }
   }

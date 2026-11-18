@@ -1,7 +1,9 @@
 import { nonUi } from "@/appsscript";
 import { describe, expect, it } from "vitest";
 
-/** `isUi` identifies its target by the string an Apps Script `Ui` reports. */
+/**
+ * `isUi` identifies its target by the string an Apps Script `Ui` reports.
+ */
 const uiMock = {
   toString: (): string => "Ui"
 };
