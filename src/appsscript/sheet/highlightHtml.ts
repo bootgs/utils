@@ -190,17 +190,20 @@ export function highlightHtml(
 
       const startIndex = match.index;
 
-      if (fullMatchText.startsWith("<!--") && fullMatchText.endsWith("-->")) {
+      const isComment = fullMatchText.startsWith("<!--") && fullMatchText.endsWith("-->");
+
+      const isTag =
+        fullMatchText.startsWith("<") ||
+        fullMatchText.startsWith("</") ||
+        fullMatchText.endsWith(">");
+
+      if (isComment) {
         richTextBuilder.setTextStyle(
           startIndex,
           startIndex + fullMatchText.length,
           textStyles.comment
         );
-      } else if (
-        fullMatchText.startsWith("<") ||
-        fullMatchText.startsWith("</") ||
-        fullMatchText.endsWith(">")
-      ) {
+      } else if (isTag) {
         richTextBuilder.setTextStyle(
           match.index,
           match.index + fullMatchText.length,

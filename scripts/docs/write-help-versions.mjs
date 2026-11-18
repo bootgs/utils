@@ -53,8 +53,10 @@ const versions = [
   }))
 ];
 
-writeFileSync(join(dir, "help-versions.json"), `${JSON.stringify(versions, null, 2)}\n`);
+const versionsJson = JSON.stringify(versions, null, 2);
 
-console.log(
-  `help-versions.json: ${versions.length} version(s) — ${versions.map((entry) => entry.version).join(", ")}`
-);
+writeFileSync(join(dir, "help-versions.json"), `${versionsJson}\n`);
+
+const versionList = versions.map((entry) => entry.version).join(", ");
+
+console.log(`help-versions.json: ${versions.length} version(s) — ${versionList}`);

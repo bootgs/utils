@@ -10,7 +10,7 @@
 
 [English](../../README.md) | [Українська](README.uk.md) | [Русский](README.ru.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt.md) | [Italiano](README.it.md) | [Nederlands](README.nl.md) | [Polski](README.pl.md) | [Čeština](README.cs.md) | [Türkçe](README.tr.md) | [العربية](README.ar.md) | [Bahasa Indonesia](README.id.md) | [Tiếng Việt](README.vi.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | **简体中文** | [繁體中文](README.zh-TW.md)
 
-> 本译文借助 AI 根据 2.1.1 版本的 [README.md](../../README.md) 翻译而成。以英文版 README 为准；欢迎指正——请参阅 [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations)。
+> 本译文借助 AI 根据 3.0.0 版本的 [README.md](../../README.md) 翻译而成。以英文版 README 为准；欢迎指正——请参阅 [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations)。
 
 # Google Apps Script™ 实用工具库
 
@@ -19,6 +19,8 @@
   <a href="https://github.com/bootgs/utils/actions/workflows/codeql.yml"><img src="https://github.com/bootgs/utils/actions/workflows/codeql.yml/badge.svg?branch=main" alt="CodeQL"></a>
   <a href="https://scorecard.dev/viewer/?uri=github.com/bootgs/utils"><img src="https://api.scorecard.dev/projects/github.com/bootgs/utils/badge" alt="OpenSSF Scorecard"></a>
   <a href="https://api.reuse.software/info/github.com/bootgs/utils"><img src="https://api.reuse.software/badge/github.com/bootgs/utils" alt="REUSE status"></a>
+  <a href="https://www.bestpractices.dev/projects/16865"><img src="https://www.bestpractices.dev/projects/16865/badge" alt="OpenSSF Best Practices"></a>
+  <a href="https://www.bestpractices.dev/projects/16865"><img src="https://www.bestpractices.dev/projects/16865/baseline" alt="OpenSSF Baseline"></a>
 </p>
 
 <p align="left">

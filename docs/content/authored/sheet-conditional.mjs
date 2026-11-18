@@ -1,4 +1,6 @@
-/** Prose for the conditional row and column operations, and the lookups. */
+/**
+ * Prose for the conditional row and column operations, and the lookups.
+ */
 
 import { code, entry } from "./_entry.mjs";
 

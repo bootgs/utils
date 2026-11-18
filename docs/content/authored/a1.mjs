@@ -1,4 +1,6 @@
-/** Prose for the A1-notation and column-letter helpers. */
+/**
+ * Prose for the A1-notation and column-letter helpers.
+ */
 
 import { code, entry } from "./_entry.mjs";
 

@@ -1,4 +1,6 @@
-/** Prose for the remaining string helpers. */
+/**
+ * Prose for the remaining string helpers.
+ */
 
 const CASE_OPTION = {
   en: "`trim` trims the string and collapses runs of whitespace into single spaces.",

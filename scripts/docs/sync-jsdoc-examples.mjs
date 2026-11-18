@@ -134,7 +134,9 @@ for (const file of listSources(SRC).sort()) {
 
     const blocks = statement.jsDoc ?? [];
 
-    if (!name || blocks.length === 0 || documented.has(name)) {
+    const isUndocumented = !name || blocks.length === 0;
+
+    if (isUndocumented || documented.has(name)) {
       continue;
     }
 
@@ -217,7 +219,9 @@ if (CHECK && stale.length > 0) {
   }
 
   if (stale.length > 20) {
-    console.error(`  … and ${stale.length - 20} more`);
+    const remaining = stale.length - 20;
+
+    console.error(`  … and ${remaining} more`);
   }
 
   process.exit(1);

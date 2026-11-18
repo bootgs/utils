@@ -107,11 +107,9 @@ export function prependRows(
 
       // Inserting at or above the boundary pushes it along with the data;
       // put it back when the caller asked to prepend before it.
-      if (
-        effectiveOptions.afterFrozenRows === false &&
-        frozenRows > 0 &&
-        rowPosition <= frozenRows
-      ) {
+      const insertedInFrozen = frozenRows > 0 && rowPosition <= frozenRows;
+
+      if (effectiveOptions.afterFrozenRows === false && insertedInFrozen) {
         sheet.setFrozenRows(frozenRows);
       }
     }

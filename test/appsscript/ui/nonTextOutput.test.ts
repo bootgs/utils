@@ -1,7 +1,9 @@
 import { nonTextOutput } from "@/appsscript";
 import { describe, expect, it } from "vitest";
 
-/** A stand-in carrying the two methods `isTextOutput` probes for. */
+/**
+ * A stand-in carrying the two methods `isTextOutput` probes for.
+ */
 const textOutputMock = {
   getMimeType: (): unknown => undefined,
   getContent: (): string => ""

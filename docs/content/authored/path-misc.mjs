@@ -1,4 +1,6 @@
-/** Prose for the path helpers and the odds and ends. */
+/**
+ * Prose for the path helpers and the odds and ends.
+ */
 
 import { code, entry } from "./_entry.mjs";
 

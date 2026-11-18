@@ -1,13 +1,19 @@
 // SPDX-License-Identifier: Apache-2.0
 import { isString } from "../../lang";
 
-/** Google Sheets rejects these characters anywhere in a sheet name. */
+/**
+ * Google Sheets rejects these characters anywhere in a sheet name.
+ */
 const FORBIDDEN_CHARACTERS = /[\\/?*[\]]/;
 
-/** Google Sheets caps a sheet name at 100 characters. */
+/**
+ * Google Sheets caps a sheet name at 100 characters.
+ */
 const MAX_LENGTH = 100;
 
-/** Google Sheets reserves this name, regardless of case. */
+/**
+ * Google Sheets reserves this name, regardless of case.
+ */
 const RESERVED_NAME = "history";
 
 /**

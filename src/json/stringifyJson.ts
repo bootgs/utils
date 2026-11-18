@@ -24,7 +24,9 @@ export function stringifyJson(value: unknown): string {
   }
 
   if (Array.isArray(value)) {
-    return `[${value.map((element) => stringifyJson(element)).join(",")}]`;
+    const elements = value.map((element) => stringifyJson(element)).join(",");
+
+    return `[${elements}]`;
   }
 
   const keys = Object.keys(value).sort();
@@ -37,5 +39,7 @@ export function stringifyJson(value: unknown): string {
     return `${stringifiedKey}:${stringifiedValue}`;
   });
 
-  return `{${pairs.join(",")}}`;
+  const members = pairs.join(",");
+
+  return `{${members}}`;
 }

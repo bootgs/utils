@@ -10,7 +10,7 @@
 
 [English](../../README.md) | [Українська](README.uk.md) | [Русский](README.ru.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt.md) | **Italiano** | [Nederlands](README.nl.md) | [Polski](README.pl.md) | [Čeština](README.cs.md) | [Türkçe](README.tr.md) | [العربية](README.ar.md) | [Bahasa Indonesia](README.id.md) | [Tiếng Việt](README.vi.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-TW.md)
 
-> Questa traduzione è stata realizzata con l'aiuto dell'IA a partire da [README.md](../../README.md) per la versione 2.1.1. La versione di riferimento è il README in inglese; le correzioni sono benvenute — consulta [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
+> Questa traduzione è stata realizzata con l'aiuto dell'IA a partire da [README.md](../../README.md) per la versione 3.0.0. La versione di riferimento è il README in inglese; le correzioni sono benvenute — consulta [CONTRIBUTING.md](../../CONTRIBUTING.md#readme-translations).
 
 # Utility per Google Apps Script™
 
@@ -19,6 +19,8 @@
   <a href="https://github.com/bootgs/utils/actions/workflows/codeql.yml"><img src="https://github.com/bootgs/utils/actions/workflows/codeql.yml/badge.svg?branch=main" alt="CodeQL"></a>
   <a href="https://scorecard.dev/viewer/?uri=github.com/bootgs/utils"><img src="https://api.scorecard.dev/projects/github.com/bootgs/utils/badge" alt="OpenSSF Scorecard"></a>
   <a href="https://api.reuse.software/info/github.com/bootgs/utils"><img src="https://api.reuse.software/badge/github.com/bootgs/utils" alt="REUSE status"></a>
+  <a href="https://www.bestpractices.dev/projects/16865"><img src="https://www.bestpractices.dev/projects/16865/badge" alt="OpenSSF Best Practices"></a>
+  <a href="https://www.bestpractices.dev/projects/16865"><img src="https://www.bestpractices.dev/projects/16865/baseline" alt="OpenSSF Baseline"></a>
 </p>
 
 <p align="left">

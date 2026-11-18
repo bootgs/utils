@@ -167,7 +167,9 @@ export function deleteRowsByConditional(
 
   const selected: number[] = selectRows(values, predicate, headerRow, range.getRow());
 
-  if (!within && selected.length > 0 && selected.length === sheet.getMaxRows()) {
+  const deletesFromWholeSheet = !within && selected.length > 0;
+
+  if (deletesFromWholeSheet && selected.length === sheet.getMaxRows()) {
     throw new IllegalArgumentException(
       "Refusing to delete every row: a sheet must keep at least one."
     );

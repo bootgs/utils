@@ -102,6 +102,7 @@ export * from "./requireRegExp";
 export * from "./requireScalar";
 
 export * from "./requireString";
+
 export * from "./requireSymbol";
 
 export * from "./requireUndefined";
@@ -125,6 +126,7 @@ export * from "./requireNonNil";
 export * from "./requireNonNull";
 
 export * from "./requireState";
+
 export * from "./requireNonNumber";
 
 export * from "./requireNonNumberLike";

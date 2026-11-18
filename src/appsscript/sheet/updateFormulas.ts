@@ -159,16 +159,14 @@ export function updateFormulas(
   const before: string[][] = range.getFormulas();
 
   const cells: Cell[][] = before.map((row: string[], rowIndex: number): Cell[] =>
-    row.map(
-      (formula: string, columnIndex: number): Cell => ({
-        before: formula,
-        // An empty string is a cell holding a value, not a formula. Leave it.
-        after:
-          formula === ""
-            ? formula
-            : transform(formula, firstRow + rowIndex, firstColumn + columnIndex)
-      })
-    )
+    row.map((formula: string, columnIndex: number): Cell => ({
+      before: formula,
+      // An empty string is a cell holding a value, not a formula. Leave it.
+      after:
+        formula === ""
+          ? formula
+          : transform(formula, firstRow + rowIndex, firstColumn + columnIndex)
+    }))
   );
 
   let changed: number = 0;

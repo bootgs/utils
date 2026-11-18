@@ -11,6 +11,10 @@ export default {
     security
   },
   rules: {
-    ...security.configs.recommended.rules
+    ...security.configs.recommended.rules,
+
+    // Flags every `obj[key]`. The keys here come from code, not from request
+    // input, and CodeQL already covers prototype pollution.
+    "security/detect-object-injection": "off"
   }
 };

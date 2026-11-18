@@ -5,6 +5,26 @@ import { isRange } from "./isRange";
 import { isSheet } from "./isSheet";
 
 /**
+ * Returns how many leading columns of the cells hold data: the position of
+ * the rightmost non-blank cell across all rows, or 0 when every cell is blank.
+ */
+function countFilledColumns(cells: unknown[][]): number {
+  let filled = 0;
+
+  for (const row of cells) {
+    for (let column = row.length; column > filled; column--) {
+      if (!isBlank(row[column - 1])) {
+        filled = column;
+
+        break;
+      }
+    }
+  }
+
+  return filled;
+}
+
+/**
  * A cell counts as data unless it is empty: `0` and `false` are values a caller put there.
  */
 function isBlank(value: unknown): boolean {
@@ -106,19 +126,7 @@ export function appendColumns(
     let columnPosition: number;
 
     if (within) {
-      const cells = within.getValues();
-
-      let filled = 0;
-
-      for (const row of cells) {
-        for (let column = row.length; column > filled; column--) {
-          if (!isBlank(row[column - 1])) {
-            filled = column;
-
-            break;
-          }
-        }
-      }
+      const filled = countFilledColumns(within.getValues());
 
       columnPosition = within.getColumn() + filled - 1;
     } else {

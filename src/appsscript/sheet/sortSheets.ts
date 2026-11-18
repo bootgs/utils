@@ -58,6 +58,8 @@ export function sortSheets(
       }
     });
   } catch (err: unknown) {
+    // The error is swallowed; the Apps Script log is its only trace.
+    // eslint-disable-next-line no-console
     console.error(`Failed to sort sheets: ${err}`);
   }
 }

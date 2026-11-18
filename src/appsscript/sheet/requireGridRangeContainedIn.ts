@@ -3,13 +3,23 @@ import { InvalidGridRangeException } from "../../exception";
 import { isGridRangeContainedIn } from "./isGridRangeContainedIn";
 import type { GridRange } from "./types";
 
-/** Renders a grid range as `rows a–b, columns c–d`, leaving open bounds as `…`. */
+/**
+ * Renders a grid range as `rows a–b, columns c–d`, leaving open bounds as `…`.
+ */
 function describeBounds(gridRange: GridRange): string {
   const { startRowIndex, endRowIndex, startColumnIndex, endColumnIndex } = gridRange ?? {};
 
   const bound = (value: number | null | undefined): string => (value == null ? "…" : `${value}`);
 
-  return `rows ${bound(startRowIndex)}–${bound(endRowIndex)}, columns ${bound(startColumnIndex)}–${bound(endColumnIndex)}`;
+  const startRow = bound(startRowIndex);
+
+  const endRow = bound(endRowIndex);
+
+  const startColumn = bound(startColumnIndex);
+
+  const endColumn = bound(endColumnIndex);
+
+  return `rows ${startRow}–${endRow}, columns ${startColumn}–${endColumn}`;
 }
 
 /**
@@ -48,10 +58,11 @@ export function requireGridRangeContainedIn(
   message?: string
 ): GridRange {
   if (!isGridRangeContainedIn(gridRange, containerGridRange)) {
-    throw new InvalidGridRangeException(
-      message ??
-        `Expected ${describeBounds(gridRange)} to lie within ${describeBounds(containerGridRange)}.`
-    );
+    const inner = describeBounds(gridRange);
+
+    const outer = describeBounds(containerGridRange);
+
+    throw new InvalidGridRangeException(message ?? `Expected ${inner} to lie within ${outer}.`);
   }
 
   return gridRange;

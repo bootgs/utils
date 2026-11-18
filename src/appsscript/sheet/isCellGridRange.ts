@@ -30,12 +30,13 @@ export function isCellGridRange(gridRange: GridRange): boolean {
 
   const { startRowIndex, endRowIndex, startColumnIndex, endColumnIndex } = gridRange;
 
-  if (
+  const hasAllBounds =
     nonNil(startRowIndex) &&
     nonNil(endRowIndex) &&
     nonNil(startColumnIndex) &&
-    nonNil(endColumnIndex)
-  ) {
+    nonNil(endColumnIndex);
+
+  if (hasAllBounds) {
     const isSingleRow = endRowIndex - startRowIndex === 1;
 
     const isSingleColumn = endColumnIndex - startColumnIndex === 1;

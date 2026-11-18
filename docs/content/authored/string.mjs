@@ -1,4 +1,6 @@
-/** Prose for the string helpers. Example code is shared by every language. */
+/**
+ * Prose for the string helpers. Example code is shared by every language.
+ */
 
 export const FUNCTIONS = {
   toCamelCase: {

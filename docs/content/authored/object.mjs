@@ -1,4 +1,6 @@
-/** Prose for the object helpers and the JSON pair. */
+/**
+ * Prose for the object helpers and the JSON pair.
+ */
 
 import { code, entry } from "./_entry.mjs";
 

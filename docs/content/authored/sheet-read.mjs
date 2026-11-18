@@ -1,4 +1,6 @@
-/** Prose for reading a sheet, its schema and its formulas. */
+/**
+ * Prose for reading a sheet, its schema and its formulas.
+ */
 
 import { code, entry } from "./_entry.mjs";
 

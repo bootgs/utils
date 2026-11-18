@@ -110,7 +110,9 @@ describe("convertRichTextToMarkdown", () => {
     ];
 
     for (const text of cases) {
-      it(`should return the original text for ${JSON.stringify(text)}`, () => {
+      const quoted = JSON.stringify(text);
+
+      it(`should return the original text for ${quoted}`, () => {
         expect(convertRichTextToMarkdown(convertMarkdownToRichText(text))).toBe(text);
       });
     }

@@ -1,4 +1,6 @@
-/** Prose for the types, interfaces and classes the package exports. */
+/**
+ * Prose for the types, interfaces and classes the package exports.
+ */
 
 import { code, entry } from "./_entry.mjs";
 

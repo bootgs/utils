@@ -46,7 +46,9 @@ function pagesOf(dir, base = dir) {
     const full = join(dir, entry);
 
     if (statSync(full).isDirectory()) {
-      if (SKIP.has(entry) || (dir === base && CODES.has(entry))) {
+      const isLanguageRoot = dir === base && CODES.has(entry);
+
+      if (SKIP.has(entry) || isLanguageRoot) {
         continue;
       }
 
@@ -90,13 +92,19 @@ function injections(language) {
  * that runs none, both still see every translation.
  */
 function languageRow(language, page, present) {
-  const links = present.map((other) =>
-    other === language
-      ? `<span aria-current="true" style="opacity:0.6">${other.name}</span>`
-      : `<a href="${urlOf(other, page)}" hreflang="${other.code}">${other.name}</a>`
-  );
+  const links = present.map((other) => {
+    if (other === language) {
+      return `<span aria-current="true" style="opacity:0.6">${other.name}</span>`;
+    }
 
-  return `<nav class="asu-languages" aria-label="${language.strings.language}" style="margin:0 0 24px;font-size:13px;line-height:1.6;opacity:0.85">${links.join(' <span aria-hidden="true">·</span> ')}</nav>`;
+    const href = urlOf(other, page);
+
+    return `<a href="${href}" hreflang="${other.code}">${other.name}</a>`;
+  });
+
+  const row = links.join(' <span aria-hidden="true">·</span> ');
+
+  return `<nav class="asu-languages" aria-label="${language.strings.language}" style="margin:0 0 24px;font-size:13px;line-height:1.6;opacity:0.85">${row}</nav>`;
 }
 
 const pages = pagesOf(root);
@@ -121,10 +129,11 @@ for (const page of pages) {
   }
 
   const alternates = present
-    .map(
-      (language) =>
-        `<link rel="alternate" hreflang="${language.code}" href="${urlOf(language, page)}"/>`
-    )
+    .map((language) => {
+      const href = urlOf(language, page);
+
+      return `<link rel="alternate" hreflang="${language.code}" href="${href}"/>`;
+    })
     .join("\n    ");
 
   const xDefault = `<link rel="alternate" hreflang="x-default" href="${SITE}/${page}"/>`;
@@ -143,13 +152,25 @@ for (const page of pages) {
     const injected = injections(language);
 
     if (injected.head && !html.includes("SoftwareSourceCode")) {
-      html = `${html.slice(0, html.indexOf("</head>"))}${injected.head}\n${html.slice(html.indexOf("</head>"))}`;
+      const headEnd = html.indexOf("</head>");
+
+      const beforeHead = html.slice(0, headEnd);
+
+      const fromHead = html.slice(headEnd);
+
+      html = `${beforeHead}${injected.head}\n${fromHead}`;
     }
 
     if (!html.includes('rel="alternate" hreflang=')) {
-      const canonical = `<link rel="canonical" href="${urlOf(language, page)}"/>`;
+      const href = urlOf(language, page);
 
-      html = `${html.slice(0, at)}    ${canonical}\n    ${alternates}\n    ${xDefault}\n${html.slice(at)}`;
+      const canonical = `<link rel="canonical" href="${href}"/>`;
+
+      const beforeHead = html.slice(0, at);
+
+      const fromHead = html.slice(at);
+
+      html = `${beforeHead}    ${canonical}\n    ${alternates}\n    ${xDefault}\n${fromHead}`;
       linked += 1;
     }
 
@@ -167,7 +188,13 @@ for (const page of pages) {
       if (article) {
         const at = html.indexOf(article[0]) + article[0].length;
 
-        html = `${html.slice(0, at)}${languageRow(language, page, present)}${html.slice(at)}`;
+        const row = languageRow(language, page, present);
+
+        const before = html.slice(0, at);
+
+        const after = html.slice(at);
+
+        html = `${before}${row}${after}`;
       }
     }
 
@@ -182,7 +209,11 @@ for (const page of pages) {
       const at = article === -1 ? html.lastIndexOf("</body>") : article;
 
       if (at !== -1) {
-        html = `${html.slice(0, at)}${notice}\n${html.slice(at)}`;
+        const before = html.slice(0, at);
+
+        const after = html.slice(at);
+
+        html = `${before}${notice}\n${after}`;
       }
     }
 
@@ -200,12 +231,15 @@ const sitemap = [
 for (const { page, present } of entries) {
   for (const language of present) {
     sitemap.push("  <url>");
-    sitemap.push(`    <loc>${urlOf(language, page)}</loc>`);
+
+    const loc = urlOf(language, page);
+
+    sitemap.push(`    <loc>${loc}</loc>`);
 
     for (const other of present) {
-      sitemap.push(
-        `    <xhtml:link rel="alternate" hreflang="${other.code}" href="${urlOf(other, page)}"/>`
-      );
+      const href = urlOf(other, page);
+
+      sitemap.push(`    <xhtml:link rel="alternate" hreflang="${other.code}" href="${href}"/>`);
     }
 
     sitemap.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/${page}"/>`);

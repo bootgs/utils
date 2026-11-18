@@ -22,7 +22,7 @@ describe("requireNonScalar", () => {
     });
 
     it("should accept functions", () => {
-      const fn = () => 1;
+      const fn = (): number => 1;
 
       expect(requireNonScalar(fn)).toBe(fn);
     });
