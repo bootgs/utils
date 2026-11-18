@@ -1,7 +1,9 @@
 import { nonHtmlOutput } from "@/appsscript";
 import { describe, expect, it } from "vitest";
 
-/** A stand-in carrying the three methods `isHtmlOutput` probes for. */
+/**
+ * A stand-in carrying the three methods `isHtmlOutput` probes for.
+ */
 const htmlOutputMock = {
   getContent: (): string => "",
   setTitle: (): unknown => undefined,
@@ -21,7 +23,9 @@ describe("nonHtmlOutput", () => {
 
   describe("Incorrect input data", () => {
     it("should return true when any probed method is missing", () => {
-      const { setTitle: _omitted, ...withoutSetTitle } = htmlOutputMock;
+      const withoutSetTitle: Partial<typeof htmlOutputMock> = { ...htmlOutputMock };
+
+      delete withoutSetTitle.setTitle;
 
       expect(nonHtmlOutput(withoutSetTitle)).toBe(true);
       expect(nonHtmlOutput({ getContent: (): string => "" })).toBe(true);

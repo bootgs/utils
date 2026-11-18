@@ -45,9 +45,7 @@ describe("isScalar", () => {
     });
 
     it("should return false for boxed primitives", () => {
-      // eslint-disable-next-line no-new-wrappers
       expect(isScalar(new String("abc"))).toBe(false);
-      // eslint-disable-next-line no-new-wrappers
       expect(isScalar(new Number(1))).toBe(false);
     });
   });

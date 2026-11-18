@@ -26,7 +26,6 @@ import {
   mkdirSync,
   readdirSync,
   readFileSync,
-  rmSync,
   statSync,
   writeFileSync
 } from "node:fs";
@@ -164,11 +163,19 @@ function commentToText(comment) {
   }
 
   return comment
-    .map((part) =>
-      ts.isJSDocLink(part) || ts.isJSDocLinkCode(part) || ts.isJSDocLinkPlain(part)
-        ? `{@link ${part.name?.getText() ?? ""}${part.text ?? ""}}`
-        : part.text
-    )
+    .map((part) => {
+      const isLink = ts.isJSDocLink(part) || ts.isJSDocLinkCode(part) || ts.isJSDocLinkPlain(part);
+
+      if (!isLink) {
+        return part.text;
+      }
+
+      const name = part.name?.getText() ?? "";
+
+      const text = part.text ?? "";
+
+      return `{@link ${name}${text}}`;
+    })
     .join("");
 }
 
@@ -225,12 +232,13 @@ function thrownClasses(nodes) {
     }
 
     const visit = (child) => {
-      if (
+      const throwsNew =
         ts.isThrowStatement(child) &&
         child.expression &&
         ts.isNewExpression(child.expression) &&
-        child.expression.expression
-      ) {
+        child.expression.expression;
+
+      if (throwsNew) {
         const name = child.expression.expression.getText();
 
         if (!found.includes(name)) {
@@ -361,12 +369,14 @@ function signatureOf(nodes, source, kind) {
 
       const end = node.body ? node.body.getStart(source, false) : node.getEnd();
 
-      return `${source.text
+      const declaration = source.text
         .slice(start, end)
         .trim()
         .replace(/\s*\{$/, "")
         .replace(/^export\s+/, "")
-        .replace(/\s+/g, " ")};`;
+        .replace(/\s+/g, " ");
+
+      return `${declaration};`;
     })
     .join("\n");
 }
@@ -499,7 +509,7 @@ function escapeCell(text) {
   return text.replace(/\\/g, "\\\\").replace(/\|/g, "\\|").replace(/\s+/g, " ").trim();
 }
 
-function renderPage(entry, language, content, sourceContent, pages, thrownBy) {
+function renderPage({ entry, language, content, sourceContent, pages, thrownBy }) {
   const strings = language.strings;
 
   const jsdoc = entry.jsdoc;
@@ -521,18 +531,23 @@ function renderPage(entry, language, content, sourceContent, pages, thrownBy) {
   lines.push("");
   lines.push(`# ${entry.name}`);
   lines.push("");
-  lines.push(`<link-summary>${summary.replace(/[<>]/g, "")}</link-summary>`);
+
+  const plainSummary = summary.replace(/[<>]/g, "");
+
+  const title = entry.kind === "function" ? `${entry.name}()` : entry.name;
+
+  const since = jsdoc.since ? ` · ${strings.since}: ${jsdoc.since}` : "";
+
+  const deprecated = jsdoc.deprecated ? ` · <b>${strings.deprecated}</b>` : "";
+
+  lines.push(`<link-summary>${plainSummary}</link-summary>`);
   lines.push("");
   lines.push(
-    `<web-summary>${entry.kind === "function" ? `${entry.name}()` : entry.name} — ${summary.replace(/[<>]/g, "")} @bootgs/utils, ${language.name}.</web-summary>`
+    `<web-summary>${title} — ${plainSummary} @bootgs/utils, ${language.name}.</web-summary>`
   );
   lines.push("");
   lines.push("<tldr>");
-  lines.push(
-    `<p>${strings.module}: <code>${entry.module}</code>${jsdoc.since ? ` · ${strings.since}: ${jsdoc.since}` : ""}${
-      jsdoc.deprecated ? ` · <b>${strings.deprecated}</b>` : ""
-    }</p>`
-  );
+  lines.push(`<p>${strings.module}: <code>${entry.module}</code>${since}${deprecated}</p>`);
   lines.push("</tldr>");
   lines.push("");
 
@@ -542,9 +557,9 @@ function renderPage(entry, language, content, sourceContent, pages, thrownBy) {
   }
 
   if (jsdoc.deprecated) {
-    lines.push(
-      `> **${strings.deprecated}.** ${resolveLinks(jsdoc.deprecated, pages).replace(/\n/g, " ")}`
-    );
+    const reason = resolveLinks(jsdoc.deprecated, pages).replace(/\n/g, " ");
+
+    lines.push(`> **${strings.deprecated}.** ${reason}`);
     lines.push("");
   }
 
@@ -577,11 +592,19 @@ function renderPage(entry, language, content, sourceContent, pages, thrownBy) {
         flags.push(`\`= ${param.default}\``);
       }
 
-      lines.push(
-        `| \`${param.rest ? "..." : ""}${param.name}\`${flags.length ? ` ${flags.join(" ")}` : ""} | ${
-          param.type ? `\`${escapeCell(param.type)}\`` : "—"
-        } | ${escapeCell(resolveLinks(described, pages)) || "—"} |`
-      );
+      const spread = param.rest ? "..." : "";
+
+      const flagList = flags.join(" ");
+
+      const flagText = flags.length ? ` ${flagList}` : "";
+
+      const escapedType = param.type ? escapeCell(param.type) : "";
+
+      const typeCell = param.type ? `\`${escapedType}\`` : "—";
+
+      const descriptionCell = escapeCell(resolveLinks(described, pages)) || "—";
+
+      lines.push(`| \`${spread}${param.name}\`${flagText} | ${typeCell} | ${descriptionCell} |`);
     }
 
     lines.push("");
@@ -598,7 +621,10 @@ function renderPage(entry, language, content, sourceContent, pages, thrownBy) {
 
     lines.push(`## ${strings.returns}`);
     lines.push("");
-    lines.push(shown ? `\`${shown}\`${described ? ` — ${described}` : ""}` : described);
+
+    const suffix = described ? ` — ${described}` : "";
+
+    lines.push(shown ? `\`${shown}\`${suffix}` : described);
 
     if (predicate) {
       lines.push("");
@@ -658,9 +684,13 @@ function renderPage(entry, language, content, sourceContent, pages, thrownBy) {
         pending.push(...(thrownBy.get(called)?.calls ?? []));
       }
 
-      if (reachable.size > 0 && !reachable.has(type) && !BUILT_IN_ERRORS.has(type)) {
+      const isKnownType = reachable.has(type) || BUILT_IN_ERRORS.has(type);
+
+      if (reachable.size > 0 && !isKnownType) {
+        const reachableList = [...reachable].join(", ");
+
         console.warn(
-          `  ${entry.name}: prose says it throws ${type}; reachable from the code: ${[...reachable].join(", ")}`
+          `  ${entry.name}: prose says it throws ${type}; reachable from the code: ${reachableList}`
         );
       }
 
@@ -676,7 +706,11 @@ function renderPage(entry, language, content, sourceContent, pages, thrownBy) {
 
     for (const [type, whens] of conditions) {
       for (const when of whens) {
-        lines.push(`| \`${escapeCell(type)}\` | ${escapeCell(resolveLinks(when, pages)) || "—"} |`);
+        const typeCell = escapeCell(type);
+
+        const whenCell = escapeCell(resolveLinks(when, pages)) || "—";
+
+        lines.push(`| \`${typeCell}\` | ${whenCell} |`);
       }
     }
 
@@ -728,7 +762,9 @@ function renderPage(entry, language, content, sourceContent, pages, thrownBy) {
         .replace(/^\((.*)\)$/s, "$1");
 
       if (caption && !example.title) {
-        lines.push(`_${caption.replace(/\s+/g, " ")}_`);
+        const flatCaption = caption.replace(/\s+/g, " ");
+
+        lines.push(`_${flatCaption}_`);
         lines.push("");
       }
 
@@ -749,7 +785,9 @@ function renderPage(entry, language, content, sourceContent, pages, thrownBy) {
 
     const short = String(target).replace(/^.*[.#]/, "");
 
-    if (!pages.has(short) || short === entry.name || seen.has(short)) {
+    const isSkipped = short === entry.name || seen.has(short);
+
+    if (!pages.has(short) || isSkipped) {
       continue;
     }
 
@@ -776,7 +814,11 @@ function renderPage(entry, language, content, sourceContent, pages, thrownBy) {
 
     const [, label, url] = link;
 
-    if (url.toLowerCase().endsWith(`/${entry.name.toLowerCase()}.html`) || seen.has(url)) {
+    const ownSlug = entry.name.toLowerCase();
+
+    const ownPage = `/${ownSlug}.html`;
+
+    if (url.toLowerCase().endsWith(ownPage) || seen.has(url)) {
       continue;
     }
 
@@ -855,11 +897,15 @@ function localiseTables(english, translated, language, summaries) {
         const cells = row.split("|").slice(1, -1);
 
         if (index === 0) {
-          return `| ${cells.map((cell) => label(cell.trim(), strings)).join(" | ")} |`;
+          const headings = cells.map((cell) => label(cell.trim(), strings)).join(" | ");
+
+          return `| ${headings} |`;
         }
 
         if (index === 1) {
-          return `|${cells.map(() => " :--- ").join("|")}|`;
+          const alignments = cells.map(() => " :--- ").join("|");
+
+          return `|${alignments}|`;
         }
 
         if (cells.length < 2) {
@@ -871,14 +917,20 @@ function localiseTables(english, translated, language, summaries) {
         const summary = name ? summaries.get(name) : null;
 
         if (!summary) {
-          return `|${cells.join("|")}|`;
+          const joined = cells.join("|");
+
+          return `|${joined}|`;
         }
 
         const localised = cells.slice();
 
-        localised[localised.length - 1] = ` ${escapeCell(summary)} `;
+        const escapedSummary = escapeCell(summary);
 
-        return `|${localised.join("|")}|`;
+        localised[localised.length - 1] = ` ${escapedSummary} `;
+
+        const joined = localised.join("|");
+
+        return `|${joined}|`;
       })
       .join("\n")
   );
@@ -1012,9 +1064,11 @@ for (const language of LANGUAGES) {
             )
           : translation;
 
+        const trimmedBody = body.trim();
+
         emit(
           join(topics, name),
-          await pretty(`${MARKER} Translated topic. -->\n\n${body.trim()}\n`, join(topics, name))
+          await pretty(`${MARKER} Translated topic. -->\n\n${trimmedBody}\n`, join(topics, name))
         );
 
         continue;
@@ -1024,11 +1078,13 @@ for (const language of LANGUAGES) {
 
       const withNotice = english.replace(/^(# .*\n)/, `$1\n> ${language.strings.englishNotice}\n`);
 
+      const trimmedNotice = withNotice.trim();
+
       untranslated.push(name);
       emit(
         join(topics, name),
         await pretty(
-          `${MARKER} Untranslated topic, shown in English. -->\n\n${withNotice.trim()}\n`,
+          `${MARKER} Untranslated topic, shown in English. -->\n\n${trimmedNotice}\n`,
           join(topics, name)
         )
       );
@@ -1063,7 +1119,10 @@ for (const language of LANGUAGES) {
 
     emit(
       target,
-      await pretty(renderPage(entry, language, content, english, pages, thrownBy), target)
+      await pretty(
+        renderPage({ entry, language, content, sourceContent: english, pages, thrownBy }),
+        target
+      )
     );
   }
 
@@ -1071,10 +1130,9 @@ for (const language of LANGUAGES) {
 }
 
 // 4. The reference tables of the source project point at the pages.
-const tableLink = new RegExp(
-  `\\[\`(\\w+)\`\\]\\(${REPO.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/src/[^)]+\\)`,
-  "g"
-);
+const escapedRepo = REPO.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const tableLink = new RegExp(`\\[\`(\\w+)\`\\]\\(${escapedRepo}/src/[^)]+\\)`, "g");
 
 for (const topic of new Set(entries.map((entry) => entry.referenceTopic))) {
   const path = join(sourceRoot, "topics", topic);
@@ -1130,7 +1188,9 @@ for (const language of LANGUAGES) {
 
   const total = entries.length + (language === SOURCE_LANGUAGE ? 0 : 15);
 
-  coverage.push(`| ${language.name} | ${total} | ${total - gaps.length} | ${gaps.length} |`);
+  const covered = total - gaps.length;
+
+  coverage.push(`| ${language.name} | ${total} | ${covered} | ${gaps.length} |`);
 }
 
 coverage.push("");
@@ -1157,7 +1217,9 @@ if (CHECK && stale.length > 0) {
   }
 
   if (stale.length > 20) {
-    console.error(`  … and ${stale.length - 20} more`);
+    const remaining = stale.length - 20;
+
+    console.error(`  … and ${remaining} more`);
   }
 
   process.exit(1);

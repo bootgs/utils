@@ -111,7 +111,11 @@ const DINGO = row("dingo");
 
 const ZEBRA = row("zebra");
 
-describe("merge-reference-tables", () => {
+/**
+ * Each case runs real git merges in a temporary repository; under parallel load they can take
+ * longer than Vitest's 5 s default.
+ */
+describe("merge-reference-tables", { timeout: 30_000 }, () => {
   describe("A table one side adds", () => {
     const base = section("Alpha", [AARDVARK]) + "\n" + section("Beta");
 

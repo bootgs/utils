@@ -71,7 +71,9 @@ export function mergeEntries(ancestor, ours, theirs, compare) {
 
     const changedByThem = t.text !== entry.text;
 
-    if (changedByUs && changedByThem && o.text !== t.text) {
+    const changedByBoth = changedByUs && changedByThem;
+
+    if (changedByBoth && o.text !== t.text) {
       return null;
     }
 

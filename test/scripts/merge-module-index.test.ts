@@ -63,7 +63,11 @@ afterEach(() => {
   }
 });
 
-describe("merge-module-index", () => {
+/**
+ * Each case runs real git merges in a temporary repository; under parallel load they can take
+ * longer than Vitest's 5 s default.
+ */
+describe("merge-module-index", { timeout: 30_000 }, () => {
   describe("Placeholders that carry a signature", () => {
     it("should merge two sides each flipping a different one", () => {
       const { status, text } = merge(

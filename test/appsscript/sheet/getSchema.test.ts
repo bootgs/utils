@@ -64,6 +64,7 @@ describe("getSchema", () => {
 
     it("should prefer the current key over the legacy key", () => {
       const legacy = { version: 1, headerRow: 1, columns: [{ name: "Legacy" }] };
+
       const current = { version: 1, headerRow: 1, columns: [{ name: "Current" }] };
 
       const sheet = sheetMock(

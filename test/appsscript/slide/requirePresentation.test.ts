@@ -2,7 +2,9 @@ import { requirePresentation } from "@/appsscript";
 import { InvalidPresentationException } from "@/exception";
 import { describe, expect, it } from "vitest";
 
-/** A stand-in carrying the two methods `isPresentation` probes for. */
+/**
+ * A stand-in carrying the two methods `isPresentation` probes for.
+ */
 const presentationMock = {
   getId: (): string => "1AbCdEfGhIjKlMnOpQrStUvWxYz",
   getSlides: (): unknown[] => []

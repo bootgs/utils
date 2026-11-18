@@ -5,7 +5,7 @@ import { describe, expect, it } from "vitest";
 describe("requireFunctionLike", () => {
   describe("Correct input data", () => {
     it("should return the same function reference", () => {
-      const input = () => 1;
+      const input = (): number => 1;
 
       expect(requireFunctionLike(input)).toBe(input);
     });

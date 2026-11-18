@@ -5,11 +5,13 @@ import { getColumnIndexByLetter } from "./getColumnIndexByLetter";
 import { getColumnLetterByIndex } from "./getColumnLetterByIndex";
 import type { GridRange } from "./types";
 
+// Optional parts are written as `(?:...|)` rather than `(...)?`: the same
+// match, without a quantifier around a quantified group.
 const SHEET_AND_RANGE_REGEX =
-  /^(?:'(?<sQuoteSheet>[^']*(?:''[^']*)*)'|"(?<dQuoteSheet>[^"]*(?:""[^"]*)*)"|(?<simpleSheet>[A-Z][A-Z0-9_]*))!(?<a1Range>.*)$/i;
+  /^(?:'(?<sQuoteSheet>(?:[^']|'')*)'|"(?<dQuoteSheet>(?:[^"]|"")*)"|(?<simpleSheet>[A-Z][A-Z0-9_]*))!(?<a1Range>.*)$/i;
 
 const A1_RANGE_REGEX =
-  /^(?<startCol>[A-Z]*)(?<startRow>\d*)(?::(?<endCol>[A-Z]*)(?<endRow>\d*))?$/i;
+  /^(?<startCol>[A-Z]*)(?<startRow>\d*)(?::(?<endCol>[A-Z]*)(?<endRow>\d*)|)$/i;
 
 /**
  * Parses an A1 notation string into a <a href="./types/GridRange.ts"><code>GridRange</code></a> object.
@@ -84,13 +86,19 @@ export function parseA1Notation(a1Notation: string): GridRange {
   let eCol = endCol ? getColumnIndexByLetter(endCol) : null;
 
   if (hasColon) {
+    const hasBothCols = nonNull(sCol) && nonNull(eCol);
+
+    const isOpenEnded = nonNull(sRow) && hasBothCols && isNull(eRow);
+
+    const isOpenStarted = isNull(sRow) && hasBothCols && nonNull(eRow);
+
     if (isNull(sRow) && isNull(eRow)) {
       sRow = 0;
     } else if (isNull(sCol) && isNull(eCol)) {
       sCol = 0;
-    } else if (nonNull(sRow) && nonNull(sCol) && nonNull(eCol) && isNull(eRow)) {
+    } else if (isOpenEnded) {
       // Keep eRow as null (unbounded)
-    } else if (isNull(sRow) && nonNull(sCol) && nonNull(eCol) && nonNull(eRow)) {
+    } else if (isOpenStarted) {
       sRow = 0;
     }
   } else {
@@ -109,12 +117,16 @@ export function parseA1Notation(a1Notation: string): GridRange {
   }
 
   // Normalize: ensure start <= end if both are present
-  if (nonNull(sRow) && nonNull(eRow) && sRow > eRow) {
-    [sRow, eRow] = [eRow, sRow];
+  if (nonNull(sRow) && nonNull(eRow)) {
+    if (sRow > eRow) {
+      [sRow, eRow] = [eRow, sRow];
+    }
   }
 
-  if (nonNull(sCol) && nonNull(eCol) && sCol > eCol) {
-    [sCol, eCol] = [eCol, sCol];
+  if (nonNull(sCol) && nonNull(eCol)) {
+    if (sCol > eCol) {
+      [sCol, eCol] = [eCol, sCol];
+    }
   }
 
   const startRowIndex = sRow;
@@ -205,79 +217,69 @@ function generateCanonicalA1(params: {
 
   const sRowNum = nonNull(startRowIndex) ? startRowIndex + 1 : "";
 
-  // Single cell case
-  if (
-    !hasColon &&
+  const isSingleCell =
     nonNull(startColumnIndex) &&
     nonNull(startRowIndex) &&
     nonNull(endColumnIndex) &&
     nonNull(endRowIndex) &&
     startColumnIndex === endColumnIndex - 1 &&
-    startRowIndex === endRowIndex - 1
-  ) {
+    startRowIndex === endRowIndex - 1;
+
+  const isWholeColumns =
+    nonNull(startColumnIndex) &&
+    nonNull(endColumnIndex) &&
+    startRowIndex === 0 &&
+    isNull(endRowIndex);
+
+  const isWholeRows =
+    nonNull(startRowIndex) &&
+    nonNull(endRowIndex) &&
+    startColumnIndex === 0 &&
+    isNull(endColumnIndex);
+
+  const hasStartCell = Boolean(startCol && startRow);
+
+  const hasEndCell = Boolean(endCol && endRow);
+
+  const hasColumnsOnly = Boolean(startCol && endCol && !startRow && !endRow);
+
+  const hasRowsOnly = Boolean(startRow && endRow && !startCol && !endCol);
+
+  const hasOpenEnd = Boolean(startCol && startRow && endCol && !endRow);
+
+  const hasOpenStart = Boolean(startCol && endCol && endRow && !startRow);
+
+  // Single cell case
+  if (!hasColon && isSingleCell) {
     return `${sColLetter}${sRowNum}`;
   }
 
   // Single column case (B -> B:B)
-  if (
-    !hasColon &&
-    nonNull(startColumnIndex) &&
-    nonNull(endColumnIndex) &&
-    startRowIndex === 0 &&
-    isNull(endRowIndex)
-  ) {
+  if (!hasColon && isWholeColumns) {
     return `${sColLetter}:${sColLetter}`;
   }
 
   // Single row case (5 -> 5:5)
-  if (
-    !hasColon &&
-    nonNull(startRowIndex) &&
-    nonNull(endRowIndex) &&
-    startColumnIndex === 0 &&
-    isNull(endColumnIndex)
-  ) {
+  if (!hasColon && isWholeRows) {
     return `${sRowNum}:${sRowNum}`;
   }
 
   // B2:B2 -> B2
-  if (
-    hasColon &&
-    nonNull(startColumnIndex) &&
-    nonNull(startRowIndex) &&
-    nonNull(endColumnIndex) &&
-    nonNull(endRowIndex) &&
-    startColumnIndex === endColumnIndex - 1 &&
-    startRowIndex === endRowIndex - 1
-  ) {
+  if (hasColon && isSingleCell) {
     return `${sColLetter}${sRowNum}`;
   }
 
   // Column range (A:B)
-  if (
-    hasColon &&
-    nonNull(startColumnIndex) &&
-    nonNull(endColumnIndex) &&
-    startRowIndex === 0 &&
-    isNull(endRowIndex) &&
-    startCol &&
-    endCol &&
-    !startRow &&
-    !endRow
-  ) {
+  const isColumnRange = isWholeColumns && hasColumnsOnly;
+
+  if (hasColon && isColumnRange) {
     const eColLetter = getColumnLetterByIndex(endColumnIndex - 1);
 
     return `${sColLetter}:${eColLetter}`;
   }
 
   // Special GAS Cases for B:B if it was parsed from B
-  if (
-    !hasColon &&
-    nonNull(startColumnIndex) &&
-    nonNull(endColumnIndex) &&
-    startRowIndex === 0 &&
-    isNull(endRowIndex)
-  ) {
+  if (!hasColon && isWholeColumns) {
     return `${sColLetter}:${sColLetter}`;
   }
 
@@ -286,23 +288,23 @@ function generateCanonicalA1(params: {
 
     const eRowNum = nonNull(endRowIndex) ? endRowIndex : "";
 
-    if (startCol && startRow && endCol && endRow) {
+    if (hasStartCell && hasEndCell) {
       return `${sColLetter}${sRowNum}:${eColLetter}${eRowNum}`;
     }
 
-    if (startCol && endCol && !startRow && !endRow) {
+    if (hasColumnsOnly) {
       return `${sColLetter}:${eColLetter}`;
     }
 
-    if (startRow && endRow && !startCol && !endCol) {
+    if (hasRowsOnly) {
       return `${sRowNum}:${eRowNum}`;
     }
 
-    if (startCol && startRow && endCol && !endRow) {
+    if (hasOpenEnd) {
       return `${sColLetter}${sRowNum}:${eColLetter}`;
     }
 
-    if (startCol && endCol && endRow && !startRow) {
+    if (hasOpenStart) {
       return `${sColLetter}:${eColLetter}${eRowNum}`;
     }
   }

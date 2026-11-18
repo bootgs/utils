@@ -75,16 +75,27 @@ export function toA1Notation(gridRange: GridRange): string {
       ? getColumnLetterByIndex((endColumnIndex as number) - 1)
       : "";
 
-  if (
-    hasStartCol &&
-    hasStartRow &&
-    hasEndCol &&
-    hasEndRow &&
+  const hasStartCell = hasStartCol && hasStartRow;
+
+  const hasEndCell = hasEndCol && hasEndRow;
+
+  const isSingleCell =
+    hasStartCell &&
+    hasEndCell &&
     (endColumnIndex as number) === (startColumnIndex as number) + 1 &&
-    (endRowIndex as number) === (startRowIndex as number) + 1
-  ) {
+    (endRowIndex as number) === (startRowIndex as number) + 1;
+
+  const isFullColumns = hasStartCell && (startRowIndex as number) === 0 && !hasEndRow;
+
+  const isFullRows = hasStartCell && (startColumnIndex as number) === 0 && !hasEndCol;
+
+  const isOpenEnded = hasStartCell && hasEndCol && !hasEndRow;
+
+  const isBounded = hasStartCell && hasEndCell;
+
+  if (isSingleCell) {
     rangePart = `${a1StartColLetter}${a1StartRowNumber}`;
-  } else if (hasStartCol && hasStartRow && (startRowIndex as number) === 0 && !hasEndRow) {
+  } else if (isFullColumns) {
     if (hasEndCol && (endColumnIndex as number) > (startColumnIndex as number) + 1) {
       rangePart = `${a1StartColLetter}:${a1EndColLetter}`;
     } else if (hasEndCol && (endColumnIndex as number) === (startColumnIndex as number) + 1) {
@@ -96,7 +107,7 @@ export function toA1Notation(gridRange: GridRange): string {
         `Invalid or incomplete GridRange object for full column A1 notation conversion.`
       );
     }
-  } else if (hasStartRow && hasStartCol && (startColumnIndex as number) === 0 && !hasEndCol) {
+  } else if (isFullRows) {
     if (hasEndRow && (endRowIndex as number) > (startRowIndex as number) + 1) {
       rangePart = `${a1StartRowNumber}:${a1EndRowNumber}`;
     } else if (hasEndRow && (endRowIndex as number) === (startRowIndex as number) + 1) {
@@ -108,9 +119,9 @@ export function toA1Notation(gridRange: GridRange): string {
         `Invalid or incomplete GridRange object for full row A1 notation conversion.`
       );
     }
-  } else if (hasStartCol && hasStartRow && hasEndCol && !hasEndRow) {
+  } else if (isOpenEnded) {
     rangePart = `${a1StartColLetter}${a1StartRowNumber}:${a1EndColLetter}`;
-  } else if (hasStartCol && hasStartRow && hasEndCol && hasEndRow) {
+  } else if (isBounded) {
     rangePart = `${a1StartColLetter}${a1StartRowNumber}:${a1EndColLetter}${a1EndRowNumber}`;
   } else {
     throw new Error(`Invalid or incomplete GridRange object for A1 notation conversion.`);
@@ -127,7 +138,9 @@ export function toA1Notation(gridRange: GridRange): string {
       } else if (!sheetName.includes('"')) {
         fullA1Notation += `"${sheetName}"!`;
       } else {
-        fullA1Notation += `'${sheetName.replace(/'/g, "''")}'!`;
+        const escapedSheetName = sheetName.replace(/'/g, "''");
+
+        fullA1Notation += `'${escapedSheetName}'!`;
       }
     } else {
       fullA1Notation += `${sheetName}!`;

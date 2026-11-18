@@ -3,7 +3,9 @@ import { IllegalArgumentException } from "../../exception";
 import { isString } from "../../lang";
 import { isValidSpreadsheetId } from "./isValidSpreadsheetId";
 
-/** Recognises a value that is a Sheets URL rather than an id. */
+/**
+ * Recognises a value that is a Sheets URL rather than an id.
+ */
 const SHEETS_URL = /docs\.google\.com\/spreadsheets/;
 
 /**

@@ -7,29 +7,7 @@
  * language switcher is made once and lands in all five sites.
  */
 
-import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-
 import { LANGUAGES, SITE } from "./languages.mjs";
-
-/**
- * The widget script, with this language's labels substituted in.
- */
-function widget(language) {
-  const source = readFileSync(
-    fileURLToPath(new URL("./assets/search-widget.js", import.meta.url)),
-    "utf8"
-  );
-
-  const strings = JSON.stringify({
-    hint: language.strings.searchHint,
-    missing: language.strings.searchMissing,
-    matches: language.strings.searchMatches,
-    empty: language.strings.searchEmpty
-  });
-
-  return source.replace("__ASU_STRINGS__", strings);
-}
 
 const ARTWORK =
   "https://darynamikhailenko.com/?utm_source=docs&amp;utm_medium=footer&amp;utm_campaign=apps-script-utils&amp;utm_content=banner-artist-credit";
@@ -77,6 +55,12 @@ function settings(language, depth = 2) {
 }
 
 export function buildProfiles(language) {
+  const languageLinks = LANGUAGES.map(
+    (other) => `        <link href="${other.webRoot}/">${other.name}</link>`
+  ).join("\n");
+
+  const variables = settings(language);
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE buildprofiles SYSTEM "https://resources.jetbrains.com/writerside/1.0/build-profiles.dtd">
 
@@ -84,7 +68,7 @@ export function buildProfiles(language) {
                xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd">
 
     <variables>
-${settings(language)}
+${variables}
     </variables>
 
     <footer>
@@ -92,7 +76,7 @@ ${settings(language)}
         <copyright>2025–2026 Maksym Stoianov. Licensed under Apache-2.0.</copyright>
         <link href="https://github.com/bootgs/utils">GitHub</link>
         <link href="https://www.npmjs.com/package/@bootgs/utils">npm</link>
-${LANGUAGES.map((other) => `        <link href="${other.webRoot}/">${other.name}</link>`).join("\n")}
+${languageLinks}
         <link href="${ARTWORK}">Banner artwork: Daryna Mikhailenko</link>
     </footer>
 

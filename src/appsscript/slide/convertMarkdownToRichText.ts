@@ -84,9 +84,13 @@ export function convertMarkdownToRichText(text: string, theme: Theme = {}): Rich
     for (const rule of rules) {
       const match = rule.regex.exec(input);
 
-      if (match && (closestMatch === null || match.index < closestMatch.index)) {
-        closestMatch = match;
-        activeRule = rule;
+      if (match) {
+        const isCloser = closestMatch === null || match.index < closestMatch.index;
+
+        if (isCloser) {
+          closestMatch = match;
+          activeRule = rule;
+        }
       }
     }
 

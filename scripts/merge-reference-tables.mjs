@@ -197,7 +197,9 @@ function main() {
 
   const t = parse(theirs);
 
-  if (!a || !o || !t) {
+  const unparsed = !a || !o || !t;
+
+  if (unparsed) {
     return fallback();
   }
 

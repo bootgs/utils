@@ -52,14 +52,15 @@ export function doGridRangesIntersect(gridRange1: GridRange, gridRange2: GridRan
       : true;
 
   if (!sheetIdsMatch || !sheetNamesMatch) {
-    if (
-      (isValidSheetId(gridRange1.sheetId) &&
-        isValidSheetId(gridRange2.sheetId) &&
-        !sheetIdsMatch) ||
-      (isValidSheetName(gridRange1.sheetName) &&
-        isValidSheetName(gridRange2.sheetName) &&
-        !sheetNamesMatch)
-    ) {
+    const sheetIdsConflict =
+      isValidSheetId(gridRange1.sheetId) && isValidSheetId(gridRange2.sheetId) && !sheetIdsMatch;
+
+    const sheetNamesConflict =
+      isValidSheetName(gridRange1.sheetName) &&
+      isValidSheetName(gridRange2.sheetName) &&
+      !sheetNamesMatch;
+
+    if (sheetIdsConflict || sheetNamesConflict) {
       return false;
     }
   }

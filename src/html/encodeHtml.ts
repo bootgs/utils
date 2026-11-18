@@ -23,10 +23,14 @@ export function encodeHtml(value: string): string {
     function (full, char, next) {
       if (char !== "&" || next !== "#") {
         if (/[\u00A0-\u9999<>&]/.test(next)) {
-          next = `&#${next.charCodeAt(0)};`;
+          const nextCode = next.charCodeAt(0);
+
+          next = `&#${nextCode};`;
         }
 
-        return `&#${char.charCodeAt(0)};${next}`;
+        const charCode = char.charCodeAt(0);
+
+        return `&#${charCode};${next}`;
       }
 
       return full;

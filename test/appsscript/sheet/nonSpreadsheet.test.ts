@@ -1,8 +1,11 @@
 import { nonSpreadsheet } from "@/appsscript";
 import { describe, expect, it } from "vitest";
 
-/** Apps Script service objects report their class name from `toString()`. */
+/**
+ * Apps Script service objects report their class name from `toString()`.
+ */
 const spreadsheetMock = { toString: (): string => "Spreadsheet" };
+
 const sheetMock = { toString: (): string => "Sheet" };
 
 describe("nonSpreadsheet", () => {

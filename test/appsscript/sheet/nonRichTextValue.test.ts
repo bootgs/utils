@@ -1,7 +1,9 @@
 import { nonRichTextValue } from "@/appsscript";
 import { describe, expect, it } from "vitest";
 
-/** Apps Script service objects report their class name from `toString()`. */
+/**
+ * Apps Script service objects report their class name from `toString()`.
+ */
 const richTextMock = { toString: (): string => "RichTextValue" };
 
 describe("nonRichTextValue", () => {

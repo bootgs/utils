@@ -2,7 +2,9 @@ import { requireTextStyle } from "@/appsscript";
 import { IllegalArgumentException } from "@/exception";
 import { describe, expect, it } from "vitest";
 
-/** Apps Script service objects report their class name from `toString()`. */
+/**
+ * Apps Script service objects report their class name from `toString()`.
+ */
 const textStyleMock = { toString: (): string => "TextStyle" };
 
 describe("requireTextStyle", () => {

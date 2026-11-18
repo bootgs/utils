@@ -29,6 +29,6 @@ export function getByteSize(value: string): number {
       // .replace(/[\u{0800}-\u{D7FF}\u{E000}-\u{FFFF}]/u, '0')
 
       // 0000
-      .replace(/[\u{D800}-\u{DFFF}]/u, "00").length
+      .replace(/[\uD800-\uDFFF]/u, "00").length
   );
 }

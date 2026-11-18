@@ -2,7 +2,9 @@ import { requireUi } from "@/appsscript";
 import { IllegalArgumentException } from "@/exception";
 import { describe, expect, it } from "vitest";
 
-/** `isUi` identifies its target by the string an Apps Script `Ui` reports. */
+/**
+ * `isUi` identifies its target by the string an Apps Script `Ui` reports.
+ */
 const uiMock = {
   toString: (): string => "Ui"
 };

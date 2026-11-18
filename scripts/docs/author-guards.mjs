@@ -70,8 +70,8 @@ const TEMPLATES = {
     requireNonSummary: (s) => `Returns the value after checking that it is not ${s.non}.`,
     family:
       "`isX` and `nonX` answer a question and never interrupt control flow; `requireX` and `requireNonX` hand the value back or throw. The scheme is explained in [](validation-conventions.md).",
-    negation: (name) =>
-      `\`${name}(value)\` is the same test as \`!${name.replace(/^non/, "is")}(value)\`, written so that a guard clause reads as a sentence rather than as a negation.`,
+    negation: (name, positive) =>
+      `\`${name}(value)\` is the same test as \`!${positive}(value)\`, written so that a guard clause reads as a sentence rather than as a negation.`,
     valueParam: "The value to check.",
     validateParam: "The value to validate.",
     messageParam: () => "The message of the exception. A default is used when omitted.",
@@ -98,8 +98,8 @@ const TEMPLATES = {
     requireNonSummary: (s) => `Возвращает значение, убедившись, что оно не является ${s.non}.`,
     family:
       "`isX` и `nonX` отвечают на вопрос и никогда не прерывают выполнение; `requireX` и `requireNonX` возвращают значение или выбрасывают исключение. Схема разобрана в [](validation-conventions.md).",
-    negation: (name) =>
-      `\`${name}(value)\` — та же проверка, что и \`!${name.replace(/^non/, "is")}(value)\`, записанная так, чтобы охранное условие читалось как утверждение, а не как отрицание.`,
+    negation: (name, positive) =>
+      `\`${name}(value)\` — та же проверка, что и \`!${positive}(value)\`, записанная так, чтобы охранное условие читалось как утверждение, а не как отрицание.`,
     valueParam: "Проверяемое значение.",
     validateParam: "Значение, которое нужно проверить.",
     messageParam: () =>
@@ -128,8 +128,8 @@ const TEMPLATES = {
     requireNonSummary: (s) => `Повертає значення, переконавшись, що воно не є ${s.non}.`,
     family:
       "`isX` та `nonX` відповідають на питання й ніколи не переривають виконання; `requireX` і `requireNonX` повертають значення або викидають виняток. Схему розібрано в [](validation-conventions.md).",
-    negation: (name) =>
-      `\`${name}(value)\` — та сама перевірка, що й \`!${name.replace(/^non/, "is")}(value)\`, записана так, щоб охоронна умова читалася як твердження, а не як заперечення.`,
+    negation: (name, positive) =>
+      `\`${name}(value)\` — та сама перевірка, що й \`!${positive}(value)\`, записана так, щоб охоронна умова читалася як твердження, а не як заперечення.`,
     valueParam: "Значення, що перевіряється.",
     validateParam: "Значення, яке потрібно перевірити.",
     messageParam: () =>
@@ -158,8 +158,8 @@ const TEMPLATES = {
       `Gibt den Wert zurück, nachdem geprüft wurde, dass er nicht ${s.non} ist.`,
     family:
       "`isX` und `nonX` beantworten eine Frage und unterbrechen den Ablauf nie; `requireX` und `requireNonX` geben den Wert zurück oder werfen. Das Schema erklärt [](validation-conventions.md).",
-    negation: (name) =>
-      `\`${name}(value)\` ist dieselbe Prüfung wie \`!${name.replace(/^non/, "is")}(value)\`, so geschrieben, dass eine Wächterklausel sich wie ein Satz liest und nicht wie eine Verneinung.`,
+    negation: (name, positive) =>
+      `\`${name}(value)\` ist dieselbe Prüfung wie \`!${positive}(value)\`, so geschrieben, dass eine Wächterklausel sich wie ein Satz liest und nicht wie eine Verneinung.`,
     valueParam: "Der zu prüfende Wert.",
     validateParam: "Der zu validierende Wert.",
     messageParam: () =>
@@ -188,8 +188,8 @@ const TEMPLATES = {
     requireNonSummary: (s) => `Renvoie la valeur après avoir vérifié qu'elle n'est pas ${s.non}.`,
     family:
       "`isX` et `nonX` répondent à une question sans jamais interrompre le flot ; `requireX` et `requireNonX` rendent la valeur ou lèvent. Le schéma est expliqué dans [](validation-conventions.md).",
-    negation: (name) =>
-      `\`${name}(value)\` est le même test que \`!${name.replace(/^non/, "is")}(value)\`, écrit pour qu'une clause de garde se lise comme une phrase plutôt que comme une négation.`,
+    negation: (name, positive) =>
+      `\`${name}(value)\` est le même test que \`!${positive}(value)\`, écrit pour qu'une clause de garde se lise comme une phrase plutôt que comme une négation.`,
     valueParam: "La valeur à vérifier.",
     validateParam: "La valeur à valider.",
     messageParam: () => "Le message de l'exception. À défaut, un message par défaut est utilisé.",
@@ -301,7 +301,11 @@ for (const [module, subjects] of Object.entries(MODULES)) {
       if (present.non) {
         write(language.code, members.non, {
           summary: t.nonSummary(s),
-          description: [t.negation(members.non), s.note, t.family],
+          description: [
+            t.negation(members.non, members.non.replace(/^non/, "is")),
+            s.note,
+            t.family
+          ],
           params: { value: t.valueParam },
           returns: t.nonReturns(s),
           throws: {},
@@ -396,7 +400,10 @@ function write(code, name, content) {
   const dir = join(ROOT, "docs/content", code, "functions");
 
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, `${name}.json`), `${JSON.stringify(content, null, 2)}\n`);
+
+  const json = JSON.stringify(content, null, 2);
+
+  writeFileSync(join(dir, `${name}.json`), `${json}\n`);
   written.push(`${code}/${name}`);
 }
 

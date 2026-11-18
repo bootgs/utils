@@ -1,4 +1,6 @@
-/** Prose for the last of the Apps Script helpers. */
+/**
+ * Prose for the last of the Apps Script helpers.
+ */
 
 import { code, entry } from "./_entry.mjs";
 

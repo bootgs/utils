@@ -17,7 +17,6 @@ describe("requireNonBoolean", () => {
     });
 
     it("should accept a boxed Boolean object", () => {
-      // eslint-disable-next-line no-new-wrappers
       const boxed = new Boolean(true);
 
       expect(requireNonBoolean(boxed)).toBe(boxed);

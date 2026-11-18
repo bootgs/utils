@@ -3,20 +3,27 @@ import { InvalidGridRangeException } from "../../exception";
 import { isGridRangeSameDimensions } from "./isGridRangeSameDimensions";
 import type { GridRange } from "./types";
 
-/** Renders a grid range as `rows × columns`, or `unknown` when a bound is missing. */
+/**
+ * Renders a grid range as `rows × columns`, or `unknown` when a bound is missing.
+ */
 function describeShape(gridRange: GridRange): string {
   const { startRowIndex, endRowIndex, startColumnIndex, endColumnIndex } = gridRange ?? {};
 
-  if (
+  const hasMissingBound =
     startRowIndex == null ||
     endRowIndex == null ||
     startColumnIndex == null ||
-    endColumnIndex == null
-  ) {
+    endColumnIndex == null;
+
+  if (hasMissingBound) {
     return "unknown";
   }
 
-  return `${endRowIndex - startRowIndex} × ${endColumnIndex - startColumnIndex}`;
+  const rows = endRowIndex - startRowIndex;
+
+  const columns = endColumnIndex - startColumnIndex;
+
+  return `${rows} × ${columns}`;
 }
 
 /**
@@ -52,9 +59,12 @@ export function requireGridRangeSameDimensions(
   message?: string
 ): void {
   if (!isGridRangeSameDimensions(range1, range2)) {
+    const shape1 = describeShape(range1);
+
+    const shape2 = describeShape(range2);
+
     throw new InvalidGridRangeException(
-      message ??
-        `Expected grid ranges of equal dimensions, but received ${describeShape(range1)} and ${describeShape(range2)}.`
+      message ?? `Expected grid ranges of equal dimensions, but received ${shape1} and ${shape2}.`
     );
   }
 }

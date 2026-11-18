@@ -37,7 +37,7 @@ export function isEmail(email: unknown): email is string {
     return false;
   }
 
-  const USERNAME_PATTERN = /^[a-zA-Z0-9](?:[a-zA-Z0-9._-]*[a-zA-Z0-9])?$/;
+  const USERNAME_PATTERN = /^(?:[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9])$/;
 
   const plusIndex = usernamePart.indexOf("+");
 
