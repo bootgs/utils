@@ -138,9 +138,9 @@ for branch in $QUEUE; do
     exit 1
   fi
 
-  if [ "$SKIP_TESTS" -eq 0 ] && ! npm test --silent >/dev/null 2>&1; then
+  if [ "$SKIP_TESTS" -eq 0 ] && ! pnpm --silent test >/dev/null 2>&1; then
     echo "tests failed."
-    echo "$LOG_TAG:   Rolling the merge back; run 'npm test' on $branch to see why."
+    echo "$LOG_TAG:   Rolling the merge back; run 'pnpm test' on $branch to see why."
     git reset -q --hard "$before"
     echo "$LOG_TAG: merged $merged branch(es) before stopping."
     exit 1

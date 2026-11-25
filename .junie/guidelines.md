@@ -4,21 +4,21 @@
 
 This project is a TypeScript-based utility library for Google Apps Script.
 
-- **Prerequisites**: Node.js and npm installed.
-- **Installation**: Run `npm install` to install all dependencies.
-- **Building**: Use `npm run build` to compile the TypeScript source into the `dist` directory. This script performs
+- **Prerequisites**: Node.js and pnpm installed (`corepack enable`, or see <https://pnpm.io/installation>).
+- **Installation**: Run `pnpm install` to install all dependencies.
+- **Building**: Use `pnpm run build` to compile the TypeScript source into the `dist` directory. This script performs
   cleanup of the `dist` folder before running `tsc`.
 - **Linting and Formatting**:
-  - `npm run lint`: Runs ESLint with auto-fix enabled.
-  - `npm run format`: Runs Prettier to format all files in the project.
+  - `pnpm run lint`: Runs ESLint with auto-fix enabled.
+  - `pnpm run format`: Runs Prettier to format all files in the project.
 
 #### 2. Testing
 
 The project uses [Vitest](https://vitest.dev/) for unit testing.
 
 - **Running Tests**:
-  - `npm test`: Runs all tests once.
-  - `npm run dev`: Starts Vitest in watch mode for interactive development.
+  - `pnpm test`: Runs all tests once.
+  - `pnpm run dev`: Starts Vitest in watch mode for interactive development.
 - **Adding New Tests**:
   - Tests should be placed in the `test/` directory, mirroring the structure of the `src/` directory.
   - Test files must follow the naming convention `*.test.ts`.

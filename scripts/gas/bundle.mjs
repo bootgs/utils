@@ -61,7 +61,7 @@ function walk(dir) {
 }
 
 if (!exists(DIST)) {
-  console.error("dist/ is missing — run `npm run build` first.");
+  console.error("dist/ is missing — run `pnpm run build` first.");
   process.exit(1);
 }
 

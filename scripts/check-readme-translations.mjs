@@ -24,7 +24,7 @@
  * `docs/readme/README.<code>.md`. Inside `docs/readme/` a translation links the
  * others as `README.<code>.md` and English as `../../README.md`.
  *
- * Usage: `npm run docs:check-i18n`
+ * Usage: `pnpm run docs:check-i18n`
  */
 
 import { existsSync, readFileSync } from "node:fs";

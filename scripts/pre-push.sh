@@ -18,7 +18,7 @@ echo ""
 # Проверка на наличие node_modules
 echo "$LOG_TAG: Checking for node_modules..."
 if [ ! -d "node_modules" ]; then
-  echo " ✗ Error: Missing node_modules. Please run 'npm install' first."
+  echo " ✗ Error: Missing node_modules. Please run 'pnpm install' first."
   exit 1
 fi
 echo " ✓ Done."
@@ -26,7 +26,7 @@ echo ""
 
 
 # Проверка оставшихся уязвимостей
-npm audit --audit-level=high
+pnpm audit --audit-level=high
 if [ $? -ne 0 ]; then
   echo " ✗ Error: Unfixable high-severity vulnerabilities found."
 fi
@@ -36,7 +36,7 @@ echo ""
 
 # Проверка типов TypeScript (без компиляции)
 echo "$LOG_TAG: Running tsc..."
-tsc --noEmit
+pnpm exec tsc --noEmit
 if [ $? -ne 0 ]; then
   echo " ✗ Error: TypeScript check failed."
   exit 1
@@ -47,7 +47,7 @@ echo ""
 
 # Линтинг
 echo "$LOG_TAG: Running lint..."
-npm run lint
+pnpm run lint
 if [ $? -ne 0 ]; then
   echo " ✗ Error: Linting failed."
   exit 1
@@ -58,7 +58,7 @@ echo ""
 
 # Форматирование
 echo "$LOG_TAG: Running format..."
-npm run format
+pnpm run format
 if [ $? -ne 0 ]; then
   echo " ✗ Error: Formatting failed."
   exit 1
@@ -69,7 +69,7 @@ echo ""
 
 # Запуск тестов
 echo "$LOG_TAG: Running test..."
-npm run test
+pnpm run test
 if [ $? -ne 0 ]; then
   echo " ✗ Error: Test failed."
   exit 1

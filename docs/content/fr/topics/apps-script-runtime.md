@@ -152,8 +152,8 @@ pourquoi la séparation compte :
   forme de la classe de service.
 
 ```bash
-npm test        # exécuter la suite une fois
-npm run dev     # mode surveillance
+pnpm test       # exécuter la suite une fois
+pnpm run dev    # mode surveillance
 ```
 
 Quand vous ajoutez une fonction, c'est la première question de conception : peut-elle recevoir l'objet de service en

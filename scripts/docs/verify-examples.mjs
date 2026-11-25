@@ -216,7 +216,7 @@ writeFileSync(
   ].join("\n")
 );
 
-const run = spawnSync("npx", ["vitest", "run", "test/docs/examples.test.ts"], {
+const run = spawnSync("pnpm", ["exec", "vitest", "run", "test/docs/examples.test.ts"], {
   cwd: ROOT,
   encoding: "utf8"
 });

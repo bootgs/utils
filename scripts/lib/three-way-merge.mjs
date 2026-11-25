@@ -221,7 +221,7 @@ export function format(text, pathname) {
     });
   } catch {
     // Prettier is a convenience here, not a requirement: unformatted output is
-    // still a correct merge, and `npm run format` reports the drift.
+    // still a correct merge, and `pnpm run format` reports the drift.
     return text;
   }
 }

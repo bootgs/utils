@@ -1210,7 +1210,7 @@ for (const language of LANGUAGES) {
 emit(join(CONTENT, "COVERAGE.md"), await pretty(coverage.join("\n"), join(CONTENT, "COVERAGE.md")));
 
 if (CHECK && stale.length > 0) {
-  console.error("Documentation is out of date. Run: npm run docs:generate");
+  console.error("Documentation is out of date. Run: pnpm run docs:generate");
 
   for (const path of stale.slice(0, 20)) {
     console.error(`  ${path}`);

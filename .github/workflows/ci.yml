@@ -31,26 +31,30 @@ jobs:
         with:
           persist-credentials: false
 
+      # Reads the version from `packageManager` in package.json.
+      - name: setup-pnpm
+        uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+
       - name: setup-node
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 24
-          cache: npm
+          cache: pnpm
 
       - name: install
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: type-check
-        run: npm run type:check
+        run: pnpm run type:check
 
       - name: lint
-        run: npm run lint
+        run: pnpm run lint
 
       - name: format
-        run: npm run format
+        run: pnpm run format
 
       - name: test
-        run: npm run test:cov -- --coverage.reporter=text --coverage.reporter=lcov
+        run: pnpm run test:cov --coverage.reporter=text --coverage.reporter=lcov
 
       # Coverage report to Codecov (OIDC, no token). Never fails the build: forks get no OIDC token.
       - name: codecov
@@ -62,22 +66,22 @@ jobs:
           fail_ci_if_error: false
 
       - name: build
-        run: npm run build
+        run: pnpm run build
 
       # The reference pages are generated from src/; this fails when they are stale.
       - name: docs
-        run: npm run docs:check
+        run: pnpm run docs:check
 
       - name: readme-translations
-        run: npm run docs:check-i18n
+        run: pnpm run docs:check-i18n
 
       - name: audit
-        run: npm audit --omit=dev --audit-level=high
+        run: pnpm audit --prod --audit-level high
 
       # Production dependencies must use a permissive licence compatible with Apache-2.0.
       - name: licences
         run: >-
-          npx --yes license-checker-rseidelsohn@5.0.1
+          pnpm dlx license-checker-rseidelsohn@5.0.1
           --production
           --excludePrivatePackages
           --summary

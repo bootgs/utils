@@ -267,7 +267,7 @@ for (const file of listSources(SRC).sort()) {
 }
 
 if (CHECK && stale.length > 0) {
-  console.error("JSDoc is missing links. Run: npm run docs:sync-links");
+  console.error("JSDoc is missing links. Run: pnpm run docs:sync-links");
 
   for (const path of stale.slice(0, 20)) {
     console.error(`  ${path}`);

@@ -149,8 +149,8 @@ is why the split matters:
   class.
 
 ```bash
-npm test        # run the suite once
-npm run dev     # watch mode
+pnpm test       # run the suite once
+pnpm run dev    # watch mode
 ```
 
 When you add a function, this is the first design question: can it take the service object as a parameter instead of
