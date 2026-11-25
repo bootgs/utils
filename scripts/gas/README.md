@@ -6,7 +6,7 @@ tests check what the services actually do in response. They create a real
 spreadsheet and a real presentation, run the same functions against them, read
 the result back, and throw the fixtures away.
 
-They are not part of `npm test`. They need a Google account, they touch Drive,
+They are not part of `pnpm test`. They need a Google account, they touch Drive,
 and they take a minute to run.
 
 ## Layout
@@ -36,7 +36,7 @@ the concrete classes.
 ## Running them
 
 ```sh
-npm run build:gas
+pnpm run build:gas
 cd scripts/gas
 clasp create-script --title "apps-script-utils integration tests" --type standalone --rootDir .
 clasp push --force

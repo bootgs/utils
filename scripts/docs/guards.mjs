@@ -7,7 +7,7 @@
  * is worth knowing, and the values the examples are built from.
  *
  * `yes` and `no` are literal source expressions. They are checked against the
- * real implementation by `npm run docs:verify-examples`, so a wrong sample fails
+ * real implementation by `pnpm run docs:verify-examples`, so a wrong sample fails
  * the test suite rather than misleading a reader.
  */
 

@@ -152,8 +152,8 @@ deshalb zählt die Trennung:
   Dienstklasse ausführen.
 
 ```bash
-npm test        # die Suite einmal laufen lassen
-npm run dev     # Beobachtungsmodus
+pnpm test       # die Suite einmal laufen lassen
+pnpm run dev    # Beobachtungsmodus
 ```
 
 Wenn Sie eine Funktion hinzufügen, ist dies die erste Entwurfsfrage: kann sie das Dienstobjekt als Parameter nehmen,

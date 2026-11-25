@@ -106,7 +106,7 @@ pull request. Resolving those conflicts by hand is how the library has twice
 shipped functions nobody could import.
 
 The repository answers this with two merge drivers, declared in
-[`.gitattributes`](.gitattributes) and registered by `npm run prepare`:
+[`.gitattributes`](.gitattributes) and registered by `pnpm run prepare`:
 `merge=module-index` for `src/**/index.ts` and `merge=reference-tables` for
 `docs/writerside/topics/reference-*.md`. They merge those files entry by entry
 instead of line by line, so two branches adding neighbouring functions do not
@@ -116,7 +116,7 @@ collide at all.
 reports as conflicting must be merged locally:
 
 ```bash
-npm run prepare              # once per clone: registers the drivers
+pnpm run prepare             # once per clone: registers the drivers
 scripts/merge-queue.sh       # merges the waiting branches, oldest first
 git push github develop
 ```
@@ -143,7 +143,7 @@ line, as the surrounding entries do.
 - `// TODO:` is never a decision to stop exporting something. Removing a member
   deletes its file, and its line goes with it.
 
-`npm run test` is what catches a missing export, and it catches it loudly:
+`pnpm run test` is what catches a missing export, and it catches it loudly:
 `X is not a function` where a test calls it, an assertion failure where another
 function does.
 
@@ -165,8 +165,8 @@ prose in `docs/content/`, described in the next rule. The JSDoc is a fallback fo
 functions whose prose has not been written yet:
 
 ```bash
-npm run docs:generate   # writes the pages, the tree and the table links
-npm run docs:check      # fails when they are out of date; CI runs this
+pnpm run docs:generate  # writes the pages, the tree and the table links
+pnpm run docs:check     # fails when they are out of date; CI runs this
 ```
 
 Two things the generator will not touch:
@@ -175,7 +175,7 @@ Two things the generator will not touch:
   as it is — improve such a page by editing it, not the generator;
 - the examples under `docs/writerside/snippets/` are real TypeScript files,
   embedded into pages with `<code-block src="…" include-symbol="…"/>` and
-  compiled by `npm run type:check`. An example that stops matching its function
+  compiled by `pnpm run type:check`. An example that stops matching its function
   fails the type check instead of quietly going stale.
 
 So: a new function needs its row in the reference table, its example in
@@ -196,12 +196,12 @@ source; it adds a file beside it.
 - A translated guide is a whole Markdown file in `docs/content/<language>/topics/`.
 - Only `docs/writerside/` is edited by hand. `docs/writerside-ru|uk|de|fr/` are
   generated in full and must never be edited; a change there is lost on the next
-  `npm run docs:generate`.
+  `pnpm run docs:generate`.
 - A page with no translation is published in English with a notice on it, and is
   listed in `docs/content/COVERAGE.md`. That file is generated; read it to see
   what still needs writing.
 
-Most of those JSON files are not typed out by hand. `npm run docs:author` runs
+Most of those JSON files are not typed out by hand. `pnpm run docs:author` runs
 three writers over the text that is:
 
 - `scripts/docs/guards.mjs` — one entry per subject of the `isX`/`nonX`/`requireX`
@@ -210,17 +210,17 @@ three writers over the text that is:
 - `scripts/docs/author-exceptions.mjs` — one sentence per exception class;
 - `docs/content/authored/*.mjs` — everything else, one function at a time.
 
-`npm run docs:verify-examples` then executes every documented result of the form
+`pnpm run docs:verify-examples` then executes every documented result of the form
 `expr; // => value` against the real implementation, so an example cannot quietly
 stop being true. CI runs it.
 
-`npm run docs:sync-examples` copies the first example of each symbol into the
+`pnpm run docs:sync-examples` copies the first example of each symbol into the
 JSDoc above its declaration, because that comment — not the content file — is
 what an IDE shows on hover. It never touches a comment that already has an
 `@example`: a hand-written one outranks a copied one. CI checks that no symbol
 has a documented example its JSDoc is missing.
 
-`npm run docs:sync-links` writes two `@see` links into that same comment: one to
+`pnpm run docs:sync-links` writes two `@see` links into that same comment: one to
 the symbol's page on the documentation site, and one per `GoogleAppsScript.*`
 class its signature names, pointing at Google's reference. It writes nothing that
 is already there, so it is safe to run at any time, and CI checks that no comment
@@ -232,16 +232,16 @@ carries the version from `package.json`, so the header names the release it was
 built from. That line ends with an `x-release-please-version` annotation and the
 five files are listed as `extra-files` in `release-please-config.json`, because
 `release-please` would otherwise bump the version and leave the configurations a
-release behind — which fails `npm run docs:check` on `main` and takes the deploy
+release behind — which fails `pnpm run docs:check` on `main` and takes the deploy
 with it. `buildprofiles.xml` points the switcher at `help-versions.json`
 at the site root. The deploy publishes each build twice — at the root as the
 current version, and under `/<version>/` as an archive — keeping the zips in a
 `docs-archive` branch, because Pages replaces everything it serves on every
 deploy and an archive that lives only there disappears with the next one.
-`npm run docs:help-versions -- <site-directory> <version>` writes the file the
+`pnpm run docs:help-versions -- <site-directory> <version>` writes the file the
 switcher reads.
 
-`npm run docs:finalize-site -- <site-directory>` runs against a built site
+`pnpm run docs:finalize-site -- <site-directory>` runs against a built site
 rather than the sources. It writes into every page what the build profile does
 not: the structured data, the canonical link, the `og:image` address, the row of
 links to the other languages under the breadcrumbs, and the notice at the end
@@ -266,11 +266,11 @@ function does on its own terms.
 ## 8. Verify before you commit, not after you push
 
 ```bash
-npm run type:check   # tsc --noEmit
-npm run lint
-npm run format       # prettier --check .
-npm run test
-npm run build
+pnpm run type:check  # tsc --noEmit
+pnpm run lint
+pnpm run format      # prettier --check .
+pnpm run test
+pnpm run build
 ```
 
 The `pre-commit` hook runs the first three and an audit; the `pre-push` hook adds
@@ -279,7 +279,7 @@ after the work is done is a hook that tempts `--no-verify`.
 
 Formatting is Prettier's, not yours. A merge driver that rewrites a table repads
 it through Prettier for the same reason — the file must not drift from what
-`npm run format` expects.
+`pnpm run format` expects.
 
 ## 9. `release-please` owns the version and the changelog
 
@@ -297,7 +297,9 @@ BREAKING CHANGE: isValidSheetId no longer accepts fractions, Infinity,
 or values beyond Number.MAX_SAFE_INTEGER.
 ```
 
-Publishing to npm is manual; no workflow does it.
+Publishing to npm is manual; no workflow does it. Publish with `pnpm publish`
+from a clean `main` after a build: pnpm refuses to publish from another branch
+or from a dirty tree.
 
 ## 10. Licence and attribution hygiene
 
@@ -324,7 +326,7 @@ means the repository is broken.
   Run it with the sandbox disabled, or ask the user to run `! gh ...`.
 - `git fetch github` over SSH fails. Fetching the same refs over HTTPS works:
   `git fetch https://github.com/bootgs/utils.git develop`.
-- Writes to `.git/config` are denied, so `npm run prepare` cannot register the
+- Writes to `.git/config` are denied, so `pnpm run prepare` cannot register the
   merge drivers from inside the sandbox. Run that one command outside it.
 - `mktemp -t` resolves to a directory the sandbox cannot write to. Use `$TMPDIR`
   explicitly.

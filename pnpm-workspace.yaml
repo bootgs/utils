@@ -1,0 +1,7 @@
+# pnpm settings for this repository. It is a single package, not a workspace;
+# the file exists because pnpm reads its settings from here.
+
+# js-yaml below 4.3.2 is pulled in by the ESLint toolchain; keep the patched
+# release until every dependant requires it on its own.
+overrides:
+  js-yaml: ^4.3.2

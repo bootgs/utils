@@ -15,9 +15,9 @@
 - [ ] The PR title follows [Conventional Commits](https://www.conventionalcommits.org/).
 - [ ] Every commit is signed off (`git commit -s`) under the
       [DCO](https://github.com/bootgs/utils/blob/develop/CONTRIBUTING.md#developer-certificate-of-origin).
-- [ ] Tests are added or updated and `npm test` passes.
-- [ ] `npm run type:check`, `npm run lint` and `npm run format` pass.
-- [ ] The generated documentation is up to date (`npm run docs:generate`, then `npm run docs:check` passes).
+- [ ] Tests are added or updated and `pnpm test` passes.
+- [ ] `pnpm run type:check`, `pnpm run lint` and `pnpm run format` pass.
+- [ ] The generated documentation is up to date (`pnpm run docs:generate`, then `pnpm run docs:check` passes).
 - [ ] Public API changes are documented (JSDoc, docs, changelog notes in the commit body).
 - [ ] No secrets, credentials or personal data are included.
 - [ ] AI-assisted commits carry a `Co-Authored-By:` trailer and I have reviewed every line

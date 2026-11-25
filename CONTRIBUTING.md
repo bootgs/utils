@@ -13,7 +13,7 @@ Great that you are here and you want to contribute to **@bootgs/utils**!
   - [Development Setup](#development-setup)
     - [Requirements](#requirements)
       - [Node.js](#nodejs)
-      - [npm](#npm)
+      - [pnpm](#pnpm)
     - [Actual Setup](#actual-setup)
   - [Development Cycle](#development-cycle)
     - [Basic Development Workflow](#basic-development-workflow)
@@ -55,9 +55,11 @@ How the modules in `src/` fit together is described in [Design](docs/design.md).
 
 [Node.js](https://nodejs.org/en/) (latest LTS recommended) is required for development.
 
-#### npm
+#### pnpm
 
-[npm](https://www.npmjs.com/) is used for dependency management and scripts.
+[pnpm](https://pnpm.io/) is used for dependency management and scripts. The version is pinned in the
+`packageManager` field of `package.json`; `corepack enable` makes that exact version available, or see the
+[installation guide](https://pnpm.io/installation).
 
 ### Actual Setup
 
@@ -73,11 +75,11 @@ How the modules in `src/` fit together is described in [Design](docs/design.md).
    ```
 4. **Install dependencies** from the lockfile:
    ```bash
-   npm ci
+   pnpm install
    ```
 5. **Build the project**:
    ```bash
-   npm run build
+   pnpm run build
    ```
 
 ## Development Cycle
@@ -87,12 +89,12 @@ How the modules in `src/` fit together is described in [Design](docs/design.md).
 1. Hack, hack, hack.
 2. Ensure code quality:
    ```bash
-   npm run lint:fix
-   npm run format:fix
+   pnpm run lint:fix
+   pnpm run format:fix
    ```
 3. Run [tests](#test-suite):
    ```bash
-   npm run test
+   pnpm run test
    ```
 4. Commit your changes following the [Commit Message Guidelines](#commit-message-guidelines), sign them off
    ([DCO](#developer-certificate-of-origin)) with `git commit -s` and create a Pull Request.
@@ -245,11 +247,11 @@ The project uses [Vitest](https://vitest.dev/) for testing.
 
 - **Run all tests**:
   ```bash
-  npm run test
+  pnpm run test
   ```
 - **Watch mode**:
   ```bash
-  npm run dev
+  pnpm run dev
   ```
 
 ### README Translations
@@ -277,7 +279,7 @@ Chinese (`zh-TW`). Corrections from native speakers are welcome as ordinary pull
   updated only when the translations are synced, not on every release.
 - **Check by hand**: run the check before committing a translation sync. It is not part of CI or the Git hooks.
   ```bash
-  npm run docs:check-i18n
+  pnpm run docs:check-i18n
   ```
   It fails when a translation is missing, lacks the switcher, has a relative link to a file that does not exist, has
   a different number of `##`/`###` headings than `README.md`, or its note names a version other than the one in
@@ -285,9 +287,9 @@ Chinese (`zh-TW`). Corrections from native speakers are welcome as ordinary pull
 
 ## Dependencies
 
-**Obtaining.** Dependencies come from the npm registry. `package-lock.json` is committed and pins every direct and
-transitive version with its integrity hash; install with `npm ci`, which installs exactly what the lockfile says.
-Commit `package.json` and `package-lock.json` together whenever a dependency changes.
+**Obtaining.** Dependencies come from the npm registry. `pnpm-lock.yaml` is committed and pins every direct and
+transitive version with its integrity hash; install with `pnpm install --frozen-lockfile`, which installs exactly what
+the lockfile says. Commit `package.json` and `pnpm-lock.yaml` together whenever a dependency changes.
 
 **Selecting.** The published package has no runtime dependencies: `package.json` declares only `devDependencies`
 (build, lint, test, documentation), and none of them is shipped. A new dependency needs a reason in the issue or

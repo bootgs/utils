@@ -187,17 +187,17 @@ console.log(rangeInfo.endColumnIndex); // 2
 
 The following scripts are available in `package.json`:
 
-| Script               | Description                                                     |
-| :------------------- | :-------------------------------------------------------------- |
-| `npm run build`      | Cleans the `dist` directory and compiles the TypeScript source. |
-| `npm run dev`        | Starts Vitest in watch mode.                                    |
-| `npm test`           | Runs the full test suite once.                                  |
-| `npm run type:check` | Type-checks the project without emitting output.                |
-| `npm run lint`       | Lints the codebase with ESLint.                                 |
-| `npm run lint:fix`   | Lints the codebase and auto-fixes what it can.                  |
-| `npm run format`     | Checks formatting with Prettier.                                |
-| `npm run format:fix` | Formats the codebase with Prettier.                             |
-| `npm run prepare`    | Sets up Husky git hooks (runs automatically after install).     |
+| Script                | Description                                                     |
+| :-------------------- | :-------------------------------------------------------------- |
+| `pnpm run build`      | Cleans the `dist` directory and compiles the TypeScript source. |
+| `pnpm run dev`        | Starts Vitest in watch mode.                                    |
+| `pnpm test`           | Runs the full test suite once.                                  |
+| `pnpm run type:check` | Type-checks the project without emitting output.                |
+| `pnpm run lint`       | Lints the codebase with ESLint.                                 |
+| `pnpm run lint:fix`   | Lints the codebase and auto-fixes what it can.                  |
+| `pnpm run format`     | Checks formatting with Prettier.                                |
+| `pnpm run format:fix` | Formats the codebase with Prettier.                             |
+| `pnpm run prepare`    | Sets up Husky git hooks (runs automatically after install).     |
 
 ### Testing
 
@@ -206,13 +206,13 @@ The project uses [Vitest](https://vitest.dev/) for unit testing.
 Run the full suite once:
 
 ```bash
-npm test
+pnpm test
 ```
 
 Or run it in watch mode while developing:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ## Project Structure
@@ -264,7 +264,7 @@ Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the comple
 
 1. Fork the repository and create a branch for your feature or bug fix.
 2. Add or update tests to cover your changes.
-3. Run `npm run lint` and `npm run format` before committing.
+3. Run `pnpm run lint` and `pnpm run format` before committing.
 4. Do not edit `CHANGELOG.md` by hand — it is generated automatically by [release-please](https://github.com/googleapis/release-please).
 5. Open a pull request describing what changed and why.
 

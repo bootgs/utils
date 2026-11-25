@@ -4,7 +4,7 @@
 #
 # `.gitattributes` says which files use the driver, but Git will not take the
 # command to run from a file inside the repository, so every clone has to write
-# it into its own config. `npm run prepare` does that, next to the Husky setup.
+# it into its own config. `pnpm run prepare` does that, next to the Husky setup.
 #
 # See scripts/merge-reference-tables.mjs.
 

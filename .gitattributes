@@ -69,7 +69,7 @@ pnpm-lock.yaml     merge=binary
 # Merge the documentation reference tables row by row. Every branch adds one
 # function to the same alphabetically ordered table, so a line-based merge
 # conflicts whenever two branches land between the same pair of neighbours.
-# The driver is registered by scripts/setup-merge-driver.sh, which `npm run
+# The driver is registered by scripts/setup-merge-driver.sh, which `pnpm run
 # prepare` runs.
 #
 # The four translated projects carry the same generated tables — same headings,
